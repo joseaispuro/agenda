@@ -43,7 +43,7 @@ const app = Vue.createApp({
 	},
 	methods: {
 		nuevoEvento: function(){
-			window.location = '/evento?fecha=' + this.fecha;
+			window.location = document.getElementsByTagName('meta').namedItem('base-url').content + '/evento?fecha=' + this.fecha;
 		},
 		siguienteDia: function(){
 			let day = new Date(this.fecha+'T00:00:00');
@@ -57,7 +57,7 @@ const app = Vue.createApp({
 
 		},
 		imprimir: function(){
-			let url = '/imprimir?fecha=' + this.fecha +'&opcion=' + this.opcion + '&tipo=' + this.tipo ;
+			let url = document.getElementsByTagName('meta').namedItem('base-url').content + '/imprimir?fecha=' + this.fecha +'&opcion=' + this.opcion + '&tipo=' + this.tipo ;
 			console.log(url)
 			window.location =  url;
 			
