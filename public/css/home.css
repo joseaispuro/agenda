@@ -1,0 +1,32 @@
+ul#lista li:nth-child(even){
+	background: #f9f5ed;
+}
+ul#lista{
+	list-style: none;
+	padding: 0!important;
+	margin: 0!important;
+	margin-left: -220px;
+	display: block;
+}
+ul#lista li{
+}
+
+h3{
+	text-align: center;
+    color: #bbbcbd;
+    padding: 55px;
+    font-size: 19px;
+    border-bottom: 1px solid;
+}
+
+h6.publicado{
+	margin-right: 30px;
+    margin-top: 4px;
+}
+
+.barra-publicado{
+	background: #e6e6e6;
+    color: #545353;
+    border-radius: 3px;
+    border: 1px solid gainsboro;
+}
