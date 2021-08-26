@@ -36,7 +36,7 @@
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">
+            <a class="nav-link active" aria-current="page" href="{{url('/')}}">
               <i class="fas fa-home"></i>
               Inicio
             </a>
@@ -48,7 +48,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/reportes">
+            <a class="nav-link" href="{{url('/reportes')}}">
               <i class="fas fa-chart-bar"></i>
               Reportes
             </a>
