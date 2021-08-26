@@ -42,7 +42,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/evento">
+            <a class="nav-link" aria-current="page" href="{{url('/evento')}}">
               <i class="fas fa-calendar-week"></i>
               Evento
             </a>
