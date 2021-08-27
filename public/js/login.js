@@ -30,7 +30,7 @@ const app = Vue.createApp({
 			  		//console.log(data.exito);
 			  		if(data.exito){
 			  			swal("Bienvenido!", "Los datos de acceso proporcionados son correctos", "success").then((value) => {
-  							window.location = '/';
+  							window.location = document.querySelector('meta[name="base-url"]').getAttribute('content');
 						});
 			  		}else{
 			  			swal("Error de Autenticación", "Los datos de acceso proporcionados son incorrectos", "error");
