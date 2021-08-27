@@ -124,7 +124,7 @@ const app = Vue.createApp({
 			  .then(response => response.json())
 			  .then(data => {
 
-			  	console.log(data);
+			  	//console.log(data);
 			  }).catch(function(error) {
 			  	console.log('err' + error);	
 			  });
@@ -155,7 +155,7 @@ const app = Vue.createApp({
 			  	this.eventos = data.eventos;
 			  	this.publicado = (data.publicado) ? data.publicado.publicada : 'false';
 
-			  	console.log(data);
+			  	//console.log(data);
 			  }).catch(function(error) {
 			  	console.log('err' + error);	
 			  });
