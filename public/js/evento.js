@@ -86,7 +86,7 @@ const app = Vue.createApp({
 			  .then(data => {
 			  		if(data.respuesta){
 			  			swal("Excenlente!", data.mensaje, "success").then((value) => {
-  							window.location = '/?fecha=' + this.fecha;
+  							window.location = document.querySelector('meta[name="base-url"]').getAttribute('content') + '/?fecha=' + this.fecha;
 						});
 			  		}/*else{
 			  			swal("Error de Autenticación", "Los datos de acceso proporcionados son incorrectos", "error");
