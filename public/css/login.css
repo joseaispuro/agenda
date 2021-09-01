@@ -37,10 +37,12 @@ body,
 			filter: brightness(0.4);
 		}
 		.brand_logo {
-			height: 150px;
-			width: 150px;
-			border-radius: 10%;
-			border: 2px solid white;
+			height: 118px;
+		    width: 100px;
+		    border-radius: 10%;
+		    border: 2px solid white;
+		    margin-top: 18px;
+		    margin-left: 7px;
 		}
 		.form_container {
 			margin-top: 100px;
