@@ -31,13 +31,13 @@
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" name="usuario" class="form-control input_user" v-model="usuario" placeholder="Usuario">
+                            <input type="text" name="usuario" class="form-control input_user" v-model="usuario"  autocomplete="off" placeholder="Usuario">
                         </div>
                         <div class="input-group mb-2">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" name="password" class="form-control input_pass" v-model="password" v-on:keyup.enter="ingresar" placeholder="Contraseña">
+                            <input type="password" name="password" class="form-control input_pass" v-model="password" autocomplete="off" v-on:keyup.enter="ingresar" placeholder="Contraseña">
                         </div>
                         <div class="form-group">
                             <div class="custom-control custom-checkbox">
