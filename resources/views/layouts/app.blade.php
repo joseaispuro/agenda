@@ -127,6 +127,7 @@
   <img src="http://servicios.mazatlan.gob.mx/predial/img/logo-white.png" class="logo" alt="">
   <!--<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">-->
   <ul class="navbar-nav px-3">
+    <li style="color:white;">Iniciaste como: <strong>{{Auth::user()->name}}</strong></li>
     <li class="nav-item text-nowrap">
       <a class="nav-link" href="{{url('/logout')}}">Cerrar Sesión</a>
     </li>

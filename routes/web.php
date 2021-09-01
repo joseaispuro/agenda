@@ -19,38 +19,22 @@ use Illuminate\Http\Request;
 Route::get('/login', 'LoginController@index')->name('login');
 
 Route::post('/login', 'LoginController@authenticate');
-Route::get('/logout', 'LoginController@logout');
+Route::get('/logout', 'LoginController@logout')->middleware('auth');
 
-Route::name('print')->get('/imprimir', 'EventosController@imprimir');
-Route::name('generate')->get('/generar', 'EventosController@generar');
+Route::name('print')->get('/imprimir', 'EventosController@imprimir')->middleware('auth');
+Route::name('generate')->get('/generar', 'EventosController@generar')->middleware('auth');
 
 
-Route::post('guardar-evento', 'EventosController@guardarEvento');
-Route::post('get-eventos', 'EventosController@getEventos');
-Route::post('update-eventos', 'EventosController@updateEventos');
-Route::post('eliminar-evento', 'EventosController@eliminarEvento');
+Route::post('guardar-evento', 'EventosController@guardarEvento')->middleware('auth');
+Route::post('get-eventos', 'EventosController@getEventos')->middleware('auth');
+Route::post('update-eventos', 'EventosController@updateEventos')->middleware('auth');
+Route::post('eliminar-evento', 'EventosController@eliminarEvento')->middleware('auth');
 Route::get('/', 'EventosController@mostrarHome')->middleware('auth');
 
 Route::get('evento', function (){
     return view('evento');
-});
+})->middleware('auth');
 
 Route::get('/reportes', function(){
     return view('reportes');
-});
-
-/*
-Route::post('/get', function(Request $request){
-
-    $usuario = $request->username;
-    $contra = $request->password;
-
-    $exito = false;
-
-    if($usuario == 'jose' && $contra == 'aispuro'){
-        $exito = true;
-    }
-
-
-    return response()->json(['user' => $usuario, 'contra' => $contra, 'exito' => $exito]);
-});*/
+})->middleware('auth');
