@@ -26,8 +26,6 @@ const app = Vue.createApp({
 			  })
 			  .then(response => response.json())
 			  .then(data => {
-			  	console.log(data);
-			  		//console.log(data.exito);
 			  		if(data.exito){
 			  			swal("Bienvenido!", "Los datos de acceso proporcionados son correctos", "success").then((value) => {
   							window.location = document.querySelector('meta[name="base-url"]').getAttribute('content');
