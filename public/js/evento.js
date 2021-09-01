@@ -46,7 +46,8 @@ const app = Vue.createApp({
 		fechaSeleccionada: function(fecha, letra) {
 
 			let mes = (fecha.getMonth() + 1 < 10) ?  '0' + (fecha.getMonth() + 1) : fecha.getMonth() + 1;
-			let dia = fecha.getDate();
+			let dia = (fecha.getDate() < 10) ?  '0' + fecha.getDate()  : fecha.getDate();
+
 			//console.log('el dia es ' + dia);
 			let year = fecha.getFullYear();
 			let diaLetra = fecha.getDay();

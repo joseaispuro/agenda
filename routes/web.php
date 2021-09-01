@@ -22,11 +22,13 @@ Route::post('/login', 'LoginController@authenticate');
 Route::get('/logout', 'LoginController@logout');
 
 Route::name('print')->get('/imprimir', 'EventosController@imprimir');
+Route::name('generate')->get('/generar', 'EventosController@generar');
 
 
 Route::post('guardar-evento', 'EventosController@guardarEvento');
 Route::post('get-eventos', 'EventosController@getEventos');
 Route::post('update-eventos', 'EventosController@updateEventos');
+Route::post('eliminar-evento', 'EventosController@eliminarEvento');
 Route::get('/', 'EventosController@mostrarHome')->middleware('auth');
 
 Route::get('evento', function (){

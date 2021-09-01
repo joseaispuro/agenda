@@ -8,6 +8,7 @@
 @endpush
 
 @push('scripts')
+<script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/reportes.js')}}"></script>
 @endpush
 
@@ -82,17 +83,17 @@
           <h2 class="text-center"> Reportes</h2>
          <div class="row mb-3  d-flex justify-content-center encabezado">
 
-            <div class="row col-md-8">
-              <div class="col-md-2">
+            <div class="row col-md-10">
+              <div class="col-md-3">
                 <label for=""><strong>Fecha Inicio</strong></label>
                 <input type="date" class="form-control" v-model="fecha_inicio">
               </div>
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <label for=""><strong>Fecha Fin</strong></label>
                 <input type="date" class="form-control" v-model="fecha_fin">
               </div>
 
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <label for=""><strong>Atiende</strong></label>
                 <select name="atiende" v-model="atiende" id="" class="form-control">
                   <option value="0">Todo</option>
@@ -101,7 +102,7 @@
                 </select>
               </div>
 
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <label for=""><strong>Tipo</strong></label>
                 <select name="tipo" v-model="tipo" class="form-control">
                   <option value="0">Todo</option>
@@ -110,14 +111,24 @@
                   <option value="invitacion">Invitación</option>
                 </select>
               </div>
-
-              <div class="col mb-2 mt-3 d-grid gap-2">
-                <button class="btn btn-primary" @click="visualizar"><i class="fas fa-list-ol"></i> Visualizar</button>
-              </div>
-              <div class="col mb-2 mt-3 d-grid gap-2">
-                <button class="btn btn-success" @click="generar"><i class="far fa-file-alt"></i> Generar PDF</button>
-              </div>
             </div>
+
+            <div class="row col-md-10 justify-content-end">
+
+              <div class="col-md-2 mb-2 mt-3">
+                <div class="d-grid gap-2">
+                  <button class="btn btn-primary btn-block" @click="visualizar"><i class="fas fa-list-ol"></i> Visualizar</button>
+                </div>
+              </div>
+
+              <div class="col-md-2 mb-2 mt-3">
+                <div class="d-grid gap-2">
+                  <button class="btn btn-success" @click="generar"><i class="far fa-file-alt"></i> Generar PDF</button>
+                </div>
+              </div>
+              
+            </div>
+
           </div>
 
           <div class="row d-flex justify-content-center">
@@ -148,7 +159,7 @@
 
 </div>
 
-    <script src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-  
+    
+  <div class="lds-spinner" id="spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 
 @endsection

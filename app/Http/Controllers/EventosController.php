@@ -8,6 +8,7 @@ use Validator;
 
 class EventosController extends Controller
 {
+
     public function guardarEvento(Request $request){
 
         $validator = Validator::make($request->all(), [
@@ -166,6 +167,39 @@ class EventosController extends Controller
 
     }
 
+    public function generar(Request $request){
+
+        $fecha_inicio = $request->fecha_inicio;
+        $fecha_fin = $request->fecha_fin;
+        $tipo = $request->tipo;
+        $atiende = $request->atiende;
+
+        $eventos = Evento::whereBetween('fecha_inicio', [$fecha_inicio ." 00:00:00", $fecha_fin ." 23:59:59"])->orderBy('fecha_inicio','ASC');
+
+        $fecha_letra = $this->fechaLetra($fecha_inicio);
+        $fecha_letra_fin = $this->fechaLetra($fecha_fin);
+
+        $nombre_alcalde = env('NOMBRE_ALCALDE');
+
+        if($tipo != "0"){
+            $eventos->where('tipo_cita', $tipo);
+        }
+
+        if($atiende == "1"){
+            $eventos->where('atiende_alcalde', $atiende);
+        }
+
+        if($atiende == "2"){
+            $eventos->where('atiende_alcalde', 0);
+            $nombre_alcalde = "";
+        }
+
+        $eventos = $eventos->get();
+
+        $pdf = \PDF::loadView('pdf', compact('eventos','fecha_letra','nombre_alcalde','fecha_letra_fin'));
+        return $pdf->download('eventos-'. $fecha_inicio .'-' . $fecha_fin . '.pdf');
+    }
+
     //Recibe una fecha y retorna los dias que pertenecen a esa semana
     public function getSemana($fecha){
         
@@ -205,6 +239,15 @@ class EventosController extends Controller
         Evento::whereDate('fecha_inicio', $fecha)->update(['publicada' => $publicado]);
 
         return response()->json($request);
+    }
+
+    public function eliminarEvento(Request $request){
+
+        $evento = Evento::findOrFail($request->evento_id);
+        $evento->delete();
+
+        return response()->json(['success' => true, 'msg' => '¡Evento eliminado correctamente!']);
+        //return $request->evento_id;
     }
 
 

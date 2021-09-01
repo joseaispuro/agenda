@@ -23,8 +23,6 @@ const app = Vue.createApp({
 
 		this.visualizar();
 
-		console.log('ya monto');
-
 	},
 	methods: {
 		limpiarDatos: function(){
@@ -35,7 +33,6 @@ const app = Vue.createApp({
 			document.getElementById('spinner').style.display = 'flex';
 
 			let form = this;
-			console.log('visualizar');
 
 			let url =  document.querySelector('meta[name="base-url"]').getAttribute('content') + '/get-eventos';
 			 var data = {fecha: this.fecha_inicio, fecha_hasta: this.fecha_fin, atiende: this.atiende, tipo: this.tipo };
@@ -52,7 +49,7 @@ const app = Vue.createApp({
 			  .then(data => {
 			  	this.eventos = data.eventos;
 			  	document.getElementById('spinner').style.display = 'none';
-			  	console.log(data);
+			  	//console.log(data);
 			  		if(data.respuesta){
 			  			swal("Excenlente!", data.mensaje, "success");
 			  		}/*else{
@@ -70,7 +67,9 @@ const app = Vue.createApp({
 
 		},
 		generar: function(){
-			console.log('generar');
+			let url = document.getElementsByTagName('meta').namedItem('base-url').content + '/generar?fecha_inicio=' + this.fecha_inicio +'&fecha_fin='+this.fecha_fin+'&atiende=' + this.atiende + '&tipo=' + this.tipo ;
+			console.log(url)
+			window.location =  url;
 		}
 	},
 	watch: {

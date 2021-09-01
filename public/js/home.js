@@ -37,13 +37,55 @@ const app = Vue.createApp({
       		let fechaLetra = days[diaLetra] + ' ' + dia + ' de ' + month[mes-1] + ' de ' + year;
 
       		this.fechaLetra = fechaLetra;
-		this.fecha = fecha;
+			this.fecha = fecha;
 		}
 
 	},
 	methods: {
 		nuevoEvento: function(){
 			window.location = document.getElementsByTagName('meta').namedItem('base-url').content + '/evento?fecha=' + this.fecha;
+		},
+		eliminar: function(id){
+
+			let form = this;
+
+			swal({
+				  title: "¿Está seguro?",
+				  text: "¿Realmente desea eliminar el evento?",
+				  icon: "warning",
+				  buttons: true,
+				  dangerMode: false,
+				})
+				.then((willDelete) => {
+				  if (willDelete) {
+				    //Hacer el request para eliminar el evento
+					let url =  document.querySelector('meta[name="base-url"]').getAttribute('content') + '/eliminar-evento';
+					 var data = { evento_id : id };
+
+					  fetch(url, {
+						  method: 'POST', // or 'PUT',
+						  body: JSON.stringify(data),
+						  headers:{
+					             'Content-Type': 'application/json',
+					             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+					         }
+					  })
+					  .then(response => response.json())
+					  .then(data => {
+
+					  	if(data.success){
+					  		console.log('ya eliminado');
+					  		swal("Excenlente!", data.msg, "success").then((value) => {
+  							window.location = document.querySelector('meta[name="base-url"]').getAttribute('content') + '/?fecha=' + this.fecha;
+						});
+					  	}
+					  	console.log(data);
+					  }).catch(function(error) {
+					  	console.log('err' + error);	
+					  });
+				  }
+				});
+
 		},
 		siguienteDia: function(){
 			let day = new Date(this.fecha+'T00:00:00');

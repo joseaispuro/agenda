@@ -28,6 +28,7 @@ class CreateEventosTable extends Migration
             $table->boolean('publicada')->default(0);
             $table->string('observaciones')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

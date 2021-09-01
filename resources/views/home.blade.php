@@ -121,36 +121,12 @@
                 <td><i class="fas fa-clock"></i> @{{ evento.fecha_inicio.substr(10) }} a  @{{ evento.fecha_fin.substr(10) }}</td>
                 <td><strong>@{{evento.concepto}}</strong></td>
                 <td>@{{evento.tipo_cita}}</td>
-                <td><button class="btn btn-danger" title="Eliminar"><i class="fas fa-trash-alt"></i></button></td>
+                <td><button class="btn btn-warning" title="Eliminar"  @click="eliminar(evento.id)"><i class="fas fa-trash-alt"></i></button></td>
               </tr>
             </tbody>
             </table>
 
             <h3 v-if="eventos.length == 0">No hay eventos agendados para este día</h3>
-
-            <!--
-            <div class="row d-flex justify-content-center" style="margin-top:50px">
-              <div class="col-md-3 mb-4">
-                <button class="btn btn-success btn-lg" style="width: 100%;" @click="nuevoEvento"><i class="fas fa-calendar-week"></i> Nueva Cita</button>
-              </div>
-              <div class="col-md-3 mb-4">
-                <button class="btn btn-action btn-lg" style="width: 100%;" @click="imprimir(1)"><i class="fas fa-print"></i> Imprimir</button>
-              </div>
-              <div class="col-md-3 mb-4">
-                <button class="btn btn-action btn-lg" style="width: 100%;" @click="imprimir"><i class="fas fa-user-shield"></i> Alcalde</button> 
-              </div>
-              <div class="col-md-3 mb-4">
-                <button class="btn btn-primary btn-lg" style="width: 100%;" @click="imprimir"><i class="fas fa-user-friends"></i>  Representación</button> 
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col">
-
-                <button @click="imprimir(2)"  class="btn btn-primary">Imprimir Semanal</button>
-              </div>
-              <div class="col"></div>
-            </div> -->
 
             <div class="row mt-4" style="margin-top: 60px!important;">
               <div class="col">
@@ -188,7 +164,7 @@
 
 </div>
 
-    <script src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
   
 
 @endsection
