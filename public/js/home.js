@@ -12,6 +12,8 @@ const app = Vue.createApp({
 	},
 	mounted(){
 
+		document.getElementById('spinner').style.display = 'flex';
+
 		const urlParams = new URLSearchParams(window.location.search);
 		const fecha = urlParams.get('fecha');
 
@@ -93,7 +95,7 @@ const app = Vue.createApp({
 			day.setDate(day.getDate()+1);
 
 			let mes = (day.getMonth() + 1 < 10) ?  '0' + (day.getMonth() + 1) : day.getMonth() + 1;
-			let dia = (day.getDate() < 10) ?  '0' + day.getDate()  : day.getDate() ;
+			let dia = (day.getDate() < 10) ?  '0' + day.getDate()  : day.getDate();
 
 			this.fecha = day.getFullYear() + '-' + mes  + '-' + dia;
 
@@ -194,6 +196,7 @@ const app = Vue.createApp({
 			  })
 			  .then(response => response.json())
 			  .then(data => {
+			  	document.getElementById('spinner').style.display = 'none';
 			  	this.eventos = data.eventos;
 			  	this.publicado = (data.publicado) ? data.publicado.publicada : 'false';
 
