@@ -111,23 +111,23 @@
             <h3 v-if="eventos.length == 0">No hay eventos agendados para este día</h3>
 
             <div class="row mt-4" style="margin-top: 60px!important;">
-              <div class="col">
+              <div class="col-md-3 col-sm-12">
                 <button class="btn btn-success btn-lg" style="width: 100%;" @click="nuevoEvento"><i class="fas fa-calendar-plus"></i> Nueva Cita</button>
               </div>
-              <div class="col">
+              <div class="col-md-3 col-sm-12">
                 <select name="" id="" v-model="opcion" class="form-control btn-lg">
                   <option value="0">Diaria</option>
                   <option value="1">Semanal</option>
                 </select>
               </div>
-              <div class="col">
+              <div class="col-md-3 col-sm-12">
                 <select name="" id="" v-model="tipo" class="form-control btn-lg">
                   <option value="0">Todos</option>
                   <option value="1">Alcalde</option>
                   <option value="2">Representación</option>
                 </select>
               </div>
-              <div class="col">
+              <div class="col-md-3 col-sm-12">
                 <button class="btn btn-primary btn-lg" style="width: 100%;" @click="imprimir(1)"><i class="fas fa-print"></i> Imprimir</button>
               </div>
             </div>
