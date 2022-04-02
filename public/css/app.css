@@ -135,6 +135,10 @@ body {
   color: #8c6e16;
 }
 
+.btn-danger{
+  width: 100%;
+}
+
 p.fecha{
   color: #2b6a88;
   background: #fffcf2;

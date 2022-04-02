@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Evento;
 use Validator;
+use Auth;
 
 class EventosController extends Controller
 {
 
     public function guardarEvento(Request $request){
+
+        $usuario = Auth::user()->id;
 
         $validator = Validator::make($request->all(), [
         'asunto' => 'required',
@@ -41,6 +44,7 @@ class EventosController extends Controller
         $evento->lugar = $request->lugar;
         $evento->asiste = $request->asiste;
         $evento->contacto = $request->contacto;
+        $evento->user_id = $usuario;
         $evento->observaciones = $request->observaciones;
 
         $evento->save();

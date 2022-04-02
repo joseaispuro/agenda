@@ -21,6 +21,7 @@ class LoginController extends Controller
             //Registra al usuario en el log
             $userLog = new UserLog;
             $userLog->user = $user;
+            $userLog->ip = $request->getClientIp();
             $userLog->save();
 
             return response()->json(['user' => Auth::user(), 'exito' => $exito]);

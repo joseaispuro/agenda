@@ -16,6 +16,7 @@ class CreateUsersLog extends Migration
         Schema::create('users_log', function (Blueprint $table) {
             $table->id();
             $table->string('user');
+            $table->string('ip');
             $table->timestamps();
         });
     }

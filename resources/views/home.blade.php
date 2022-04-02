@@ -97,13 +97,15 @@
               <th>Evento</th>
               <th>Tipo</th>
               <th></th>
+              <th></th>
             </thead>
             <tbody>
               <tr v-for="evento in eventos">
                 <td><i class="fas fa-clock"></i> @{{ evento.fecha_inicio.substr(10) }} a  @{{ evento.fecha_fin.substr(10) }}</td>
                 <td><strong>@{{evento.concepto}}</strong></td>
                 <td>@{{evento.tipo_cita}}</td>
-                <td><button class="btn btn-warning" title="Eliminar"  @click="eliminar(evento.id)"><i class="fas fa-trash-alt"></i></button></td>
+                <td><button class="btn btn-warning" title="Visualizar"  @click="eliminar(evento.id)"><i class="fas fa-search-plus"></i></button></td>
+                <td><button class="btn btn-danger" title="Eliminar"  @click="eliminar(evento.id)"><i class="fas fa-trash-alt"></i></button></td>
               </tr>
             </tbody>
             </table>

@@ -26,6 +26,7 @@ class CreateEventosTable extends Migration
             $table->string('asiste');
             $table->string('contacto');
             $table->boolean('publicada')->default(0);
+            $table->tinyInteger('user_id');
             $table->string('observaciones')->nullable();
             $table->timestamps();
             $table->softDeletes();
