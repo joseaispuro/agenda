@@ -47,6 +47,9 @@ const app = Vue.createApp({
 		nuevoEvento: function(){
 			window.location = document.getElementsByTagName('meta').namedItem('base-url').content + '/evento?fecha=' + this.fecha;
 		},
+		mostrar: function(id){
+			window.location = document.getElementsByTagName('meta').namedItem('base-url').content + '/evento?id=' + id;
+		},
 		eliminar: function(id){
 
 			let form = this;

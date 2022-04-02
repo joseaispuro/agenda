@@ -27,9 +27,12 @@ Route::name('generate')->get('/generar', 'EventosController@generar')->middlewar
 
 Route::post('guardar-evento', 'EventosController@guardarEvento')->middleware('auth');
 Route::post('get-eventos', 'EventosController@getEventos')->middleware('auth');
+Route::post('get-evento', 'EventosController@getEvento')->middleware('auth');
 Route::post('update-eventos', 'EventosController@updateEventos')->middleware('auth');
 Route::post('eliminar-evento', 'EventosController@eliminarEvento')->middleware('auth');
 Route::get('/', 'EventosController@mostrarHome')->middleware('auth');
+
+//Route::get('evento/{id}', 'EventosController@mostrarEvento')->middleware('auth');
 
 Route::get('evento', function (){
     return view('evento');

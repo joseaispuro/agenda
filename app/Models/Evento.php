@@ -34,4 +34,9 @@ class Evento extends Model
 
         return $mes;
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -97,6 +97,12 @@ class EventosController extends Controller
         return view('home');
     }
 
+
+    public function getEvento(Request $request){
+        $evento = Evento::where('id', $request->id)->with('user')->first();
+        return $evento;
+    }
+
     public function imprimir(Request $request){
 
 

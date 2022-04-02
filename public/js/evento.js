@@ -16,17 +16,60 @@ const app = Vue.createApp({
 			asiste: '',
 			contacto: '',
 			observaciones: '',
+			edicion: false,
 			errors: {}
 		}
 	},
 	mounted() {
 		const urlParams = new URLSearchParams(window.location.search);
 		const fecha = urlParams.get('fecha');
+		const evento = urlParams.get('id');
 
 		if(fecha){
 			this.fecha = fecha;
 		}else{
 			this.fechaSeleccionada(new Date());
+		}
+
+		if(evento){
+			console.log('hay evento' + evento);
+
+			document.getElementById('boton').disabled=true;
+
+			let form = this;
+			form.errors = {};
+
+			let url =  document.querySelector('meta[name="base-url"]').getAttribute('content') + '/get-evento';
+			 var data = {id: evento};
+
+			  fetch(url, {
+				  method: 'POST', // or 'PUT',
+				  body: JSON.stringify(data),
+				  headers:{
+	             'Content-Type': 'application/json',
+	             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+	          	 }
+			  })
+			  .then(response => response.json())
+			  .then(data => {
+			  	//console.log(data);
+			  		this.concepto = data.concepto;
+			  		this.asunto = data.asunto;
+			  		this.lugar = data.lugar;
+			  		this.hora = data.fecha_inicio.substr(11,8);
+			  		this.horaFinal = data.fecha_fin.substr(11,8);
+			  		this.fecha = data.fecha_inicio.substr(0,10);
+			  		this.tipoCita = data.tipo_cita;
+			  		this.edicion = true;
+			  		this.atiende = data.atiende;
+			  		this.asiste = data.asiste;
+			  		this.contacto = data.contacto;
+
+			  		this.observaciones = data.observaciones;
+
+			  }).catch(function(error) {
+			  	console.log('err' + error);	
+			  });
 		}
 
     },

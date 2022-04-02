@@ -62,8 +62,7 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
-          <h2 class="text-center">Nuevo Evento</h2>
-
+          <h2 class="text-center"> @{{(edicion) ? 'Consulta Evento' : 'Nuevo Evento'}}</h2>
             <div class="row mb-4 d-flex justify-content-center">
               <div class="col-md-2">
                 <button class="btn btn-action btn-lg" style="width: 100%;" @click="anteriorDia"><i class="fas fa-arrow-alt-circle-left"></i></button>
@@ -120,13 +119,13 @@
           <div class="row mb-3 d-flex justify-content-center">
             <div class="col-md-8">
               <h6>Lugar</h6>
-              <div class="form-check form-check-inline">
+              <div class="form-check form-check-inline" v-if="!edicion">
                 <input class="form-check-input" type="radio" v-model="lugarAtiende" value="1" name="lugarAtiende">
                 <label class="form-check-label" for="lugarAtiende">
                   Despacho del Alcalde
                 </label>
               </div>
-              <div class="form-check form-check-inline">
+              <div class="form-check form-check-inline" v-if="!edicion">
                 <input class="form-check-input" type="radio" v-model="lugarAtiende" value="2" name="lugarAtiende">
                 <label class="form-check-label" for="lugarAtiende">
                   Sala de Cabildo
@@ -145,13 +144,13 @@
             <div class="col-md-8">
               <h5>¿Quién atiende?</h5>
               <div class="invalido" v-show="errors.atiendeAlcalde">@{{errors.atiendeAlcalde}}</div>
-              <div class="form-check form-check-inline">
+              <div class="form-check form-check-inline" v-if="!edicion">
                 <input class="form-check-input" type="radio" name="atiendeAlcalde" value="1" v-model="atiendeAlcalde">
                 <label class="form-check-label" for="flexRadioDefault1">
                   Alcalde
                 </label>
               </div>
-              <div class="form-check form-check-inline">
+              <div class="form-check form-check-inline" v-if="!edicion">
                 <input class="form-check-input" type="radio" name="atiendeAlcalde" value="0" v-model="atiendeAlcalde">
                 <label class="form-check-label" for="flexRadioDefault2">
                   Representación
@@ -190,7 +189,7 @@
 
           <div class="row d-md-flex justify-content-center">
             <div class="col-md-8 mb-3">
-              <button type="button" class="btn btn-lg btn-action" @click="grabarEvento"> <i class="fas fa-save"></i> Guardar Evento</button>
+              <button type="button" class="btn btn-lg btn-action" v-if="!edicion" id="boton" @click="grabarEvento"> <i class="fas fa-save"></i> Guardar Evento</button>
             </div>
           </div>
           
