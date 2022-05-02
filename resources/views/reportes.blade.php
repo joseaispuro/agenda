@@ -34,7 +34,7 @@
             </a>
           </li>
         </ul>
-
+        <!--
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
           <span>Configuración</span>
           <a class="link-secondary" href="#" aria-label="Add a new report">
@@ -54,7 +54,7 @@
               Mantenimiento
             </a>
           </li>
-        </ul>
+        </ul>-->
       </div>
     </nav>
 

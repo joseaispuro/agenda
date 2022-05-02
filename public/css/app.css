@@ -139,6 +139,12 @@ body {
   width: 100%;
 }
 
+.desactivado{
+   pointer-events:none;
+  color:#AAA;
+  background:#F5F5F5!important;
+}
+
 p.fecha{
   color: #2b6a88;
   background: #fffcf2;
