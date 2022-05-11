@@ -12,7 +12,7 @@
 @endpush
 
 @section('content')
-
+@{{$data}}
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
@@ -63,7 +63,7 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
-          <h2 class="text-center"> @{{(edicion) ? 'Consulta Evento' : 'Nuevo Evento'}}</h2>
+          <h2 class="text-center"> @{{(edicion) ? 'Modificar Evento' : 'Nuevo Evento'}}</h2>
             <div class="row mb-4 d-flex justify-content-center">
               <div class="col-md-2">
                 <button class="btn btn-action btn-lg" style="width: 100%;"  v-bind:class="{ desactivado: edicion }"  @click="anteriorDia"><i class="fas fa-arrow-alt-circle-left"></i></button>
@@ -79,20 +79,20 @@
             <div class="row mb-3 d-flex justify-content-center">
               <div class="col-md-2">
                 <h6>Fecha</h6>
-                <input type="date" v-model="fecha"  v-bind:class="{ desactivado: edicion }" class="form-control">
+                <input type="date" v-model="fecha" class="form-control">
               </div>
               <div class="col-md-2">
                 <h6>Hora Inicial</h6>
-                <input type="time" name="hora" v-bind:class="{ desactivado: edicion }" class="form-control" v-model="hora" max="24:00:00" min="10:00:00" step="1">
+                <input type="time" name="hora" class="form-control" v-model="hora" max="24:00:00" min="10:00:00" step="1">
               </div>
               <div class="col-md-2">
                 <h6>Hora Final</h6>
-                <input type="time" name="horaFinal" v-bind:class="{ desactivado: edicion }" class="form-control" v-model="horaFinal" max="24:00:00" min="10:00:00" step="1">
+                <input type="time" name="horaFinal" class="form-control" v-model="horaFinal" max="24:00:00" min="10:00:00" step="1">
               </div>
               <div class="col-md-2">
                 <h6>Tipo de Cita</h6>
                 <div class="invalido" v-show="errors.tipoCita">@{{errors.tipoCita}}</div>
-                <select class="form-select" v-model="tipoCita" v-bind:class="{ desactivado: edicion }" aria-label="Default select example">
+                <select class="form-select" v-model="tipoCita" aria-label="Default select example">
                   <option value="0" selected>Seleccione</option>
                   <option value="invitacion">Invitación</option>
                   <option value="publica">Pública</option>
@@ -104,7 +104,7 @@
             <div class="row mb-3 d-flex justify-content-center">
               <div class="col-md-8">
                 <label for="concepto" class="form-label"><strong>Concepto</strong></label>
-                <input type="text" v-bind:class="{ desactivado: edicion }" class="form-control"  :class="{'is-invalid': errors.concepto}"  id="concepto"  v-model="concepto" placeholder="">
+                <input type="text" class="form-control"  :class="{'is-invalid': errors.concepto}"  id="concepto"  v-model="concepto" placeholder="">
                 <div class="invalid-feedback" v-show="errors.concepto">@{{errors.concepto}}</div>
               </div>
           </div>
@@ -112,7 +112,7 @@
           <div class="row mb-3 d-flex justify-content-center">
             <div class="col-md-8">
               <label for="asunto" class="form-label"><strong>Asunto</strong></label>
-              <textarea class="form-control" v-bind:class="{ desactivado: edicion }" v-model="asunto" :class="{'is-invalid': errors.asunto}" id="asunto" rows="2"></textarea>
+              <textarea class="form-control" v-model="asunto" :class="{'is-invalid': errors.asunto}" id="asunto" rows="2"></textarea>
               <div class="invalid-feedback" v-show="errors.asunto">@{{errors.asunto}}</div>
             </div>
           </div>
@@ -120,13 +120,13 @@
           <div class="row mb-3 d-flex justify-content-center">
             <div class="col-md-8">
               <h6>Lugar</h6>
-              <div class="form-check form-check-inline" v-if="!edicion">
+              <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" v-model="lugarAtiende" value="1" name="lugarAtiende">
                 <label class="form-check-label" for="lugarAtiende">
                   Despacho del Alcalde
                 </label>
               </div>
-              <div class="form-check form-check-inline" v-if="!edicion">
+              <div class="form-check form-check-inline" >
                 <input class="form-check-input" type="radio" v-model="lugarAtiende" value="2" name="lugarAtiende">
                 <label class="form-check-label" for="lugarAtiende">
                   Sala de Cabildo
@@ -134,7 +134,7 @@
               </div>
 
               <div class="mb-3">
-                <textarea class="form-control" :class="{'is-invalid': errors.lugar}" id="lugar" v-bind:class="{ desactivado: edicion }" v-model="lugar" rows="2"></textarea>
+                <textarea class="form-control" :class="{'is-invalid': errors.lugar}" id="lugar"  v-model="lugar" rows="2"></textarea>
                 <div class="invalid-feedback" v-show="errors.asunto">@{{errors.asunto}}</div>
               </div>
             </div>
@@ -145,13 +145,13 @@
             <div class="col-md-8">
               <h5>¿Quién atiende?</h5>
               <div class="invalido" v-show="errors.atiendeAlcalde">@{{errors.atiendeAlcalde}}</div>
-              <div class="form-check form-check-inline" v-if="!edicion">
+              <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="atiendeAlcalde" value="1" v-model="atiendeAlcalde">
                 <label class="form-check-label" for="flexRadioDefault1">
                   Alcalde
                 </label>
               </div>
-              <div class="form-check form-check-inline" v-if="!edicion">
+              <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="atiendeAlcalde" value="0" v-model="atiendeAlcalde">
                 <label class="form-check-label" for="flexRadioDefault2">
                   Representación
@@ -159,7 +159,7 @@
               </div>
 
               <div class="mb-3">
-                <textarea class="form-control"  v-bind:class="{ desactivado: edicion }"  v-model="atiende" :class="{'is-invalid': errors.atiende}" rows="2"></textarea>
+                <textarea class="form-control"   v-model="atiende" :class="{'is-invalid': errors.atiende}" rows="2"></textarea>
                 <div class="invalid-feedback" v-show="errors.atiende">@{{errors.atiende}}</div>
               </div>
             </div>
@@ -168,7 +168,7 @@
           <div class="row mb-3 d-flex justify-content-center">
             <div class="col-md-8">
               <label for="Asiste" class="form-label"><strong>Asiste</strong></label>
-              <textarea class="form-control" v-bind:class="{ desactivado: edicion }" id="Asiste" rows="1" :class="{'is-invalid': errors.asiste}" v-model="asiste"></textarea>
+              <textarea class="form-control" id="Asiste" rows="1" :class="{'is-invalid': errors.asiste}" v-model="asiste"></textarea>
               <div class="invalid-feedback" v-show="errors.asiste">@{{errors.asiste}}</div>
             </div>
           </div>
@@ -176,7 +176,7 @@
           <div class="row mb-3 d-flex justify-content-center">
             <div class="col-md-8">
               <label for="contacto" class="form-label"><strong>Contacto</strong></label>
-              <textarea class="form-control" v-bind:class="{ desactivado: edicion }" id="contacto" v-model="contacto" :class="{'is-invalid': errors.contacto}" rows="1"></textarea>
+              <textarea class="form-control"  id="contacto" v-model="contacto" :class="{'is-invalid': errors.contacto}" rows="1"></textarea>
               <div class="invalid-feedback" v-show="errors.contacto">@{{errors.contacto}}</div>
             </div>
           </div>
@@ -184,13 +184,13 @@
           <div class="row mb-3 d-flex justify-content-center">
             <div class="col-md-8">
               <label for="observaciones"class="form-label"><strong>Observaciones</strong></label>
-              <textarea class="form-control"  v-bind:class="{ desactivado: edicion }" id="observaciones" v-model="observaciones" rows="3"></textarea>
+              <textarea class="form-control"  id="observaciones" v-model="observaciones" rows="3"></textarea>
             </div>
           </div>
 
           <div class="row d-md-flex justify-content-center">
             <div class="col-md-8 mb-3">
-              <button type="button" class="btn btn-lg btn-action" v-if="!edicion" id="boton" @click="grabarEvento"> <i class="fas fa-save"></i> Guardar Evento</button>
+              <button type="button" class="btn btn-lg btn-action" id="boton" @click="grabarEvento"> <i class="fas fa-save"></i> Guardar Evento</button>
             </div>
           </div>
           

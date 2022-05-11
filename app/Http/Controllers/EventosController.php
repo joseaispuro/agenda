@@ -30,6 +30,32 @@ class EventosController extends Controller
             return response()->json(['errors' => $validator->errors(), 'message' => 'Hay errores']);
         }
 
+        if($request->evento_id){
+
+            $evento = $request->evento_id;
+            $evento = Evento::findOrFail($evento);
+
+            $fecha_inicio = $request->fecha . ' ' . $request->hora;
+            $fecha_fin = $request->fecha . ' ' . $request->horaFinal;
+
+            $evento->asunto = $request->asunto;
+            $evento->concepto = $request->concepto;
+            $evento->tipo_cita = $request->tipoCita;
+            $evento->fecha_inicio = $fecha_inicio;
+            $evento->fecha_fin = $fecha_fin;
+            $evento->atiende = $request->atiende;
+            $evento->atiende_alcalde = $request->atiendeAlcalde;
+            $evento->lugar = $request->lugar;
+            $evento->asiste = $request->asiste;
+            $evento->contacto = $request->contacto;
+            $evento->user_id = $usuario;
+            $evento->observaciones = $request->observaciones;
+
+            $evento->save();
+            return response()->json(['respuesta' => true, 'mensaje' => 'Evento modificado exitosamente!']);
+
+        }
+
         $fecha_inicio = $request->fecha . ' ' . $request->hora;
         $fecha_fin = $request->fecha . ' ' . $request->horaFinal;
 

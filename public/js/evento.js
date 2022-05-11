@@ -6,6 +6,7 @@ const app = Vue.createApp({
 			asunto: '',
 			hora: '12:00:00',
 			horaFinal : '12:30:00',
+			dataLoaded: false,
 			tipoCita: '0',
 			fecha: '',
 			fechaLetra: '',
@@ -16,9 +17,14 @@ const app = Vue.createApp({
 			asiste: '',
 			contacto: '',
 			observaciones: '',
+			evento: 0,
 			edicion: false,
 			errors: {}
 		}
+	},
+	beforeMount(){
+		self = this;
+		self.dataLoaded = true;
 	},
 	mounted() {
 		const urlParams = new URLSearchParams(window.location.search);
@@ -32,9 +38,10 @@ const app = Vue.createApp({
 		}
 
 		if(evento){
-			console.log('hay evento' + evento);
+			this.evento = evento;
+			//console.log('hay evento' + evento);
 
-			document.getElementById('boton').disabled=true;
+			//document.getElementById('boton').disabled=true;
 
 			let form = this;
 			form.errors = {};
@@ -56,16 +63,27 @@ const app = Vue.createApp({
 			  		this.concepto = data.concepto;
 			  		this.asunto = data.asunto;
 			  		this.lugar = data.lugar;
+
+			  		if(data.lugar == 'Despacho del Alcalde'){
+			  			this.lugarAtiende = "1";
+			  		}
+
+			  		if(data.lugar == 'Sala de Cabildo'){
+			  			this.lugarAtiende = "2";
+			  		}
 			  		this.hora = data.fecha_inicio.substr(11,8);
 			  		this.horaFinal = data.fecha_fin.substr(11,8);
 			  		this.fecha = data.fecha_inicio.substr(0,10);
-			  		this.tipoCita = data.tipo_cita;
-			  		this.edicion = true;
+
 			  		this.atiende = data.atiende;
+			  		this.tipoCita = data.tipo_cita;
+			  		this.atiendeAlcalde = '' + data.atiende_alcalde + '';
+			  		this.edicion = true;
 			  		this.asiste = data.asiste;
 			  		this.contacto = data.contacto;
 
 			  		this.observaciones = data.observaciones;
+			  		//this.dataLoaded = true;
 
 			  }).catch(function(error) {
 			  	console.log('err' + error);	
@@ -118,7 +136,11 @@ const app = Vue.createApp({
 			  fecha: this.fecha, lugar: this.lugar, atiendeAlcalde: this.atiendeAlcalde, atiende: this.atiende, asiste: this.asiste,
 			  contacto: this.contacto, observaciones: this.observaciones};
 
-			  fetch(url, {
+			if(form.edicion){
+			  	data.evento_id = parseInt(form.evento);
+			}
+
+			 fetch(url, {
 				  method: 'POST', // or 'PUT',
 				  body: JSON.stringify(data),
 				  headers:{
@@ -189,13 +211,17 @@ const app = Vue.createApp({
     	},
     	atiendeAlcalde: function(value){
     		let self = this;
-
-    		switch(value){
-    			case "1": self.atiende = document.getElementsByName('alcalde')[0].content; break;
-    			case "2": self.atiende = ''; break;
-    			default: self.atiende = ''; break;
+    		console.log('aca');
+    		if (this.dataLoaded) {
+    			console.log('aca tmb');
+    			console.log(value);
+    			switch(value){
+    				case "1": self.atiende = document.getElementsByName('alcalde')[0].content; break;
+    				case "0": self.atiende =  (self.atiende != '' && self.atiende != document.getElementsByName('alcalde')[0].content) ? self.atiende : '' ; break;
+    			//default: self.atiende = ''; break;
+    			}
     		}
-    		console.log(value);
+    		//console.log(value);
     	},
     	concepto: function() {
             this.errors.concepto = null;
