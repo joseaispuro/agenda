@@ -16,28 +16,35 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/login', 'LoginController@index')->name('login');
-
-Route::post('/login', 'LoginController@authenticate');
-Route::get('/logout', 'LoginController@logout')->middleware('auth');
-
-Route::name('print')->get('/imprimir', 'EventosController@imprimir')->middleware('auth');
-Route::name('generate')->get('/generar', 'EventosController@generar')->middleware('auth');
+Route::get('', 'PublicController@index');
 
 
-Route::post('guardar-evento', 'EventosController@guardarEvento')->middleware('auth');
-Route::post('get-eventos', 'EventosController@getEventos')->middleware('auth');
-Route::post('get-evento', 'EventosController@getEvento')->middleware('auth');
-Route::post('update-eventos', 'EventosController@updateEventos')->middleware('auth');
-Route::post('eliminar-evento', 'EventosController@eliminarEvento')->middleware('auth');
-Route::get('/', 'EventosController@mostrarHome')->middleware('auth');
+Route::group(['prefix' => 'admin'], function() {
 
-//Route::get('evento/{id}', 'EventosController@mostrarEvento')->middleware('auth');
+    Route::get('/login', 'LoginController@index')->name('login');
 
-Route::get('evento', function (){
-    return view('evento');
-})->middleware('auth');
+    Route::post('/login', 'LoginController@authenticate');
+    Route::get('/logout', 'LoginController@logout')->middleware('auth');
 
-Route::get('/reportes', function(){
-    return view('reportes');
-})->middleware('auth');
+    Route::name('print')->get('/imprimir', 'EventosController@imprimir')->middleware('auth');
+    Route::name('generate')->get('/generar', 'EventosController@generar')->middleware('auth');
+
+
+    Route::post('guardar-evento', 'EventosController@guardarEvento')->middleware('auth');
+    Route::post('get-eventos', 'EventosController@getEventos')->middleware('auth');
+    Route::post('get-evento', 'EventosController@getEvento')->middleware('auth');
+    Route::post('update-eventos', 'EventosController@updateEventos')->middleware('auth');
+    Route::post('eliminar-evento', 'EventosController@eliminarEvento')->middleware('auth');
+    Route::get('/', 'EventosController@mostrarHome')->middleware('auth');
+
+    //Route::get('evento/{id}', 'EventosController@mostrarEvento')->middleware('auth');
+
+    Route::get('evento', function (){
+        return view('evento');
+    })->middleware('auth');
+
+    Route::get('/reportes', function(){
+        return view('reportes');
+    })->middleware('auth');
+
+});

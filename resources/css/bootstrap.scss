@@ -1,0 +1,12 @@
+$primary:       #4b858e !default;
+$secondary:     #cf6044 !default;
+$info:          #d9b885 !default;
+
+.btn-primary,
+.btn-secondary,
+.btn-outline-primary:hover,
+.btn-outline-secondary:hover {
+    color: white !important;
+}
+
+@import "~bootstrap";

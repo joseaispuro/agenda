@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap');
+
+body {
+    background: url(../img/background.png) center/cover fixed;
+    color: #444;
+    font-family: 'Lato', sans-serif;
+}
+
+.intro {
+    background: #fffa;
+    border-top: 20px solid var(--bs-primary);
+    border-bottom: 1px solid gainsboro;
+}
+
+.intro .logo {
+    height: 160px;
+}
+
+.header {
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .header {
+        text-align: left;
+    }
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+.title-2 {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.content {
+    background-color: whitesmoke;
+    padding-bottom: 150px !important;
+}
+
+.fecha {
+    position: relative;
+}
+
+.fecha .card-header {
+    font-weight: 600;
+    background-color: rgba(var(--bs-info-rgb),0.2);
+    color: #555;
+    text-transform: uppercase;
+}
+
+.fecha .day-num {
+    font-size: 5rem;
+    font-weight: 600;
+}
+
+.fecha .day-name {
+
+}
+
+.fecha input {
+    width: 100%;
+    text-align: center;
+    border: none;
+    background: none;
+}
+
+.fecha .arrow {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.fecha .arrow.prev {
+    top: -1.25em;
+}
+
+.fecha .arrow.next {
+    bottom: -1.25em;
+}
+
+.actions {
+    margin-top: 50px;
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    text-align: center;
+}
+
+.actions .btn {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    font-size: 2em;
+    line-height: 1;
+}
+
+.evento {
+    color: inherit;
+}
+
+.evento.privado {
+    background-color: #fafafa !important;
+}
+
+.evento.privado .card-title {
+    color: silver;
+}
+
+.evento .hora {
+    width: 85px;
+    font-size: 1.5rem;
+    line-height: 1em;
+    font-weight: 600;
+    text-align: center;
+    margin-left: -1.5rem;
+}
+
+.evento .hora .ampm {
+    font-size: 0.5em;
+}
+
+.evento .evento-titulo {
+    border-left: 2px solid;
+}
+
+.evento .card-title {
+    font-size: 1.1rem;
+}
+
+.evento .card-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.5em;
+}
+
+.evento .detalles {
+    font-size: 0.75em;
+}
+
+.evento .detalles label {
+    font-size: 0.85em;
+    font-weight: 700;
+}
+
+.card.empty {
+    color: silver;
+    font-size: 2rem;
+    font-weight: 200;
+    text-align: center;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+blockquote.twitter-tweet {
+    background-color: white;
+    border: 1px solid gainsboro;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.twitter-tweet {
+    margin-top: 0 !important;
+}
+
+.footer {
+    font-size: 10pt;
+    mix-blend-mode: multiply;
+}
+
+.footer-logo {
+    height: 150px;
+}
+
+.footer a {
+    text-decoration: none;
+}
+
+@media (max-width: 576px) {
+    .footer * {
+        text-align: center !important;
+    }
+}
+
+@media print {
+    body {
+        font-size: 8pt;
+    }
+
+    body, .content {
+        background: none;
+    }
+
+    .intro,
+    .fecha .arrow,
+    .actions,
+    .twitter,
+    .footer {
+        display: none;
+    }
+}
