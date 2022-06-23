@@ -37,7 +37,7 @@
 
     <div class="content py-5">
         <div class="container-xxl">
-            <div class="row justify-content-center py-4">
+            <div class="row justify-content-center align-items-start py-4">
 
                 <!-- fecha -->
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 pb-5">
@@ -70,11 +70,11 @@
 
                 <!-- eventos -->
                 <div class="col-md-9 col-lg-7 mb-4">
-                    <?php $count = 5; ?>
+                    <?php $count = rand(0, 6); ?>
                     @if ($count > 0)
                         <ul class="list-group">
                             @for($i = 1; $i <= $count; $i++)
-                                <?php $privado = in_array($i, [3, 5]); ?>
+                                <?php $privado = rand(0, 10) > 8; ?>
                                 <div class="evento list-group-item p-4 {{$privado ? 'privado' : ''}}">
 
                                     <div class="d-flex">
