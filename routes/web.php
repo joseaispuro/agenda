@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('', 'PublicController@index');
+Route::post('get-eventos-public', 'PublicController@getEventos');
 
 
 Route::group(['prefix' => 'admin'], function() {

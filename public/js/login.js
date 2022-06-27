@@ -13,7 +13,7 @@ const app = Vue.createApp({
 		  			swal("Faltan datos", "Debe llenar los campos de usuario y contraseña", "warning");
 		 }else{
 
-			 let url =  document.querySelector('meta[name="base-url"]').getAttribute('content') + '/login';
+			 let url =  document.querySelector('meta[name="base-url"]').getAttribute('content') + '/admin/login';
 			 var data = {user: this.usuario, password: this.password};
 
 			  fetch(url, {
@@ -28,7 +28,7 @@ const app = Vue.createApp({
 			  .then(data => {
 			  		if(data.exito){
 			  			swal("Bienvenido!", "Los datos de acceso proporcionados son correctos", "success").then((value) => {
-  							window.location = document.querySelector('meta[name="base-url"]').getAttribute('content');
+  							window.location = document.querySelector('meta[name="base-url"]').getAttribute('content') + '/admin';
 						});
 			  		}else{
 			  			swal("Error de Autenticación", "Los datos de acceso proporcionados son incorrectos", "error");

@@ -170,8 +170,9 @@ blockquote.twitter-tweet {
     border-radius: 5px;
 }
 
-.twitter-tweet {
+.twitter a {
     margin-top: 0 !important;
+    text-decoration: none;
 }
 
 .footer {

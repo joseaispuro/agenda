@@ -34,7 +34,7 @@ const app = Vue.createApp({
 
 			let form = this;
 
-			let url =  document.querySelector('meta[name="base-url"]').getAttribute('content') + '/get-eventos';
+			let url =  document.querySelector('meta[name="base-url"]').getAttribute('content') + '/admin/get-eventos';
 			 var data = {fecha: this.fecha_inicio, fecha_hasta: this.fecha_fin, atiende: this.atiende, tipo: this.tipo };
 
 			  fetch(url, {
@@ -67,7 +67,7 @@ const app = Vue.createApp({
 
 		},
 		generar: function(){
-			let url = document.getElementsByTagName('meta').namedItem('base-url').content + '/generar?fecha_inicio=' + this.fecha_inicio +'&fecha_fin='+this.fecha_fin+'&atiende=' + this.atiende + '&tipo=' + this.tipo ;
+			let url = document.getElementsByTagName('meta').namedItem('base-url').content + '/admin/generar?fecha_inicio=' + this.fecha_inicio +'&fecha_fin='+this.fecha_fin+'&atiende=' + this.atiende + '&tipo=' + this.tipo ;
 			console.log(url)
 			window.location =  url;
 		}

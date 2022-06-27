@@ -45,10 +45,10 @@ const app = Vue.createApp({
 	},
 	methods: {
 		nuevoEvento: function(){
-			window.location = document.getElementsByTagName('meta').namedItem('base-url').content + '/evento?fecha=' + this.fecha;
+			window.location = document.getElementsByTagName('meta').namedItem('base-url').content + '/admin/evento?fecha=' + this.fecha;
 		},
 		mostrar: function(id){
-			window.location = document.getElementsByTagName('meta').namedItem('base-url').content + '/evento?id=' + id;
+			window.location = document.getElementsByTagName('meta').namedItem('base-url').content + '/admin/evento?id=' + id;
 		},
 		eliminar: function(id){
 
@@ -64,7 +64,7 @@ const app = Vue.createApp({
 				.then((willDelete) => {
 				  if (willDelete) {
 				    //Hacer el request para eliminar el evento
-					let url =  document.querySelector('meta[name="base-url"]').getAttribute('content') + '/eliminar-evento';
+					let url =  document.querySelector('meta[name="base-url"]').getAttribute('content') + '/admin/eliminar-evento';
 					 var data = { evento_id : id };
 
 					  fetch(url, {
@@ -81,7 +81,7 @@ const app = Vue.createApp({
 					  	if(data.success){
 					  		console.log('ya eliminado');
 					  		swal("Excenlente!", data.msg, "success").then((value) => {
-  							window.location = document.querySelector('meta[name="base-url"]').getAttribute('content') + '/?fecha=' + this.fecha;
+  							window.location = document.querySelector('meta[name="base-url"]').getAttribute('content') + '/admin/?fecha=' + this.fecha;
 						});
 					  	}
 					  	console.log(data);
@@ -104,7 +104,7 @@ const app = Vue.createApp({
 
 		},
 		imprimir: function(){
-			let url = document.getElementsByTagName('meta').namedItem('base-url').content + '/imprimir?fecha=' + this.fecha +'&opcion=' + this.opcion + '&tipo=' + this.tipo ;
+			let url = document.getElementsByTagName('meta').namedItem('base-url').content + '/admin/imprimir?fecha=' + this.fecha +'&opcion=' + this.opcion + '&tipo=' + this.tipo ;
 			console.log(url)
 			window.location =  url;
 			
@@ -157,7 +157,7 @@ const app = Vue.createApp({
 			this.publicado = (value == 1) ? true : false;
 
 			//Hacer el request para cambiar el estatus a los eventos de ese dia
-			let url =  document.querySelector('meta[name="base-url"]').getAttribute('content') + '/update-eventos';
+			let url =  document.querySelector('meta[name="base-url"]').getAttribute('content') + '/admin/update-eventos';
 			 var data = { fecha: this.fecha, publicado : this.publicado };
 
 			  fetch(url, {
@@ -186,7 +186,7 @@ const app = Vue.createApp({
 			//Obtener eventos
 			let form = this;
 
-			let url =  document.querySelector('meta[name="base-url"]').getAttribute('content') + '/get-eventos';
+			let url =  document.querySelector('meta[name="base-url"]').getAttribute('content') + '/admin/get-eventos';
 			 var data = { fecha: this.fecha, fecha_hasta : null };
 
 			  fetch(url, {

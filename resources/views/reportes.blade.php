@@ -16,19 +16,19 @@
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{url('/')}}">
+            <a class="nav-link" aria-current="page" href="{{url('/admin')}}">
               <i class="fas fa-home"></i>
               Inicio
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{url('/evento')}}">
+            <a class="nav-link" aria-current="page" href="{{url('/admin/evento')}}">
               <i class="fas fa-calendar-week"></i>
               Evento
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{{url('/reportes')}}">
+            <a class="nav-link active" href="{{url('/admin/reportes')}}">
               <i class="fas fa-chart-bar"></i>
               Reportes
             </a>

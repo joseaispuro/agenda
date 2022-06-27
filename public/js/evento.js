@@ -46,7 +46,7 @@ const app = Vue.createApp({
 			let form = this;
 			form.errors = {};
 
-			let url =  document.querySelector('meta[name="base-url"]').getAttribute('content') + '/get-evento';
+			let url =  document.querySelector('meta[name="base-url"]').getAttribute('content') + '/admin/get-evento';
 			 var data = {id: evento};
 
 			  fetch(url, {
@@ -131,7 +131,7 @@ const app = Vue.createApp({
 			let form = this;
 			form.errors = {};
 
-			let url =  document.querySelector('meta[name="base-url"]').getAttribute('content') + '/guardar-evento';
+			let url =  document.querySelector('meta[name="base-url"]').getAttribute('content') + '/admin/guardar-evento';
 			 var data = {concepto: this.concepto, asunto: this.asunto, hora: this.hora, horaFinal: this.horaFinal, tipoCita: this.tipoCita,
 			  fecha: this.fecha, lugar: this.lugar, atiendeAlcalde: this.atiendeAlcalde, atiende: this.atiende, asiste: this.asiste,
 			  contacto: this.contacto, observaciones: this.observaciones};
@@ -152,7 +152,7 @@ const app = Vue.createApp({
 			  .then(data => {
 			  		if(data.respuesta){
 			  			swal("Excenlente!", data.mensaje, "success").then((value) => {
-  							window.location = document.querySelector('meta[name="base-url"]').getAttribute('content') + '/?fecha=' + this.fecha;
+  							window.location = document.querySelector('meta[name="base-url"]').getAttribute('content') + '/admin/?fecha=' + this.fecha;
 						});
 			  		}/*else{
 			  			swal("Error de Autenticación", "Los datos de acceso proporcionados son incorrectos", "error");

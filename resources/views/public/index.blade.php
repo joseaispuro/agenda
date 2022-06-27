@@ -44,7 +44,7 @@
 
     <div class="content py-5">
         <div class="container-xxl">
-            <div class="row justify-content-center py-4">
+            <div class="row justify-content-center align-items-start py-4">
 
                 <!-- fecha -->
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 pb-5">
@@ -143,7 +143,6 @@
                             @foreach($eventos as $evento)
                               @php $privado = ($evento->tipo_cita == 'privada') ? true : false @endphp
                                 <div class="evento list-group-item p-4 {{$evento->tipo_cita == 'privada' ? 'privado' : ''}}">
-
                                     <div class="d-flex">
                                         <div class="hora">
                                             <div>{{substr($evento->fecha_inicio, 10, 6)}}</div>

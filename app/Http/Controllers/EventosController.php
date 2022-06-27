@@ -296,7 +296,7 @@ class EventosController extends Controller
         $year = date('Y', strtotime($fecha));
 
         $meses = ['0','Enero', 'Febrero','Marzo','Abril', 'Mayo', 'Junio', 'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-        $dias = ['domingo','lunes','martes','miércoles','jueves','viérnes','sábado'];
+        $dias = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
 
         return $dias[$diaLetra] . ' ' . $day . ' de ' . $meses[$mes] . ' de ' . $year;
     }
