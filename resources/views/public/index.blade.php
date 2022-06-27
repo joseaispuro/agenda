@@ -15,10 +15,11 @@
     <link rel="stylesheet" href="{{asset('lib/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('lib/fontawesome-free-6.1.1-web/css/all.css')}}">
     <link rel="stylesheet" href="{{asset('css/index.css')}}">
+    <link rel="stylesheet" href="{{asset('css/spinner.css')}}">
 
     <script src="https://unpkg.com/vue@3"></script>
     <script type="module" src="{{asset('js/index.js')}}"></script>
-    <link rel="stylesheet" href="{{asset('css/spinner.css')}}">
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 </head>
 <body id="app">
@@ -79,10 +80,10 @@
                 <div class="col-md-9 col-lg-7 mb-4">
 
                     <ul class="list-group">
-                        
+
                         <!-- SI CITA ES PRIVADA ponemos clase privada -->
                         <div v-for="evento in eventos" class="evento list-group-item p-4 " v-bind:class="{ privado: evento.tipo_cita == 'privada' }">
-                          
+
                             <div class="d-flex">
                                         <div class="hora">
                                             <div>@{{evento.fecha_inicio.substr(10, 6)}}</div>
@@ -90,12 +91,12 @@
                                         </div>
 
                                         <div class="evento-titulo col ps-3"  v-bind:class="[evento.tipo_cita == 'privada' ? 'border-primary' : 'border-secondary']">
-                                         
+
                                                 <h5  v-if="evento.tipo_cita != 'privada'"class="card-title mb-3">@{{evento.concepto}}</h5>
                                                 <h6  v-if="evento.tipo_cita != 'privada'" class="card-subtitle text-muted">@{{evento.asunto}}</h6>
-                                          
+
                                                 <h5 v-else class="card-title">CITA PRIVADA</h5>
-                                        
+
                                         </div>
 
                                         <div v-if="evento.tipo_cita != 'privada'" class="text-secondary pointer ps-3">
@@ -135,7 +136,7 @@
                         </div><!-- /evento -->
 
                     </ul>
-                    
+
 
 
                     @if (count($eventos) > 0 )
@@ -274,7 +275,7 @@
         if(fecha){
             this.fecha = fecha;
         }else{
-        
+
         let fecha = new Date();
 
         let year = fecha.getFullYear();
@@ -330,7 +331,7 @@
             "Noviembre", "Diciembre"];
 
                 let fechaLetra = days[diaLetra] + ' ' + dia + ' de ' + month[mes-1] + ' de ' + year;
-            
+
                 this.fechaLetra = fechaLetra;
         }
     },
@@ -372,7 +373,7 @@
 
                 //console.log(data);
               }).catch(function(error) {
-                console.log('err' + error); 
+                console.log('err' + error);
               });
 
 
