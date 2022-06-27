@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="author" content="gibrans64@gmail.com">
+
+    <meta name="base-url" content="{{ url('') }}">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Agenda del Alcalde - H. Ayuntamiento de Mazatlán</title>
 
@@ -12,9 +16,12 @@
     <link rel="stylesheet" href="{{asset('lib/fontawesome-free-6.1.1-web/css/all.css')}}">
     <link rel="stylesheet" href="{{asset('css/index.css')}}">
 
+    <script src="https://unpkg.com/vue@3"></script>
     <script type="module" src="{{asset('js/index.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('css/spinner.css')}}">
+
 </head>
-<body>
+<body id="app">
     <div class="intro p-5">
         <div class="container-lg col-lg-10 col-xl-9 col-xxl-8">
 
@@ -29,7 +36,7 @@
             </div>
 
             <div class="container col-xl-10 fs-3 my-4 text-center">
-                Ent&eacute;rate de las actividades y los lugares a los que estar&aacute; acudiendo nuestro alcalde.
+                Ent&eacute;rate de las actividades y los lugares a los que estar&aacute; acudiendo nuestro alcalde
             </div>
 
         </div>
@@ -43,18 +50,18 @@
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 pb-5">
                     <div class="fecha card border-info">
 
-                        <span class="arrow prev pointer"><i class="prev fa-solid fa-fw fa-chevron-up"></i></span>
-                        <span class="arrow next pointer"><i class="next fa-solid fa-fw fa-chevron-down"></i></span>
+                        <span class="arrow prev pointer" @click="anteriorDia"><i class="prev fa-solid fa-fw fa-chevron-up"></i></span>
+                        <span class="arrow next pointer" @click="siguienteDia"><i class="next fa-solid fa-fw fa-chevron-down"></i></span>
 
                         <div class="card-header text-center">
-                            <i class="fa-regular fa-calendar"></i>&nbsp; {{$faker->monthName()}}
+                            <i class="fa-regular fa-calendar"></i>&nbsp; @{{mes}}
                         </div>
                         <div class="click-area card-body text-center pointer">
-                            <div class="day-num text-info">{{$faker->dayOfMonth()}}</div>
-                            <div class="day-name">{{$faker->dayOfWeek()}}</div>
+                            <div class="day-num text-info">@{{dia}}</div>
+                            <div class="day-name">@{{diaLetra}}</div>
                         </div>
                         <div class="card-footer p-1">
-                            <input type="date" class="pointer" value="{{$faker->date()}}">
+                            <input type="date" class="pointer" value="{{$fecha}}">
                         </div>
                     </div>
 
@@ -70,23 +77,83 @@
 
                 <!-- eventos -->
                 <div class="col-md-9 col-lg-7 mb-4">
-                    <?php $count = 5; ?>
-                    @if ($count > 0)
+
+                    <ul class="list-group">
+                        
+                        <!-- SI CITA ES PRIVADA ponemos clase privada -->
+                        <div v-for="evento in eventos" class="evento list-group-item p-4 " v-bind:class="{ privado: evento.tipo_cita == 'privada' }">
+                          
+                            <div class="d-flex">
+                                        <div class="hora">
+                                            <div>@{{evento.fecha_inicio.substr(10, 6)}}</div>
+                                            <div class="ampm">HRS</div>
+                                        </div>
+
+                                        <div class="evento-titulo col ps-3"  v-bind:class="[evento.tipo_cita == 'privada' ? 'border-primary' : 'border-secondary']">
+                                         
+                                                <h5  v-if="evento.tipo_cita != 'privada'"class="card-title mb-3">@{{evento.concepto}}</h5>
+                                                <h6  v-if="evento.tipo_cita != 'privada'" class="card-subtitle text-muted">@{{evento.asunto}}</h6>
+                                          
+                                                <h5 v-else class="card-title">CITA PRIVADA</h5>
+                                        
+                                        </div>
+
+                                        <div v-if="evento.tipo_cita != 'privada'" class="text-secondary pointer ps-3">
+                                            <i class="fa-solid fa-fw fa-lg fa-share-from-square"></i>
+                                        </div>
+                            </div>
+
+                            <div class="detalles row col-md-10 mx-auto mt-4 text-center text-primary" v-if="evento.tipo_cita != 'privada'">
+                                        <div class="col-md mb-3">
+                                            <div class="text-info mb-1">
+                                                <i class="fa-solid fa-user-tie"></i>
+                                                <label>ATIENDE</label>
+                                            </div>
+
+                                            <div>@{{evento.atiende}}</div>
+                                        </div>
+                                        <div class="col-md mb-3">
+                                            <div class="text-info mb-1">
+                                                <i class="fa-solid fa-people-group"></i>
+                                                <label>ASISTEN</label>
+                                            </div>
+
+                                            <div>
+                                               @{{evento.asiste}}
+                                            </div>
+                                        </div>
+                                        <div class="col-md mb-3">
+                                            <div class="text-info mb-1">
+                                                <i class="fa-solid fa-location-dot"></i>
+                                                <label>LUGAR</label>
+                                            </div>
+
+                                            <div>@{{evento.lugar}}</div>
+                                        </div>
+                            </div>
+
+                        </div><!-- /evento -->
+
+                    </ul>
+                    
+
+
+                    @if (count($eventos) > 0 )
                         <ul class="list-group">
-                            @for($i = 1; $i <= $count; $i++)
-                                <?php $privado = in_array($i, [3, 5]); ?>
-                                <div class="evento list-group-item p-4 {{$privado ? 'privado' : ''}}">
+                            @foreach($eventos as $evento)
+                              @php $privado = ($evento->tipo_cita == 'privada') ? true : false @endphp
+                                <div class="evento list-group-item p-4 {{$evento->tipo_cita == 'privada' ? 'privado' : ''}}">
 
                                     <div class="d-flex">
                                         <div class="hora">
-                                            <div>{{$faker->time('g:i')}}</div>
-                                            <div class="ampm">{{$faker->time('A')}}</div>
+                                            <div>{{substr($evento->fecha_inicio, 10, 6)}}</div>
+                                            <div class="ampm">HRS</div>
                                         </div>
 
-                                        <div class="evento-titulo col ps-3 {{$privado ? 'border-secondary' : 'border-primary'}}">
+                                        <div class="evento-titulo col ps-3 {{$evento->tipo_cita == 'privada' ? 'border-secondary' : 'border-primary'}}">
                                             @if (!$privado)
-                                                <h5 class="card-title mb-3">{{strtoupper($faker->sentence)}}</h5>
-                                                <h6 class="card-subtitle text-muted">{{strtoupper($faker->paragraph(2))}}</h6>
+                                                <h5 class="card-title mb-3">{{$evento->concepto}}</h5>
+                                                <h6 class="card-subtitle text-muted">{{$evento->asunto}}</h6>
                                             @else
                                                 <h5 class="card-title">CITA PRIVADA</h5>
                                             @endif
@@ -107,7 +174,7 @@
                                                 <label>ATIENDE</label>
                                             </div>
 
-                                            <div>{{strtoupper($faker->name)}}</div>
+                                            <div>{{$evento->atiende}}</div>
                                         </div>
                                         <div class="col-md mb-3">
                                             <div class="text-info mb-1">
@@ -116,9 +183,7 @@
                                             </div>
 
                                             <div>
-                                                @for($j = 1; $j <= $faker->numberBetween(1, 10); $j++)
-                                                    <div>{{strtoupper($faker->name)}}</div>
-                                                @endfor
+                                               {{$evento->asiste}}
                                             </div>
                                         </div>
                                         <div class="col-md mb-3">
@@ -127,12 +192,12 @@
                                                 <label>LUGAR</label>
                                             </div>
 
-                                            <div>{{strtoupper($faker->address)}}</div>
+                                            <div>{{$evento->lugar}}</div>
                                         </div>
                                     </div>
                                     @endif
                                 </div><!-- /evento -->
-                            @endfor
+                            @endforeach
                         </ul>
                     @else
                         <div class="card bg-light empty">
@@ -182,4 +247,137 @@
         </div>
     </div>
 </body>
+
+    <div class="lds-spinner" id="spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+
 </html>
+<script>
+  const { createApp } = Vue
+
+  createApp({
+    data() {
+      return {
+        fecha: '',
+        fechaLetra: '',
+        diaLetra: '',
+        dia: '',
+        mes: '',
+        eventos : {},
+      }
+    },
+    mounted (){
+        document.getElementById('spinner').style.display = 'flex';
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const fecha = urlParams.get('fecha');
+
+        if(fecha){
+            this.fecha = fecha;
+        }else{
+        
+        let fecha = new Date();
+
+        let year = fecha.getFullYear();
+        let diaLetra = fecha.getDay();
+
+        let mes = (fecha.getMonth() + 1 < 10) ?  '0' + (fecha.getMonth() + 1) : fecha.getMonth() + 1;
+        let dia = (fecha.getDate() < 10) ?  '0' + fecha.getDate()  : fecha.getDate();
+
+        fecha = fecha.getFullYear() + '-' + mes  + '-' + dia;
+
+
+        const days = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viérnes", "Sábado"];
+        const month = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre",
+            "Noviembre", "Diciembre"];
+
+            let fechaLetra = days[diaLetra] + ' ' + dia + ' de ' + month[mes-1] + ' de ' + year;
+
+            this.fechaLetra = fechaLetra;
+            this.fecha = fecha;
+        }
+    },
+    methods: {
+        siguienteDia: function(){
+            let day = new Date(this.fecha+'T00:00:00');
+
+            day.setDate(day.getDate()+1);
+
+            let mes = (day.getMonth() + 1 < 10) ?  '0' + (day.getMonth() + 1) : day.getMonth() + 1;
+            let dia = (day.getDate() < 10) ?  '0' + day.getDate()  : day.getDate();
+
+            this.fecha = day.getFullYear() + '-' + mes  + '-' + dia;
+
+        },
+        anteriorDia: function(){
+            let day = new Date(this.fecha+'T00:00:00');
+            day.setDate(day.getDate()-1);
+
+            let mes = (day.getMonth() + 1 < 10) ?  '0' + (day.getMonth() + 1) : day.getMonth() + 1;
+            let dia = (day.getDate() < 10) ?  '0' + day.getDate()  : day.getDate() ;
+
+            this.fecha = day.getFullYear() + '-' + mes  + '-' + dia;
+        },
+        fechaSeleccionada: function(fecha) {
+
+            let mes = (fecha.getMonth() + 1 < 10) ?  '0' + (fecha.getMonth() + 1) : fecha.getMonth() + 1;
+            let dia = fecha.getDate();
+            //console.log('el dia es ' + dia);
+            let year = fecha.getFullYear();
+            let diaLetra = fecha.getDay();
+
+            const days = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viérnes", "Sábado"];
+            const month = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre",
+            "Noviembre", "Diciembre"];
+
+                let fechaLetra = days[diaLetra] + ' ' + dia + ' de ' + month[mes-1] + ' de ' + year;
+            
+                this.fechaLetra = fechaLetra;
+        }
+    },
+    watch: {
+        fecha: function(value){
+
+
+            this.fechaSeleccionada(new Date(value+'T00:00:00'));
+
+            //Obtener eventos
+            let form = this;
+
+            //Colocamos el dia cuando cambia
+            let tempDia = form.fecha.split('-');
+            form.dia = tempDia[2];
+
+            //Colocamos el mes cuando cambia
+            let tempMes = form.fechaLetra.split(' ');
+            form.mes = tempMes[3];
+            form.diaLetra = tempMes[0];
+
+            form.eventos = [];
+
+            let url =  document.querySelector('meta[name="base-url"]').getAttribute('content') + '/get-eventos-public';
+             var data = { fecha: this.fecha, fecha_hasta : null };
+
+              fetch(url, {
+                  method: 'POST', // or 'PUT',
+                  body: JSON.stringify(data),
+                  headers:{
+                         'Content-Type': 'application/json',
+                         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                     }
+              })
+              .then(response => response.json())
+              .then(data => {
+                document.getElementById('spinner').style.display = 'none';
+                this.eventos = data.eventos;
+
+                //console.log(data);
+              }).catch(function(error) {
+                console.log('err' + error); 
+              });
+
+
+        }
+    }
+  }).mount('#app')
+</script>
