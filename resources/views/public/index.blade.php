@@ -62,16 +62,16 @@
                             <div class="day-name">@{{diaLetra}}</div>
                         </div>
                         <div class="card-footer p-1">
-                            <input type="date" class="pointer" value="{{$fecha}}">
+                            <input type="date" class="pointer" v-model="fecha">
                         </div>
                     </div>
 
                     <div class="actions text-secondary">
-                        <button type="button" class="btn btn-lg btn-secondary" title="Descargar PDF">
+                        <button type="button" class="btn btn-lg btn-secondary" @click="imprimirPdf" title="Descargar PDF">
                             <i class="fa-regular fa-fw fa-file-pdf"></i>
                         </button>
-                        <button type="button" class="btn btn-lg btn-secondary" title="Imprimir">
-                            <i class="fa-solid fa-fw fa-print"></i>
+                        <button type="button" title="Volver al día de hoy" class="btn btn-lg btn-secondary" @click="reiniciar" >
+                            <span style="font-size:17px;font-weight: 600;line-height: 47px;">HOY</span>
                         </button>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                                             <div class="ampm">HRS</div>
                                         </div>
 
-                                        <div class="evento-titulo col ps-3"  v-bind:class="[evento.tipo_cita == 'privada' ? 'border-primary' : 'border-secondary']">
+                                        <div class="evento-titulo col ps-3"  v-bind:class="[evento.tipo_cita != 'privada' ? 'border-primary' : 'border-secondary']">
 
                                                 <h5  v-if="evento.tipo_cita != 'privada'"class="card-title mb-3">@{{evento.concepto}}</h5>
                                                 <h6  v-if="evento.tipo_cita != 'privada'" class="card-subtitle text-muted">@{{evento.asunto}}</h6>
@@ -99,7 +99,7 @@
 
                                         </div>
 
-                                        <div v-if="evento.tipo_cita != 'privada'" class="text-secondary pointer ps-3">
+                                        <div v-if="evento.tipo_cita != 'privada'" class="text-secondary pointer ps-3" @click="compartirWhatsApp">
                                             <i class="fa-solid fa-fw fa-lg fa-share-from-square"></i>
                                         </div>
                             </div>
@@ -138,75 +138,13 @@
                     </ul>
 
 
-
-                    @if (count($eventos) > 0 )
-                        <ul class="list-group">
-                            @foreach($eventos as $evento)
-                              @php $privado = ($evento->tipo_cita == 'privada') ? true : false @endphp
-                                <div class="evento list-group-item p-4 {{$evento->tipo_cita == 'privada' ? 'privado' : ''}}">
-                                    <div class="d-flex">
-                                        <div class="hora">
-                                            <div>{{substr($evento->fecha_inicio, 10, 6)}}</div>
-                                            <div class="ampm">HRS</div>
-                                        </div>
-
-                                        <div class="evento-titulo col ps-3 {{$evento->tipo_cita == 'privada' ? 'border-secondary' : 'border-primary'}}">
-                                            @if (!$privado)
-                                                <h5 class="card-title mb-3">{{$evento->concepto}}</h5>
-                                                <h6 class="card-subtitle text-muted">{{$evento->asunto}}</h6>
-                                            @else
-                                                <h5 class="card-title">CITA PRIVADA</h5>
-                                            @endif
-                                        </div>
-
-                                        @if (!$privado)
-                                        <div class="text-secondary pointer ps-3">
-                                            <i class="fa-solid fa-fw fa-lg fa-share-from-square"></i>
-                                        </div>
-                                        @endif
-                                    </div>
-
-                                    @if (!$privado)
-                                    <div class="detalles row col-md-10 mx-auto mt-4 text-center text-primary">
-                                        <div class="col-md mb-3">
-                                            <div class="text-info mb-1">
-                                                <i class="fa-solid fa-user-tie"></i>
-                                                <label>ATIENDE</label>
-                                            </div>
-
-                                            <div>{{$evento->atiende}}</div>
-                                        </div>
-                                        <div class="col-md mb-3">
-                                            <div class="text-info mb-1">
-                                                <i class="fa-solid fa-people-group"></i>
-                                                <label>ASISTEN</label>
-                                            </div>
-
-                                            <div>
-                                               {{$evento->asiste}}
-                                            </div>
-                                        </div>
-                                        <div class="col-md mb-3">
-                                            <div class="text-info mb-1">
-                                                <i class="fa-solid fa-location-dot"></i>
-                                                <label>LUGAR</label>
-                                            </div>
-
-                                            <div>{{$evento->lugar}}</div>
-                                        </div>
-                                    </div>
-                                    @endif
-                                </div><!-- /evento -->
-                            @endforeach
-                        </ul>
-                    @else
-                        <div class="card bg-light empty">
+                    <div class="card bg-light empty" v-if="eventos.length == 0">
                             <div class="card-body py-5">
                                 <i class="fa-regular fa-calendar-xmark" style="color: gainsboro"></i>
-                                <div>No hay eventos programados</div>
+                                <div style="font-weight: 300;">No hay eventos programados</div>
                             </div>
-                        </div>
-                    @endif
+                    </div>
+
                 </div>
 
                 <!-- twitter -->
@@ -231,6 +169,7 @@
                     <div>H. Ayuntamiento de Mazatl&aacute;n</div>
                     <div>Angel Flores S/N, Col. Centro</div>
                     <div>Mazatl&aacute;n, Sinaloa.</div>
+                    <div>Tel. (669) 9-15-80-00</div>
                 </div>
                 <div class="col-sm-4 mb-4 mb-sm-0 mt-sm-3 text-end">
                     <a class="text-white" href="https://www.instagram.com/aytodemzt">
@@ -326,13 +265,35 @@
             let year = fecha.getFullYear();
             let diaLetra = fecha.getDay();
 
-            const days = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viérnes", "Sábado"];
+            const days = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
             const month = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre",
             "Noviembre", "Diciembre"];
 
                 let fechaLetra = days[diaLetra] + ' ' + dia + ' de ' + month[mes-1] + ' de ' + year;
 
                 this.fechaLetra = fechaLetra;
+        },
+        reiniciar(){
+
+             let fecha = new Date();
+            let mes = fecha.getMonth() + 1;
+
+            mes = (mes < 10) ? '0' + mes : mes;
+            let anio =  fecha.getFullYear();
+            let fec =  anio + '-' + mes + '-' + fecha.getDate();
+
+            this.fecha = fec;
+
+        },
+        imprimirPdf(){
+
+            let url = document.getElementsByTagName('meta').namedItem('base-url').content + '/imprimir-pdf/' + this.fecha ;
+            window.location =  url;
+
+        },
+        compartirWhatsApp(){
+            console.log('compartir');
+            window.lication = 'whatsapp://send?text=texto%20con%20URL';
         }
     },
     watch: {

@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 
 Route::get('', 'PublicController@index');
 Route::post('get-eventos-public', 'PublicController@getEventos');
+Route::get('imprimir-pdf/{fecha}', 'PublicController@imprimirPdf');
 
 
 Route::group(['prefix' => 'admin'], function() {
