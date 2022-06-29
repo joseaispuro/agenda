@@ -99,7 +99,7 @@
 
                                         </div>
 
-                                        <div v-if="evento.tipo_cita != 'privada'" class="text-secondary pointer ps-3" @click="compartirWhatsApp">
+                                        <div v-if="evento.tipo_cita != 'privada'" class="text-secondary pointer ps-3" @click="compartirWhatsApp(evento)">
                                             <i class="fa-solid fa-fw fa-lg fa-share-from-square"></i>
                                         </div>
                             </div>
@@ -291,9 +291,14 @@
             window.location =  url;
 
         },
-        compartirWhatsApp(){
-            console.log('compartir');
-            window.location = 'whatsapp://send?text=texto%20con%20URL';
+        compartirWhatsApp(evento){
+            console.log(evento);
+
+            window.location = 'whatsapp://send?text=' + this.prepararTexto(evento.concepto);
+            console.log(this.prepararTexto(evento.concepto));
+        },
+        prepararTexto(texto){
+            return texto.replace(' ', '%20');
         }
     },
     watch: {
