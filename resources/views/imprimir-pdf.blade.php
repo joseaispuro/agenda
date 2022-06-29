@@ -75,23 +75,33 @@
         <hr>
         <div class="contenido">
               @if(count($eventos) == 0)
-                    <h2 style="text-align:center; font-size: 18px; color: gray; margin-top: 45px;">No hay eventos registrados para este día</h2>
+                    <h2 style="text-align:center; font-size: 18px; color: gray; margin-top: 45px;">No hay eventos programados para este día</h2>
               @endif
             
 
         	@foreach($eventos as $evento)
-        	<p class="evento">
 
+                @if($evento->tipo_cita != 'privada')
+                	<p class="evento">
+                		<h4>{{$evento->concepto}}   &nbsp;&nbsp;<span> </span></h4>
+                			<h5><i class="fas fa-clock"></i> {{ substr($evento->fecha_inicio, 11, 5) }} hrs. </h5>
+                		<ul>
+                			<li>Asunto: <strong>{{$evento->asunto}}</strong></li>
+                			<li>Lugar: {{$evento->lugar}} </li>
+                			<li>Atiende: {{$evento->atiende}}</li>
+                			<li>Asisten: {{$evento->asiste}}</li>
+                		</ul>
+                	</p>
+                @else
+                    <p class="evento">
+                        <h4>CITA PRIVADA  &nbsp;&nbsp;<span> </span></h4>
+                            <h5><i class="fas fa-clock"></i> {{ substr($evento->fecha_inicio, 11, 5) }} hrs. </h5>
+                        <ul>
+                            <li>Asunto: <strong>CITA PRIVADA</strong></li>
+                        </ul>
+                    </p>
+                @endif
 
-        		<h4>{{$evento->concepto}}   &nbsp;&nbsp;<span> </span></h4>
-        			<h5><i class="fas fa-clock"></i> {{ substr($evento->fecha_inicio, 11, 5) }} hrs. </h5>
-        		<ul>
-        			<li>Asunto: <strong>{{$evento->asunto}}</strong></li>
-        			<li>Lugar: {{$evento->lugar}}</li>
-        			<li>Atiende: {{$evento->atiende}}</li>
-        			<li>Asisten: {{$evento->asiste}}</li>
-        		</ul>
-        	</p>
         	@endforeach
         </div>
     </body>
