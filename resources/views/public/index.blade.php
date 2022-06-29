@@ -295,7 +295,7 @@
 
             let form = this;
 
-            window.location = 'whatsapp://send?text=AGENDA%20DEL%20ALCALDE%0AMUNICIPIO%20DE%20MAZATLAN%0A' + form.fechaLetra +'%0A' + evento.fecha_inicio.substr(11,5) +'hrs. %0AConcepto: ' + this.prepararTexto(evento.concepto) + '%0AAsunto: ' + this.prepararTexto(evento.asunto) + '%0A' + evento.fecha_inicio + '%0ALugar: ' + this.prepararTexto(evento.lugar);
+            window.location = 'whatsapp://send?text=AGENDA%20DEL%20ALCALDE%0AMUNICIPIO%20DE%20MAZATLAN%0A' + form.fechaLetra +'%0A' + evento.fecha_inicio.substr(11,5) +' hrs. %0AConcepto: ' + this.prepararTexto(evento.concepto) + '%0AAsunto: ' + this.prepararTexto(evento.asunto) + '%0ALugar: ' + this.prepararTexto(evento.lugar);
         },
         prepararTexto(texto){
             return texto.replace(' ', '%20');
