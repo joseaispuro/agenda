@@ -293,7 +293,7 @@
         },
         compartirWhatsApp(){
             console.log('compartir');
-            window.lication = 'whatsapp://send?text=texto%20con%20URL';
+            window.location = 'whatsapp://send?text=texto%20con%20URL';
         }
     },
     watch: {
