@@ -293,9 +293,7 @@
         },
         compartirWhatsApp(evento){
             console.log(evento);
-
-            window.location = 'whatsapp://send?text=' + this.prepararTexto(evento.concepto);
-            console.log(this.prepararTexto(evento.concepto));
+            window.location = 'whatsapp://send?text=' + this.prepararTexto(evento.concepto) + '%20' + evento.fecha_inicio;
         },
         prepararTexto(texto){
             return texto.replace(' ', '%20');
