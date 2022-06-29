@@ -9,7 +9,7 @@ use App\Models\Evento;
 class PublicController extends Controller
 {
     public function index() {
-        $faker = \Faker\Factory::create('es_ES');
+        //$faker = \Faker\Factory::create('es_ES');
 
         $eventosController = new EventosController();
 
