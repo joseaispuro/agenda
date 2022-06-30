@@ -30,3 +30,7 @@ h6.publicado{
     border-radius: 3px;
     border: 1px solid gainsboro;
 }
+
+table#lista tr{
+	border-bottom: 10px solid #ffffff;
+}

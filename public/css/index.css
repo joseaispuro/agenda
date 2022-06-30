@@ -151,6 +151,7 @@ body {
 .evento .detalles label {
     font-size: 0.85em;
     font-weight: 700;
+    margin-left: 6px;
 }
 
 .card.empty {

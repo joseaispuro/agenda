@@ -93,7 +93,7 @@
 
            <table class="table table-striped" id="lista" v-if="eventos.length > 0">
             <thead>
-              <th>Hora</th>
+              <th style="width:160px;">Hora</th>
               <th>Evento</th>
               <th>Tipo</th>
               <th></th>
