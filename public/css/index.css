@@ -7,7 +7,7 @@ body {
 }
 
 .intro {
-    background: #fffa;
+    background: #fffb;
     border-top: 20px solid var(--bs-primary);
     border-bottom: 1px solid gainsboro;
 }
@@ -40,9 +40,8 @@ body {
 }
 
 .content {
-    background-color: whitesmoke;
+    background-color: #f0f0f0e0;
     padding-bottom: 150px !important;
-    background-color: #e8e9e8;
 }
 
 .fecha {
