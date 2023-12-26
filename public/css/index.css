@@ -17,26 +17,20 @@ body {
 }
 
 .header {
-    width: 100%;
     margin-top: auto;
     margin-bottom: auto;
     text-align: center;
 }
 
-@media (min-width: 768px) {
-    .header {
-        text-align: left;
-    }
-}
 
 .title {
     font-size: 3rem;
-    font-weight: 300;
+    font-weight: 500;
 }
 
 .title-2 {
     font-size: 2rem;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .content {
@@ -183,6 +177,7 @@ blockquote.twitter-tweet {
 
 .footer-logo {
     height: 150px;
+    filter: invert();
 }
 
 .footer a {

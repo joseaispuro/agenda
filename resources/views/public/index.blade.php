@@ -23,20 +23,20 @@
 
 </head>
 <body id="app">
-    <div class="intro p-5">
-        <div class="container-lg col-lg-10 col-xl-9 col-xxl-8">
+    <div class="intro py-5">
+        <div class="container-xl">
 
-            <div class="row">
-                <div class="col-md-3 mb-4 text-center">
-                    <img class="logo" src="{{asset('img/logo-color.png')}}">
+            <div class="row justify-content-center">
+                <div class="col-md-auto me-0 me-md-4 mb-4 text-center">
+                    <img class="logo" src="{{asset('img/logo.svg')}}">
                 </div>
-                <div class="col-md header">
+                <div class="col-md-auto header text-center text-md-left">
                     <h1 class="title text-primary">AGENDA DEL ALCALDE</h1>
                     <h2 class="title-2 text-muted">H. AYUNTAMIENTO DE MAZATL&Aacute;N 2021-2024</h2>
                 </div>
             </div>
 
-            <div class="container col-xl-10 fs-3 my-4 text-center">
+            <div class="container fs-3 my-4 text-center">
                 Ent&eacute;rate de las actividades y los lugares a los que estar&aacute; acudiendo nuestro alcalde
             </div>
 
@@ -44,11 +44,11 @@
     </div>
 
     <div class="content py-5">
-        <div class="container-xxl">
+        <div class="container-xl">
             <div class="row justify-content-center align-items-start py-4">
 
                 <!-- fecha -->
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 pb-5">
+                <div class="col-8 col-sm-4 col-md-3 col-lg-2 pb-5">
                     <div class="fecha card border-info">
 
                         <span class="arrow prev pointer" @click="anteriorDia"><i class="prev fa-solid fa-fw fa-chevron-up"></i></span>
@@ -77,7 +77,7 @@
                 </div>
 
                 <!-- eventos -->
-                <div class="col-md-9 col-lg-7 mb-4">
+                <div class="col-md mb-4">
 
                     <ul class="list-group">
 
@@ -99,7 +99,7 @@
 
                                         </div>
 
-                                        <div v-if="evento.tipo_cita != 'privada'" class="text-secondary pointer ps-3" @click="compartirWhatsApp(evento)">
+                                        <div v-if="evento.tipo_cita != 'privada'" class="text-secondary pointer ps-3 d-block d-md-none" @click="compartirWhatsApp(evento)">
                                             <i class="fa-solid fa-fw fa-lg fa-share-from-square"></i>
                                         </div>
                             </div>
@@ -148,9 +148,11 @@
                 </div>
 
                 <!-- twitter -->
-                <div class="twitter col-12 col-sm-8 col-lg-3">
-                    @include("public.twitter")
+                @if (env('URL_TWITTER'))
+                <div class="twitter col-12 col-sm-9 col-md-8 col-lg-4 col-xl-3">
+                    @include("public.twitter", ["url" => env('URL_TWITTER')])
                 </div>
+                @endif
             </div>
 
         </div>
@@ -161,7 +163,7 @@
             <div class="row justify-content-between">
                 <div class="col-sm-3 col-lg-2 mb-4 mb-sm-0">
                     <a href="http://mazatlan.gob.mx">
-                        <img class="footer-logo" src="{{asset('img/escudo-mazatlan-white.png')}}">
+                        <img class="footer-logo" src="{{asset('img/logo.svg')}}">
                     </a>
                 </div>
                 <div class="col-sm-5 col-lg-6 mb-4 mb-sm-0 mt-sm-3 lh-lg">
@@ -171,15 +173,21 @@
                     <div>Mazatl&aacute;n, Sinaloa.</div>
                 </div>
                 <div class="col-sm-4 mb-4 mb-sm-0 mt-sm-3 text-end">
-                    <a class="text-white" href="https://www.instagram.com/aytodemzt">
+                    @if (env('URL_INSTAGRAM'))
+                    <a class="text-white" href="{{env('URL_INSTAGRAM')}}">
                         <i class="fa-brands fa-fw fa-3x fa-instagram"></i>
                     </a>
-                    <a class="text-white" href="https://twitter.com/aytodemzt">
+                    @endif
+                    @if (env('URL_TWITTER'))
+                    <a class="text-white" href="{{env('URL_TWITTER')}}">
                         <i class="fa-brands fa-fw fa-3x fa-twitter"></i>
                     </a>
-                    <a class="text-white" href="https://www.facebook.com/AytodeMzt">
+                    @endif
+                    @if (env('URL_FACEBOOK'))
+                    <a class="text-white" href="{{env('URL_FACEBOOK')}}">
                         <i class="fa-brands fa-fw fa-3x fa-facebook"></i>
                     </a>
+                    @endif
                 </div>
             </div>
         </div>
