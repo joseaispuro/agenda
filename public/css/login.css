@@ -3,7 +3,8 @@ body,
 			margin: 0;
 			padding: 0;
 			height: 100%;
-			background: #335363 !important;
+			/* background: #1c1d1d !important; */
+			background: #67172F !important;
 		}
 		.user_card {
 			height: 400px;
@@ -50,7 +51,8 @@ body,
 		.login_btn {
 			width: 100%;
 			background: #2f2d2d !important;
-			background: #3d6679 !important;
+			/* background: #3d6679 !important; */
+			background: #67172F !important;
 			color: white !important;
 		}
 		.btn-warning{

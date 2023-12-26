@@ -4,6 +4,7 @@ nav#sidebarMenu{
 
 img.logo{
   width: 60px;
+  filter: invert(100%);
 }
 
 h2{

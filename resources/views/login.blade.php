@@ -124,7 +124,7 @@
             <div class="user_card">
                 <div class="d-flex justify-content-center">
                     <div class="brand_logo_container">
-                        <img src="https://servicios.mazatlan.gob.mx/predial/img/logo-white.png" class="brand_logo" alt="Logo">
+                        <img src="{{ asset('img/logo.svg') }}" class="brand_logo" alt="Logo">
                     </div>
                 </div>
 
@@ -144,12 +144,12 @@
                             </div>
                             <input type="password" name="password" class="form-control input_pass" v-model="password" autocomplete="off" v-on:keyup.enter="ingresar" placeholder="Contraseña">
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="customControlInline">
                                 <label class="custom-control-label" for="customControlInline">Recordarme</label>
                             </div>
-                        </div>
+                        </div> -->
                             <div class="d-flex justify-content-center mt-3 login_container">
                                  <button v-on:click="ingresar" type="button" name="button" class="btn login_btn"><i class="fas fa-sign-in-alt"></i> Ingresar</button>
                         </div>
