@@ -8,8 +8,15 @@ use Auth;
 
 class LoginController extends Controller
 {
-    public function authenticate(Request $request)
-    {  
+    public function __construct() {
+        $this->middleware('guest')->except('logout');
+    }
+
+    public function index() {
+        return view('login');
+    }
+
+    public function authenticate(Request $request) { 
         $exito = false;
         $user = $request->user;
         $password = $request->password;
@@ -31,22 +38,12 @@ class LoginController extends Controller
 
     }
 
-    public function index(){
-
-        if(Auth::user()){
-            return redirect('/');
-        }
-
-        return view('login');
-    }
-
-    public function logout(Request $request)
-    {
+    public function logout(Request $request) {
         Auth::logout();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect('/admin/login');
     }
 }

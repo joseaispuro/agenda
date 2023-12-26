@@ -151,7 +151,7 @@ const app = Vue.createApp({
 			  .then(response => response.json())
 			  .then(data => {
 			  		if(data.respuesta){
-			  			swal("Excenlente!", data.mensaje, "success").then((value) => {
+			  			swal("Excelente!", data.mensaje, "success").then((value) => {
   							window.location = document.querySelector('meta[name="base-url"]').getAttribute('content') + '/admin/?fecha=' + this.fecha;
 						});
 			  		}/*else{

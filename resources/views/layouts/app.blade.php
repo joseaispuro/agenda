@@ -7,7 +7,7 @@
 	<meta name="base-url" content="{{ url('') }}">
 	
 	<!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
 	<title>@yield('title')</title>
 
@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 	<link rel="stylesheet" href="{{asset('css/app.css')}}">
 	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 	@stack('styles')
 	<style>
 		.lds-spinner {
@@ -129,7 +129,7 @@
   <ul class="navbar-nav px-3">
     <li style="color:white;">Iniciaste como: <strong>{{Auth::user()->name}}</strong></li>
     <li class="nav-item text-nowrap">
-      <a class="nav-link" href="{{url('/logout')}}">Cerrar Sesión</a>
+      <a class="nav-link" href="{{url('/admin/logout')}}">Cerrar Sesión</a>
     </li>
   </ul>
 </header>
