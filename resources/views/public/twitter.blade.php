@@ -1,8 +1,8 @@
 <div v-pre>
-    <a class="twitter-timeline" data-lang="es" data-tweet-limit="1" href="https://twitter.com/AytodeMzt">
+    <a class="twitter-timeline" data-lang="es" data-tweet-limit="1" href="{{$url}}">
         <div class="card small" style="font-family: Arial; color: black;">
             <div class="card-header bg-white">
-                Tweets por @AytodeMzt
+                Tweets de Mazatl&aacute;n
             </div>
             <div class="card-body small">
                 <div class="d-flex">
