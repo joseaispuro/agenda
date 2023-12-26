@@ -39,27 +39,34 @@ class PublicController extends Controller
         return view('public.index', compact('eventos', 'fecha', 'fechaLetra'));
     }
 
-    public function getEventos(Request $request){
+    public function getEventos(Request $request) {
+        $eventos = Evento::whereDate('fecha_inicio', $request->fecha)
+            ->where('publicada', 1)
+            ->orderBy('fecha_inicio', 'ASC')
+            ->get()
+            ->map(function ($evento) {
+                $item = [
+                    "id" => $evento->id,
+                    "tipo_cita" => $evento->tipo_cita,
+                    "fecha_inicio" => $evento->fecha_inicio,
+                    "concepto" => $evento->concepto,
+                    "asunto" => $evento->asunto,
+                    "lugar" => $evento->lugar,
+                    "atiende" => $evento->atiende,
+                    "asiste" => $evento->asiste
+                ];
 
-        $fecha = $request->fecha;
-        $eventos = Evento::whereDate('fecha_inicio', $request->fecha)->where('publicada', 1)->orderBy('fecha_inicio', 'ASC')->get();
+                // Se quitan datos de cita privada
+                if ($evento->tipo_cita == 'privada') {
+                    unset($item['concepto']);
+                    unset($item['asunto']);
+                    unset($item['lugar']);
+                    unset($item['atiende']);
+                    unset($item['asiste']);
+                }
 
-
-        //Elimino datos en caso de ser cita privada
-        foreach($eventos as $evento){
-            if($evento->tipo_cita == 'privada'){
-                unset($evento->lugar);
-                unset($evento->asiste);
-                unset($evento->concepto);
-                unset($evento->asunto);
-                unset($evento->atiende);
-                unset($evento->observaciones);
-            }
-
-            unset($evento->contacto);
-            unset($evento->atiende_alcalde);
-        }
-      
+                return $item;
+            });
 
         return response()->json(['eventos' => $eventos]);
 

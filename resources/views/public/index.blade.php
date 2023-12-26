@@ -55,11 +55,11 @@
                         <span class="arrow next pointer" @click="siguienteDia"><i class="next fa-solid fa-fw fa-chevron-down"></i></span>
 
                         <div class="card-header text-center">
-                            <i class="fa-regular fa-calendar"></i>&nbsp; @{{mes}}
+                            <i class="fa-regular fa-calendar"></i>&nbsp; <span v-cloak>@{{mes}}</span>
                         </div>
                         <div class="click-area card-body text-center pointer">
-                            <div class="day-num text-info">@{{dia}}</div>
-                            <div class="day-name">@{{diaLetra}}</div>
+                            <div class="day-num text-info" v-cloak>@{{dia}}</div>
+                            <div class="day-name" v-cloak>@{{diaLetra}}</div>
                         </div>
                         <div class="card-footer p-1">
                             <input type="date" class="pointer" v-model="fecha">
@@ -82,26 +82,26 @@
                     <ul class="list-group">
 
                         <!-- SI CITA ES PRIVADA ponemos clase privada -->
-                        <div v-for="evento in eventos" class="evento list-group-item p-4 " v-bind:class="{ privado: evento.tipo_cita == 'privada' }">
+                        <div v-for="evento in eventos" :key="evento.id" class="evento list-group-item p-4 " v-bind:class="{ privado: evento.tipo_cita == 'privada' }" v-cloak>
 
                             <div class="d-flex">
-                                        <div class="hora">
-                                            <div>@{{evento.fecha_inicio.substr(10, 6)}}</div>
-                                            <div class="ampm">HRS</div>
-                                        </div>
+                                <div class="hora">
+                                    <div>@{{evento.fecha_inicio.substr(10, 6)}}</div>
+                                    <div class="ampm">HRS</div>
+                                </div>
 
-                                        <div class="evento-titulo col ps-3"  v-bind:class="[evento.tipo_cita != 'privada' ? 'border-primary' : 'border-secondary']">
+                                <div class="evento-titulo col ps-3"  v-bind:class="[evento.tipo_cita != 'privada' ? 'border-primary' : 'border-secondary']">
 
-                                                <h5  v-if="evento.tipo_cita != 'privada'"class="card-title mb-3">@{{evento.concepto}}</h5>
-                                                <h6  v-if="evento.tipo_cita != 'privada'" class="card-subtitle text-muted">@{{evento.asunto}}</h6>
+                                        <h5  v-if="evento.tipo_cita != 'privada'"class="card-title mb-3">@{{evento.concepto}}</h5>
+                                        <h6  v-if="evento.tipo_cita != 'privada'" class="card-subtitle text-muted">@{{evento.asunto}}</h6>
 
-                                                <h5 v-else class="card-title">CITA PRIVADA</h5>
+                                        <h5 v-else class="card-title">CITA PRIVADA</h5>
 
-                                        </div>
+                                </div>
 
-                                        <div v-if="evento.tipo_cita != 'privada'" class="text-secondary pointer ps-3 d-block d-md-none" @click="compartirWhatsApp(evento)">
-                                            <i class="fa-solid fa-fw fa-lg fa-share-from-square"></i>
-                                        </div>
+                                <div v-if="evento.tipo_cita != 'privada'" class="text-secondary pointer ps-3 d-block d-md-none" @click="compartirWhatsApp(evento)">
+                                    <i class="fa-solid fa-fw fa-lg fa-share-from-square"></i>
+                                </div>
                             </div>
 
                             <div class="detalles row col-md-10 mx-auto mt-4 text-center text-primary" v-if="evento.tipo_cita != 'privada'">
@@ -144,6 +144,9 @@
                                 <div style="font-weight: 300;">No hay eventos programados</div>
                             </div>
                     </div>
+
+
+                    <div class="text-muted text-center mt-5">Estas citas est&aacute;n sujetas a cambios sin previo aviso</div>
 
                 </div>
 

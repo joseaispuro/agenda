@@ -88,7 +88,7 @@ createApp({
           let anio =  fecha.getFullYear();
           let dia = fecha.getDate();
           dia = (dia < 10) ? '0' + dia : dia;
-          
+
           let fec =  anio + '-' + mes + '-' + dia;
 
           this.fecha = fec;

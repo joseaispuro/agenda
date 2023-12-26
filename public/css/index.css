@@ -35,7 +35,6 @@ body {
 
 .content {
     background-color: #f0f0f0e0;
-    padding-bottom: 150px !important;
 }
 
 .fecha {
@@ -206,4 +205,8 @@ blockquote.twitter-tweet {
     .footer {
         display: none;
     }
+}
+
+[v-cloak] {
+    visibility: hidden;
 }
