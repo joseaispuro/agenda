@@ -98,10 +98,7 @@ createApp({
 
             const url = document.getElementsByTagName('meta').namedItem('base-url').content + '/imprimir?fecha=' + this.fecha;
             const win = window.open(url, "_blank");
-            win.onload = () => {
-                win.print();
-                win.close();
-            };
+            win.onload = () => win.print();
             win.onafterprint = () => win.close();
         },
         compartirWhatsApp(evento) {
