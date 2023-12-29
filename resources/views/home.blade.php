@@ -142,7 +142,6 @@
 
 
     </main>
-    <div style="position: absolute; bottom: 0.25rem; text-align: center; color: lightgray;">Desarrollado por José Aispuro. Informática Mazatlán.</div>
   </div>
 
 @endsection
