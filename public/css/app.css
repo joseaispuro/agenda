@@ -1,3 +1,8 @@
+#app {
+  min-height: 100vh;
+  position: relative;
+}
+
 nav#sidebarMenu{
   margin-top: 25px;
 }

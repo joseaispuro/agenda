@@ -13,7 +13,7 @@
 
 @section('content')
 
-  <div class="row">
+  <div class="row pb-5">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
@@ -142,7 +142,7 @@
 
 
     </main>
+    <div style="position: absolute; bottom: 0.25rem; text-align: center; color: lightgray;">Desarrollado por José Aispuro. Informática Mazatlán.</div>
   </div>
-
 
 @endsection
