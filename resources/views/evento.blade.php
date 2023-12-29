@@ -4,11 +4,11 @@
 @section('title', 'Agenda Municipal')
 
 @push('styles')
-    <link href="{{ asset('css/evento.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/evento.css').'?v='.env('ASSETS_CACHE') }}" rel="stylesheet">
 @endpush
 
 @push('scripts')
-    <script type="text/javascript" src="{{asset('js/evento.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/evento.js').'?v='.env('ASSETS_CACHE')}}"></script>
 @endpush
 
 @section('content')
@@ -139,7 +139,7 @@
             </div>
 
           </div>
-          
+
           <div class="row mb-3 d-flex justify-content-center">
             <div class="col-md-8">
               <h5>¿Quién atiende?</h5>
@@ -192,7 +192,7 @@
               <button type="button" class="btn btn-lg btn-action" id="boton" @click="grabarEvento"> <i class="fas fa-save"></i> Guardar Evento</button>
             </div>
           </div>
-          
+
     </main>
   </div>
 

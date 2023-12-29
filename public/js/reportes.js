@@ -62,14 +62,15 @@ const app = Vue.createApp({
                              }
                     }
 			  }).catch(function(error) {
-			  	console.log('err' + error);	
+			  	console.log('err' + error);
 			  });
 
 		},
 		generar: function(){
-			let url = document.getElementsByTagName('meta').namedItem('base-url').content + '/admin/generar?fecha_inicio=' + this.fecha_inicio +'&fecha_fin='+this.fecha_fin+'&atiende=' + this.atiende + '&tipo=' + this.tipo ;
-			console.log(url)
-			window.location =  url;
+			const url = document.getElementsByTagName('meta').namedItem('base-url').content + '/admin/generar?fecha_inicio=' + this.fecha_inicio +'&fecha_fin='+this.fecha_fin+'&atiende=' + this.atiende + '&tipo=' + this.tipo ;
+			const win = window.open(url, "_blank");
+			win.onload = () => win.print();
+			win.onafterprint = () => win.close();
 		}
 	},
 	watch: {

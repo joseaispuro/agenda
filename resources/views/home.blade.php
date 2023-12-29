@@ -4,11 +4,11 @@
 @section('title', 'Agenda Municipal')
 
 @push('styles')
-    <link href="{{ asset('css/home.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/home.css').'?v='.env('ASSETS_CACHE') }}" rel="stylesheet">
 @endpush
 
 @push('scripts')
-    <script type="text/javascript" src="{{asset('js/home.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/home.js').'?v='.env('ASSETS_CACHE')}}"></script>
 @endpush
 
 @section('content')
@@ -62,7 +62,7 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
           <h2 class="text-center mb-4 mt-4"> Agenda del Día</h2>
-        
+
           <div class="row mb-4 d-flex justify-content-center">
               <div class="col-md-2">
                 <button class="btn btn-action btn-lg" style="width: 100%;" @click="anteriorDia"><i class="fas fa-arrow-alt-circle-left"></i></button>
@@ -135,12 +135,12 @@
             </div>
 
           </div>
-          
+
         </div>
 
           <!--<p>@{{$data}}</p>-->
-          
-          
+
+
     </main>
   </div>
 

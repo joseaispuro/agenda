@@ -18,35 +18,31 @@ use Illuminate\Http\Request;
 
 Route::get('', 'PublicController@index');
 Route::post('get-eventos-public', 'PublicController@getEventos');
-Route::get('imprimir-pdf/{fecha}', 'PublicController@imprimirPdf');
+Route::get('imprimir', 'PublicController@imprimir');
 
 
 Route::group(['prefix' => 'admin'], function() {
 
     Route::get('/login', 'LoginController@index')->name('login');
-
     Route::post('/login', 'LoginController@authenticate');
     Route::get('/logout', 'LoginController@logout')->middleware('auth');
 
-    Route::name('print')->get('/imprimir', 'EventosController@imprimir')->middleware('auth');
-    Route::name('generate')->get('/generar', 'EventosController@generar')->middleware('auth');
+    Route::group(["middleware" => "auth"], function () {
+
+        Route::name('print')->get('/imprimir', 'EventosController@imprimir');
+        Route::name('generate')->get('/generar', 'EventosController@generar');
 
 
-    Route::post('guardar-evento', 'EventosController@guardarEvento')->middleware('auth');
-    Route::post('get-eventos', 'EventosController@getEventos')->middleware('auth');
-    Route::post('get-evento', 'EventosController@getEvento')->middleware('auth');
-    Route::post('update-eventos', 'EventosController@updateEventos')->middleware('auth');
-    Route::post('eliminar-evento', 'EventosController@eliminarEvento')->middleware('auth');
-    Route::get('/', 'EventosController@mostrarHome')->middleware('auth');
+        Route::post('guardar-evento', 'EventosController@guardarEvento');
+        Route::post('get-eventos', 'EventosController@getEventos');
+        Route::post('get-evento', 'EventosController@getEvento');
+        Route::post('update-eventos', 'EventosController@updateEventos');
+        Route::post('eliminar-evento', 'EventosController@eliminarEvento');
+        Route::get('/', 'EventosController@mostrarHome');
 
-    //Route::get('evento/{id}', 'EventosController@mostrarEvento')->middleware('auth');
+        //Route::get('evento/{id}', 'EventosController@mostrarEvento');
 
-    Route::get('evento', function (){
-        return view('evento');
-    })->middleware('auth');
-
-    Route::get('/reportes', function(){
-        return view('reportes');
-    })->middleware('auth');
-
+        Route::view('evento', 'evento');
+        Route::view('/reportes', 'reportes');
+    });
 });

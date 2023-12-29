@@ -94,11 +94,12 @@ createApp({
           this.fecha = fec;
 
       },
-      imprimirPdf(){
+      imprimir(){
 
-          let url = document.getElementsByTagName('meta').namedItem('base-url').content + '/imprimir-pdf/' + this.fecha ;
-          window.location =  url;
-
+          const url = document.getElementsByTagName('meta').namedItem('base-url').content + '/imprimir?fecha=' + this.fecha;
+          const win = window.open(url, "_blank");
+          win.onload = () => win.print();
+          win.onafterprint = () => win.close();
       },
       compartirWhatsApp(evento){
 

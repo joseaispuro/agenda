@@ -1,0 +1,32 @@
+/* latin */
+@font-face {
+  font-family: 'GMX';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(GMX-Light.ttf);
+}
+/* latin */
+@font-face {
+  font-family: 'GMX';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(GMX-Regular.ttf);
+}
+/* latin */
+@font-face {
+  font-family: 'GMX';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(GMX-Bold.ttf);
+}
+/* latin */
+@font-face {
+  font-family: 'GMX';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(GMX-Black.ttf);
+}

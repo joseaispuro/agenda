@@ -4,9 +4,14 @@
 @section('title', 'Agenda Municipal')
 
 @push('styles')
-    <link href="{{ asset('css/home.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/home.css').'?v='.env('ASSETS_CACHE') }}" rel="stylesheet">
 @endpush
 
+
+@push('scripts')
+    <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/reportes.js').'?v='.env('ASSETS_CACHE')}}"></script>
+@endpush
 
 
 @section('content')
@@ -102,10 +107,10 @@
 
               <div class="col-md-2 mb-2 mt-3">
                 <div class="d-grid gap-2">
-                  <button class="btn btn-success" @click="generar"><i class="far fa-file-alt"></i> Generar PDF</button>
+                  <button class="btn btn-success" @click="generar"><i class="fas fa-print"></i> Imprimir</button>
                 </div>
               </div>
-              
+
             </div>
 
           </div>
@@ -136,8 +141,3 @@
 
 
 @endsection
-
-@push('scripts')
-    <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/reportes.js')}}"></script>
-@endpush
