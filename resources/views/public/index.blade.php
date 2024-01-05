@@ -198,7 +198,7 @@
                 </div>
             </div>
 
-            <a class="d-block text-center fw-bold pb-2" style="color: dimgray" href="mailto:gibrans64@gmail.com">
+            <a class="d-block text-center fw-bold pb-2" style="color: dimgray">
                 Desarrollo por Gibrán Beltrán y Jose Aispuro. Informática Mazatlán.
             </a>
         </div>
