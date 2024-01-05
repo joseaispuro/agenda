@@ -12,6 +12,10 @@
         background-color: white;
         box-shadow: 0 0 10px -5px gray;
     }
+
+    header{
+        background: green!important;
+    }
 }
 
 body {
@@ -25,7 +29,7 @@ body {
 .header {
     font-family: "GMX", "Montserrat", sans-serif;
     position: relative;
-    background: #7c1928!important;
+    
 }
 
 .header .logo {
