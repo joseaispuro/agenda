@@ -59,14 +59,14 @@
                     @if ($admin_mode || false)
                         @if ($evento->contacto)
                         <div class="d-flex mb-1">
-                            <div class="offset-2 col-1 label">Contacto</div>
+                            <div class="offset-2 col-1 label">Contactoss</div>
                             <div class="col">{{ $evento->contacto }}</div>
                         </div>
                         @endif
 
                         @if ($evento->observaciones)
                         <div class="d-flex mb-1">
-                            <div class="offset-2 col-1 label">Observ.</div>
+                            <div class="offset-2 col-1 label">Observsss.</div>
                             <div class="col">{{ $evento->observaciones }}</div>
                         </div>
                         @endif
