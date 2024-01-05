@@ -56,7 +56,7 @@
                         <div class="col">{{ $evento->asiste }}</div>
                     </div>
 
-                    @if ($admin_mode)
+                    @if ($admin_mode || false)
                         @if ($evento->contacto)
                         <div class="d-flex mb-1">
                             <div class="offset-2 col-1 label">Contacto</div>
