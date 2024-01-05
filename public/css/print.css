@@ -18,6 +18,10 @@
     }
 }
 
+.bg-primary{
+    background: #9d2449!important;
+}
+
 body {
     font: 9pt "Montserrat", sans-serif;
 }

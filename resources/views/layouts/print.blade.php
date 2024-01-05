@@ -10,7 +10,7 @@
 
 <body>
     <div class="page">
-        <div class="header d-flex text-white py-2 px-3 mb-3">
+        <div class="header d-flex bg-primary text-white py-2 px-3 mb-3">
             <div class="col">
                 <img class="logo" src="{{asset('img/logo-horizontal.svg')}}">
             </div>
