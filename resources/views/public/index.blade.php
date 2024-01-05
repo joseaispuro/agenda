@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{asset('css/index.css')}}">
     <link rel="stylesheet" href="{{asset('css/spinner.css')}}">
 
-    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/vue@latest"></script>
     <script type="module" src="{{asset('js/index.js')}}"></script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 

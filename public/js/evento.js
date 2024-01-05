@@ -64,11 +64,11 @@ const app = Vue.createApp({
 			  		this.asunto = data.asunto;
 			  		this.lugar = data.lugar;
 
-			  		if(data.lugar == 'Despacho del Alcalde'){
+			  		if(data.lugar == 'DESPACHO DEL ALCALDE, PALACIO MUNICIPAL'){
 			  			this.lugarAtiende = "1";
 			  		}
 
-			  		if(data.lugar == 'Sala de Cabildo'){
+			  		if(data.lugar == 'SALA DE CABILDO, PALACIO MUNICIPAL'){
 			  			this.lugarAtiende = "2";
 			  		}
 			  		this.hora = data.fecha_inicio.substr(11,8);
@@ -205,8 +205,8 @@ const app = Vue.createApp({
     		let self = this;
 
     		switch(value){
-    			case '1': self.lugar = 'Despacho del Alcalde';  break;
-    			case '2': self.lugar = 'Sala de Cabildo'; break;    		
+    			case '1': self.lugar = 'DESPACHO DEL ALCALDE, PALACIO MUNICIPAL';  break;
+    			case '2': self.lugar = 'SALA DE CABILDO, PALACIO MUNICIPAL'; break;    		
     		}
     	},
     	atiendeAlcalde: function(value){
