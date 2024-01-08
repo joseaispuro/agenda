@@ -11,9 +11,6 @@
         margin: 1rem auto;
         background-color: white;
         box-shadow: 0 0 10px -5px gray;
-        background-image: url('../img/logo.svg');
-        background-repeat: no-repeat;
-
     }
 
     .header{
@@ -39,6 +36,11 @@
 
 
  @media print{
+    .page{
+        background-image: url('../img/logo.svg');
+        background-repeat: no-repeat;
+    }
+    
     .marca-de-agua {
         /*background-image: url('../img/logo.svg');*/
         background-repeat: no-repeat;
