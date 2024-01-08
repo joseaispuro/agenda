@@ -37,8 +37,9 @@ body {
 }
 
 .header .logo {
-    height: 90%;
-    filter: invert();
+    /*height: 90%;
+    filter: invert();*/
+    width: 220px
 }
 
 .header h1 {
