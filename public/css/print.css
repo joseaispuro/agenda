@@ -18,18 +18,19 @@
     }
 
     .marca-de-agua {
-        background-image: url('../img/logo.svg');
+        /*background-image: url('../img/logo.svg');*/
         background-repeat: no-repeat;
         background-position: center;
-        width: 100%;
+        width: 65%;
         height: auto;
         margin: auto;
+        position: absolute;
     }
     .marca-de-agua img {
         padding: 0;
         width: 100%;
         height: auto;
-        opacity: 0.7;
+        opacity: 0.5;
     }
 }
 
