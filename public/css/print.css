@@ -11,10 +11,6 @@
         margin: 1rem auto;
         background-color: white;
         box-shadow: 0 0 10px -5px gray;
-        position: relative;
-        width: 215.9mm;
-        min-height: 279.4mm;
-        padding: 0.6cm;
     }
 
     .header{
@@ -26,11 +22,11 @@
 
  @media print{
     .page{
-        background-image: url('../img/logo.svg');
+        /*background-image: url('../img/logo.svg');
         background-repeat: no-repeat;
         background-position-y: 350px;
         background-position-x: 75%;
-        background-size: 50%;
+        background-size: 50%;*/
     }
     
  }
