@@ -10,9 +10,6 @@
 
 <body>
     <div class="page">
-        <div class='marca-de-agua'>
-            <img src="{{ asset('img/logo.svg') }}" class="logo" alt="">
-        </div>
         <div class="header d-flex bg-primary text-white py-2 px-3 mb-3">
             <div class="col">
                 <img class="logo" src="{{asset('img/logo-mzt.png')}}">

@@ -41,23 +41,6 @@
         background-repeat: no-repeat;
     }
     
-    .marca-de-agua {
-        /*background-image: url('../img/logo.svg');*/
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 100%;
-        height: auto;
-        margin: auto;
-        position: absolute;
-        left: 50%;
-        top: 200px;
-    }
-    .marca-de-agua img {
-        padding: 13%;
-        width: 87%;
-        height: auto;
-        opacity: 0.2;
-    }
  }
 
 
