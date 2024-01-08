@@ -12,7 +12,7 @@
     <div class="page">
         <div class="header d-flex bg-primary text-white py-2 px-3 mb-3">
             <div class="col">
-                <img class="logo" src="{{asset('img/logo-horizontal.svg')}}">
+                <img class="logo" src="{{asset('img/logo-mzt.png')}}">
             </div>
             <div class="flex-fill text-end">
                 <h1 class="mb-1">Agenda del Gobierno Municipal</h1>
