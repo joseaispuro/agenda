@@ -39,7 +39,8 @@
     .page{
         background-image: url('../img/logo.svg');
         background-repeat: no-repeat;
-        background-position-y: bottom;
+        background-position-y: 350px;
+        background-position-x: 50%;
         background-size: 50%;
     }
     
