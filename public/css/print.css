@@ -44,6 +44,8 @@
         height: auto;
         margin: auto;
         position: absolute;
+        left: 50%;
+    bottom: -317px;
     }
     .marca-de-agua img {
         padding: 13%;
