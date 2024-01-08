@@ -124,7 +124,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <img src="{{ asset('img/logo.svg') }}" class="logo" alt="">
+  <img src="{{ asset('img/logo-mzt.png') }}" class="logo" alt="">
   <!--<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">-->
   <ul class="navbar-nav px-3">
     <li style="color:white;">Iniciaste como: <strong>{{Auth::user()->name}}</strong></li>

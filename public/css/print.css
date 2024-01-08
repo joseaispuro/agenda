@@ -74,6 +74,7 @@ body {
     font-size: 110%;
     font-weight: 600;
     color: var(--bs-primary);
+    color: #930824;
 }
 
 .evento .label {
