@@ -18,7 +18,9 @@
                 <div class="evento mb-3 ps-1">
                     <div class="d-flex mb-1">
                         @if ($admin_mode)
-                        <div class="col-2 type">{{ mb_strtoupper($evento->tipo_cita) }}</div>
+                        <div class="col-2 type" >
+                            @if ($evento->tipo_cita == "invitacion") {{ mb_strtoupper($evento->tipo_cita) }} @endif
+                        </div>
                         @endif
                         <div class="col-1 time">{{ dtformat($evento->fecha_inicio, "H:i") }}</div>
                         <div class="col title">{{ $evento->concepto }}</div>
