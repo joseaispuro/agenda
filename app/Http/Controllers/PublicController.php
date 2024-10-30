@@ -14,6 +14,11 @@ class PublicController extends Controller
 
     public function getEventos(Request $request) {
         $eventos = Evento::whereDate('fecha_inicio', $request->fecha)
+
+            /**** ELIMINAR ESTO */
+            ->where('user_id', '<>', env('OMITIDO'))
+            /**** ELIMINAR ESTO */
+            
             ->where('publicada', 1)
             ->orderBy('fecha_inicio', 'ASC')
             ->get()
@@ -49,6 +54,11 @@ class PublicController extends Controller
         $fecha = $request->get("fecha", today());
 
         $eventos = Evento::select(['concepto','fecha_inicio', 'publicada', 'asunto', 'lugar', 'atiende', 'asiste','tipo_cita'])
+
+        /**** ELIMINAR ESTO */
+            ->where('user_id', '<>', env('OMITIDO'))
+        /**** ELIMINAR ESTO */
+
             ->whereDate('fecha_inicio', $request->fecha)
             ->where('publicada', 1)
             ->orderBy('fecha_inicio', 'ASC')
