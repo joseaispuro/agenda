@@ -9,6 +9,7 @@ createApp({
             dia: '',
             mes: '',
             eventos: {},
+            loading: false
         }
     },
     mounted() {
@@ -133,6 +134,8 @@ createApp({
             let url = document.querySelector('meta[name="base-url"]').getAttribute('content') + '/get-eventos-public';
             var data = { fecha: this.fecha, fecha_hasta: null };
 
+            this.loading = true;
+
             fetch(url, {
                 method: 'POST', // or 'PUT',
                 body: JSON.stringify(data),
@@ -149,6 +152,8 @@ createApp({
                     //console.log(data);
                 }).catch(function (error) {
                     console.log('err' + error);
+                }).finally(() => {
+                    this.loading = false;
                 });
 
 

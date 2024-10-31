@@ -148,8 +148,14 @@
 
                         <div class="card bg-light empty" v-if="eventos.length == 0">
                             <div class="card-body py-5">
-                                <i class="fa-regular fa-calendar-xmark" style="color: gainsboro"></i>
-                                <div style="font-weight: 300;">No hay eventos programados</div>
+                                <div v-if="loading">
+                                    <i class="fa-solid fa-spinner fa-spin" style="color: gainsboro"></i>
+                                    <div style="font-weight: 300;">Cargando Eventos...</div>
+                                </div>
+                                <div v-else>
+                                    <i class="fa-regular fa-calendar-xmark" style="color: gainsboro"></i>
+                                    <div style="font-weight: 300;">No hay eventos programados</div>
+                                </div>
                             </div>
                         </div>
 
