@@ -105,34 +105,12 @@ class EventosController extends Controller
             $eventos->where('tipo_cita', $tipo);
         }
 
-        /**** ELIMINAR ESTO */
-        if(Auth::check()){
-            if(Auth::user()->id != env('OMITIDO')){
-                $eventos->where('user_id', '<>', env('OMITIDO'));
-            }else{
-                $eventos->where('user_id', '=', env('OMITIDO'));
-            }
-        }else{
-                $eventos->where('user_id', '<>', env('OMITIDO'));
-        }
-        /**** ELIMINAR ESTO */
-
 
         return response()->json(['eventos' => $eventos->get(), 'publicado' => $publicado]);
     }
 
     public function mostrarHome()
     {
-
-        /*$fecha = date('Y-m-d');
-
-        $dias = ['', 'Lunes', 'Martes', 'Miércoles', 'Jueves','Viérnes', 'Sábado', 'Domingo'];
-        $meses = ['', 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-
-        $dia = $dias[date('N')];
-        $fecha_letra = 'Hoy es ' . $dia . date('d') . ' de ' .  $meses[date('n')] . ' de ' . date('Y');
-*/
-
         return view('home');
     }
 
@@ -161,19 +139,6 @@ class EventosController extends Controller
                     $eventos->where('atiende_alcalde', 0);
                 }
             }
-
-        
-            /**** ELIMINAR ESTO */
-            if(Auth::check()){
-                    if(Auth::user()->id != env('OMITIDO')){
-                        $eventos->where('user_id', '<>', env('OMITIDO'));
-                    }else{
-                        $eventos->where('user_id', '=', env('OMITIDO'));
-                    }
-            }else{
-                $eventos->where('user_id', '<>', env('OMITIDO'));
-            }
-            /**** ELIMINAR ESTO */
 
 
             $eventos = $eventos->get();
@@ -208,18 +173,6 @@ class EventosController extends Controller
 
             foreach ($dias as $dia) {
                 $query = Evento::whereDate('fecha_inicio', $dia)->orderBy('fecha_inicio', 'ASC');
-
-                /**** ELIMINAR ESTO */
-                if(Auth::check()){
-                        if(Auth::user()->id != env('OMITIDO')){
-                            $evento->where('user_id', '<>', env('OMITIDO'));
-                        }else{
-                            $evento->where('user_id', '=', env('OMITIDO'));
-                        }
-                }else{
-                    $evento->where('user_id', '<>', env('OMITIDO'));
-                }
-                /**** ELIMINAR ESTO */
 
                 if ($request->tipo == 1) {
                     $query->where('atiende_alcalde', 1);
@@ -261,18 +214,6 @@ class EventosController extends Controller
             $eventos->where('atiende_alcalde', 0);
             // $nombre_alcalde = "";
         }
-
-        /**** ELIMINAR ESTO */
-        if(Auth::check()){
-            if(Auth::user()->id != env('OMITIDO')){
-                $eventos->where('user_id', '<>', env('OMITIDO'));
-            }else{
-                $eventos->where('user_id', '=', env('OMITIDO'));
-            }
-        }else{
-            $eventos->where('user_id', '<>', env('OMITIDO'));
-        }
-        /**** ELIMINAR ESTO */
 
         $eventos = $eventos->get();
         $fechas = $eventos->groupBy(fn($item) => dtformat($item->fecha_inicio));
@@ -321,13 +262,8 @@ class EventosController extends Controller
 
         $fecha = $request->fecha;
         $publicado = $request->publicado;
-
-        //ORIGINAL DESCOMENTAR
-        //Evento::whereDate('fecha_inicio', $fecha)->update(['publicada' => $publicado]);
+        Evento::whereDate('fecha_inicio', $fecha)->update(['publicada' => $publicado]);
         
-        //ESTA ELIMINAR
-        Evento::whereDate('fecha_inicio', $fecha)->where('user_id', Auth::user()->id)->update(['publicada' => $publicado]);
-
         return response()->json($request);
     }
 
