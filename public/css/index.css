@@ -1,14 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap');
 
 body {
-    background: url(../img/background.png) center/cover fixed;
     color: #444;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.watermark {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    filter: grayscale(1);
+    opacity: 0.06;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.watermark > img {
+    position: absolute;
+    height: 120vh;
+}
+
+.watermark .mujer-izq {
+    left: -390px;
+}
+.watermark .mujer-der {
+    right: -390px;
+    transform: rotateY(180deg);
+}
+
+.intro > *,
+.content > * {
+    position: relative;
+    z-index: 1;
 }
 
 .intro {
     background: #fffb;
-    border-top: 20px solid var(--bs-primary);
+    border-top: 30px solid var(--bs-primary);
     border-bottom: 1px solid gainsboro;
 }
 
@@ -24,17 +54,18 @@ body {
 
 
 .title {
-    font-size: 3rem;
+    font-size: 20pt;
     font-weight: 500;
 }
 
 .title-2 {
-    font-size: 2rem;
+    font-size: 16pt;
     font-weight: 400;
+    line-height: 1.4;
 }
 
 .content {
-    background-color: #f0f0f0e0;
+    background-color: #EBEBEB;
 }
 
 .fecha {
@@ -51,10 +82,6 @@ body {
 .fecha .day-num {
     font-size: 5rem;
     font-weight: 600;
-}
-
-.fecha .day-name {
-
 }
 
 .fecha input {
@@ -157,36 +184,17 @@ body {
     cursor: pointer;
 }
 
-blockquote.twitter-tweet {
-    background-color: white;
-    border: 1px solid gainsboro;
-    padding: 1rem;
-    border-radius: 5px;
-}
-
-.twitter a {
-    margin-top: 0 !important;
-    text-decoration: none;
-}
-
 .footer {
     font-size: 10pt;
     mix-blend-mode: multiply;
 }
 
 .footer-logo {
-    height: 150px;
-    filter: invert();
+    height: 70px;
 }
 
 .footer a {
     text-decoration: none;
-}
-
-@media (max-width: 576px) {
-    .footer * {
-        text-align: center !important;
-    }
 }
 
 @media print {
@@ -201,7 +209,6 @@ blockquote.twitter-tweet {
     .intro,
     .fecha .arrow,
     .actions,
-    .twitter,
     .footer {
         display: none;
     }

@@ -11,35 +11,36 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Agenda del Alcalde - H. Ayuntamiento de Mazatlán</title>
+    <title>Agenda de la Presidenta - H. Ayuntamiento de Mazatlán</title>
 
     <link rel="stylesheet" href="{{asset('lib/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{asset('lib/fontawesome-free-6.1.1-web/css/all.css')}}">
+    <link rel="stylesheet" href="{{asset('lib/fontawesome-free-6.6.0-web/css/all.css')}}">
     <link rel="stylesheet" href="{{asset('css/index.css')}}">
     <link rel="stylesheet" href="{{asset('css/spinner.css')}}">
 
     <script src="https://unpkg.com/vue@latest"></script>
     <script type="module" src="{{asset('js/index.js')}}"></script>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 </head>
 <body>
     <div id="app">
-        <div class="intro py-5">
+        <div class="watermark">
+            <img class="mujer-izq" src="{{asset('img/mujer-mzt.png')}}" />
+            <img class="mujer-der" src="{{asset('img/mujer-mzt.png')}}" />
+        </div>
+
+        <div class="intro pt-4 pb-3">
             <div class="container-xl">
 
-                <div class="row justify-content-center">
-                    <div class="col-md-auto me-0 me-md-4 mb-4 text-center">
-                        <img class="logo" src="{{asset('img/logo.svg')}}">
-                    </div>
-                    <div class="col-md-auto header text-center text-md-left">
-                        <h1 class="title text-primary">AGENDA DEL ALCALDE</h1>
-                        <h2 class="title-2 text-muted">H. AYUNTAMIENTO DE MAZATL&Aacute;N 2021-2024</h2>
-                    </div>
-                </div>
+                <div class="text-center">
+                    <img class="logo mx-auto mb-4" src="{{asset('img/mujer-vert-color.png')}}">
 
-                <div class="container fs-3 my-4 text-center">
-                    Ent&eacute;rate de las actividades y los lugares a los que estar&aacute; acudiendo nuestro alcalde
+                    <div class="header">
+                        <h1 class="title text-primary">AGENDA DE LA PRESIDENTA MUNICIPAL</h1>
+                        <h2 class="title-2 text-info">
+                            <div>H. AYUNTAMIENTO DE MAZATL&Aacute;N</div>
+                            <div>2024-2027</h2>
+                    </div>
                 </div>
 
             </div>
@@ -47,7 +48,12 @@
 
         <div class="content py-5">
             <div class="container-xl">
-                <div class="row justify-content-center align-items-start py-4">
+
+                <div class="col-12 col-md-auto offset-md-3 offset-lg-2 fs-5 text-center text-md-start mb-5 mb-md-2 px-2">
+                    ¡Mantente al día con el trabajo de nuestra presidenta!
+                </div>
+
+                <div class="row justify-content-center align-items-start pt-3 pb-4">
 
                     <!-- fecha -->
                     <div class="col-8 col-sm-4 col-md-3 col-lg-2 pb-5">
@@ -141,65 +147,61 @@
 
 
                         <div class="card bg-light empty" v-if="eventos.length == 0">
-                                <div class="card-body py-5">
-                                    <i class="fa-regular fa-calendar-xmark" style="color: gainsboro"></i>
-                                    <div style="font-weight: 300;">No hay eventos programados</div>
-                                </div>
+                            <div class="card-body py-5">
+                                <i class="fa-regular fa-calendar-xmark" style="color: gainsboro"></i>
+                                <div style="font-weight: 300;">No hay eventos programados</div>
+                            </div>
                         </div>
 
 
                         <div class="text-muted text-center mt-5">Estas citas est&aacute;n sujetas a cambios sin previo aviso</div>
 
                     </div>
-
-                    @if (env('URL_TWITTER'))
-                    <!-- twitter -->
-                    <div class="twitter col-12 col-sm-9 col-md-8 col-lg-4 col-xl-3">
-                        @include("public.twitter", ["url" => env('URL_TWITTER')])
-                    </div>
-                    @endif
                 </div>
 
             </div>
         </div>
 
-        <div class="footer bg-primary text-white">
-            <div class="container col-md-10 pt-5">
-                <div class="row justify-content-between">
-                    <div class="col-sm-3 col-lg-2 mb-4 mb-sm-0">
+        <div class="footer bg-info text-white">
+            <div class="container-xl pt-4">
+                <div class="row">
+                    <div class="col-12 col-md-4 text-center text-md-start mb-4 mb-md-0">
                         <a href="http://mazatlan.gob.mx">
-                            <img class="footer-logo" src="{{asset('img/logo.svg')}}">
+                            <img class="footer-logo" src="{{asset('img/logo-horiz-white.png')}}">
                         </a>
                     </div>
-                    <div class="col-sm-5 col-lg-6 mb-4 mb-sm-0 mt-sm-3 lh-lg">
+
+                    <div class="col-12 col-md-4 text-center mb-4 mb-md-0 mt-md-2 lh-md">
                         <div class="fw-bold">Presidencia Municipal</div>
                         <div>H. Ayuntamiento de Mazatl&aacute;n</div>
                         <div>Angel Flores S/N, Col. Centro</div>
                         <div>Mazatl&aacute;n, Sinaloa.</div>
                     </div>
-                    <div class="col-sm-4 mb-4 mb-sm-0 mt-sm-3 text-end d-flex flex-column justify-content-between">
+
+                    <div class="col-12 col-md-4 text-center text-md-end mb-4 mb-md-0 mt-md-3">
                         @if (env('URL_INSTAGRAM'))
-                        <a class="text-white" href="{{env('URL_INSTAGRAM')}}">
+                        <a class="text-white mx-1" href="{{env('URL_INSTAGRAM')}}" title="Instagram">
                             <i class="fa-brands fa-fw fa-3x fa-instagram"></i>
                         </a>
                         @endif
-                        @if (env('URL_TWITTER'))
-                        <a class="text-white" href="{{env('URL_TWITTER')}}">
-                            <i class="fa-brands fa-fw fa-3x fa-twitter"></i>
+                        @if (env('URL_X_TWITTER'))
+                        <a class="text-white mx-1" href="{{env('URL_X_TWITTER')}}" title="X">
+                            <i class="fa-brands fa-fw fa-3x fa-x-twitter"></i>
                         </a>
                         @endif
                         @if (env('URL_FACEBOOK'))
-                        <a class="text-white" href="{{env('URL_FACEBOOK')}}">
+                        <a class="text-white mx-1" href="{{env('URL_FACEBOOK')}}" title="Facebook">
                             <i class="fa-brands fa-fw fa-3x fa-facebook"></i>
                         </a>
                         @endif
                         &nbsp;
                     </div>
+
                 </div>
             </div>
 
-            <a class="d-block text-center fw-bold pb-2" style="color: dimgray">
-                Desarrollo por Gibrán Beltrán y Jose Aispuro. Informática Mazatlán.
+            <a class="d-block text-center fw-semibold pt-4 pb-3" style="color: #fff5">
+                Desarrollo por Gibrán Beltrán y Jose Aispuro. Informática Mazatlán &trade;
             </a>
         </div>
     </div>
