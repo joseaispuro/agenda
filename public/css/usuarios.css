@@ -1,0 +1,10 @@
+tr.eliminado{
+    background: #f8d7da;
+    color: white;
+}
+
+tr.eliminado td, tr.eliminado th{
+    color: #58151c;
+    font-size: 12px;
+    border-color: #f1aeb5;
+}

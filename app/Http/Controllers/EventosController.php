@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Evento;
+use App\Models\User;
 use Validator;
 use Auth;
+use Illuminate\Validation\Rule;
 
 class EventosController extends Controller
 {
@@ -112,6 +114,55 @@ class EventosController extends Controller
     public function mostrarHome()
     {
         return view('home');
+    }
+
+    public function usuariosList(){
+        return view('usuarios');
+    }
+
+    public function getUsuarios(){
+        $usuarios = User::withTrashed()->get();
+        return response()->json($usuarios);
+    }
+
+    public function guardarUsuario(Request $request){
+
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'user' => ['required', Rule::unique('users')->ignore($request->id)],
+            'password' => 'required_if:id,0',
+            'email' => 'required|email',
+        ], ['required' => 'El campo es requerido', 'email' => 'Debe ser un email válido', 'unique' => 'Usuario ya existente','required_if' => 'Asigne una contraseña']);
+
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors(), 'message' => 'Hay errores', 'success' => false]);
+        }
+
+        $usuario = ($request->id) ? User::findOrFail($request->id) : new User();
+
+        if($request->password){
+            $usuario->password = bcrypt($request->password);
+        }
+
+        $usuario->name = $request->name;
+        $usuario->user = $request->user;
+        $usuario->email = $request->email;
+        $usuario->save();
+
+        return response()->json(['success'=> true, 'usuarios' => User::withTrashed()->get()]);
+    }
+
+    public function eliminarUsuario(Request $request){
+
+        if($request->id == 1 ){
+            return response()->json(['success' => false, 'usuarios' => User::withTrashed()->get()]);
+        }
+
+        $usuario = User::findOrFail($request->id)->delete();
+        return response()->json(['success' => $usuario, 'usuarios' => User::withTrashed()->get()]);
+
     }
 
 

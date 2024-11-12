@@ -32,13 +32,16 @@ Route::group(['prefix' => 'admin'], function() {
         Route::name('print')->get('/imprimir', 'EventosController@imprimir');
         Route::name('generate')->get('/generar', 'EventosController@generar');
 
-
         Route::post('guardar-evento', 'EventosController@guardarEvento');
         Route::post('get-eventos', 'EventosController@getEventos');
         Route::post('get-evento', 'EventosController@getEvento');
         Route::post('update-eventos', 'EventosController@updateEventos');
         Route::post('eliminar-evento', 'EventosController@eliminarEvento');
         Route::get('/', 'EventosController@mostrarHome');
+        Route::get('usuarios', 'EventosController@usuariosList');
+        Route::get('get-usuarios', 'EventosController@getUsuarios');
+        Route::post('guardar-usuario', 'EventosController@guardarUsuario');
+        Route::post('eliminar-usuario', 'EventosController@eliminarUsuario');
 
         //Route::get('evento/{id}', 'EventosController@mostrarEvento');
 
