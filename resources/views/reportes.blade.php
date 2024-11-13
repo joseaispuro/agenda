@@ -81,7 +81,7 @@
                 <label for=""><strong>Atiende</strong></label>
                 <select name="atiende" v-model="atiende" id="" class="form-control">
                   <option value="0">Todo</option>
-                  <option value="1">Alcalde</option>
+                  <option value="1">Presidenta</option>
                   <option value="2">Representación</option>
                 </select>
               </div>
