@@ -122,7 +122,7 @@
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" v-model="lugarAtiende" value="1" name="lugarAtiende">
                 <label class="form-check-label" for="lugarAtiende">
-                  Despacho del Alcalde
+                  Despacho de la Presidenta
                 </label>
               </div>
               <div class="form-check form-check-inline" >
@@ -147,7 +147,7 @@
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="atiendeAlcalde" value="1" v-model="atiendeAlcalde">
                 <label class="form-check-label" for="flexRadioDefault1">
-                  Alcalde
+                  Presidenta
                 </label>
               </div>
               <div class="form-check form-check-inline">
