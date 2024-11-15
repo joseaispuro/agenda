@@ -6,6 +6,17 @@
     <meta name="author" content="Gibrán Beltrán">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQKH35SJVK"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JQKH35SJVK');
+    </script>
+
     <meta name="base-url" content="{{ url('') }}">
 
     <!-- CSRF Token -->
