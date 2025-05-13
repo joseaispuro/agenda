@@ -36,7 +36,7 @@
             </a>
           </li>
 
-          @if(Auth::user()->id == 1)
+          @if(Auth::user()->id == 1 || Auth::user()->id == 6)
           <li class="nav-item">
             <a class="nav-link" href="{{url('/admin/usuarios')}}">
               <i class="fas fa-users"></i>

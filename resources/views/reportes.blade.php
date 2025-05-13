@@ -38,6 +38,14 @@
               Reportes
             </a>
           </li>
+          @if(Auth::user()->id == 1 || Auth::user()->id == 6)
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('/admin/usuarios')}}">
+              <i class="fas fa-users"></i>
+              Usuarios
+            </a>
+          </li>
+          @endif
         </ul>
         <!--
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
