@@ -1,0 +1,48 @@
+/* latin */
+@font-face {
+  font-family: 'Infinita Sans';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(InfinitaSans-Thin.ttf) format('truetype');
+}
+/* latin */
+@font-face {
+  font-family: 'Infinita Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(InfinitaSans-Light.ttf) format('truetype');
+}
+/* latin */
+@font-face {
+  font-family: 'Infinita Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(InfinitaSans-Regular.ttf) format('truetype');
+}
+/* latin */
+@font-face {
+  font-family: 'Infinita Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(InfinitaSans-Medium.ttf) format('truetype');
+}
+/* latin */
+@font-face {
+  font-family: 'Infinita Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(InfinitaSans-Bold.ttf) format('truetype');
+}
+/* latin */
+@font-face {
+  font-family: 'Infinita Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(InfinitaSans-Black.ttf) format('truetype');
+}

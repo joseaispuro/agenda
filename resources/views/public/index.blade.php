@@ -26,63 +26,96 @@
 
     <link rel="stylesheet" href="{{asset('lib/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('lib/fontawesome-free-6.6.0-web/css/all.css')}}">
+    <link rel="stylesheet" href="{{asset('fonts/Acherus/acherus.css')}}">
+    <link rel="stylesheet" href="{{asset('fonts/Infinita/infinita.css')}}">
     <link rel="stylesheet" href="{{asset('css/index.css')}}">
     <link rel="stylesheet" href="{{asset('css/spinner.css')}}">
+    <link rel="stylesheet" href="{{asset('css/nuevo.css')}}">
+    <link rel="stylesheet" href="{{asset('css/header.css')}}">
 
     <script src="https://unpkg.com/vue@latest"></script>
+    <script src="{{asset('js/bootstrap.js')}}" charset="utf-8"></script>
     <script type="module" src="{{asset('js/index.js')}}"></script>
 
 </head>
 <body>
-    <div id="app">
+
+<div id="app">
+
+
+    <!-- AQUI HAY QUE AGREGAR EL COMPONENTE -->
+    <custom-header></custom-header>
+
+
         <div class="watermark">
             <img class="mujer-izq" src="{{asset('img/mujer-mzt.png')}}" />
             <img class="mujer-der" src="{{asset('img/mujer-mzt.png')}}" />
         </div>
 
-        <div class="intro pt-4 pb-3">
-            <div class="container-xl">
-
-                <div class="text-center">
-                    <img class="logo mx-auto mb-4" src="{{asset('img/mujer-vert-color.png')}}">
-
-                    <div class="header">
-                        <h1 class="title text-primary">AGENDA DE LA PRESIDENTA MUNICIPAL</h1>
-                        <h2 class="title-2 text-info">
-                            <div>H. AYUNTAMIENTO DE MAZATL&Aacute;N</div>
-                            <div>2024-2027</h2>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
         <div class="content py-5">
             <div class="container-xl">
 
-                <div class="col-12 col-md-auto offset-md-3 offset-lg-2 fs-5 text-center text-md-start mb-5 mb-md-2 px-2">
-                    ¡Mantente al día con el trabajo de nuestra presidenta!
+                <div class="col-12 col-md-auto" style="font-weight: 500;margin-bottom: 14px;">
+                    <i class="fa-solid fa-fw fa-home"></i> > Agenda Presidenta Municipal
+                </div>
+
+                <div class="row align-items-center text-center">
+                    <!-- Columna 1-3: AGENDA -->
+                    <div class="col-12 col-md-3 col-lg-2 text-left">
+                        <h2>Agenda</h2>
+                    </div>
+
+                    <!-- Columna 4+: Presidenta Municipal -->
+                    <div class="col-12 col-md-9 col-lg-10">
+                        <h4>Presidenta Municipal</h4>
+                    </div>
+                </div>
+
+                <!--
+                <div class="col-12 col-md-auto offset-md-3 offset-lg-2 text-center">
+                    <h4>Presidenta Municipal</h4>
+                </div> -->
+
+                <div class="col-12 col-md-auto offset-md-3 offset-lg-2 text-center text-gray">
+                    <p>H. Ayuntamiento de Mazatlán</p>
+                </div>
+
+                <div class="col-12 col-md-auto offset-md-3 offset-lg-2 fs-6 text-black mb-5 mb-md-2 px-2 text-center">
+                    ¡Mantente al día con el trabajo de nuestra Presidenta!
                 </div>
 
                 <div class="row justify-content-center align-items-start pt-3 pb-4">
 
                     <!-- fecha -->
                     <div class="col-8 col-sm-4 col-md-3 col-lg-2 pb-5">
-                        <div class="fecha card border-info">
-
-                            <span class="arrow prev pointer" @click="anteriorDia"><i class="prev fa-solid fa-fw fa-chevron-up"></i></span>
-                            <span class="arrow next pointer" @click="siguienteDia"><i class="next fa-solid fa-fw fa-chevron-down"></i></span>
+                        <div class="fecha card">
 
                             <div class="card-header text-center">
-                                <i class="fa-regular fa-calendar"></i>&nbsp; <span v-cloak>@{{mes}}</span>
+                                <span v-cloak>@{{mes}}</span>
                             </div>
                             <div class="click-area card-body text-center pointer">
-                                <div class="day-num text-info" v-cloak>@{{dia}}</div>
+                                <div class="day-num text-gray" v-cloak>@{{dia}}</div>
+                                <div class="anio-num">@{{anio}}</div>
                                 <div class="day-name" v-cloak>@{{diaLetra}}</div>
                             </div>
-                            <div class="card-footer p-1">
+                            <!--<div class="card-footer p-1">
                                 <input type="date" class="pointer" v-model="fecha">
-                            </div>
+                            </div>-->
+                            
+                        </div>
+
+                        <div class="barra-desplazamiento card d-flex flex-row align-items-center w-100">
+                            <span class="arrow prev pointer d-flex justify-content-center align-items-center"
+                                    @click="anteriorDia">
+                                <i class="fa-solid fa-fw fa-chevron-left"></i>
+                            </span>
+
+                            <input type="date" class="fecha-input pointer flex-grow-1" v-model="fecha">
+
+                            <span class="arrow next pointer d-flex justify-content-center align-items-center"
+                                    @click="siguienteDia">
+                                <i class="fa-solid fa-fw fa-chevron-right"></i>
+                            </span>
                         </div>
 
                         <div class="actions text-secondary">
@@ -161,7 +194,7 @@
                             <div class="card-body py-5">
                                 <div v-if="loading">
                                     <i class="fa-solid fa-spinner fa-spin" style="color: gainsboro"></i>
-                                    <div style="font-weight: 300;">Cargando Eventos...</div>
+                                    <div style="font-weight: 300;">Cargando eventos...</div>
                                 </div>
                                 <div v-else>
                                     <i class="fa-regular fa-calendar-xmark" style="color: gainsboro"></i>
@@ -179,49 +212,188 @@
             </div>
         </div>
 
-        <div class="footer bg-info text-white">
-            <div class="container-xl pt-4">
-                <div class="row">
-                    <div class="col-12 col-md-4 text-center text-md-start mb-4 mb-md-0">
-                        <a href="http://mazatlan.gob.mx">
-                            <img class="footer-logo" src="{{asset('img/logo-horiz-white.png')}}">
-                        </a>
-                    </div>
+        
 
-                    <div class="col-12 col-md-4 text-center mb-4 mb-md-0 mt-md-2 lh-md">
-                        <div class="fw-bold">Presidencia Municipal</div>
-                        <div>H. Ayuntamiento de Mazatl&aacute;n</div>
-                        <div>Angel Flores S/N, Col. Centro</div>
-                        <div>Mazatl&aacute;n, Sinaloa.</div>
-                    </div>
+<div class="footer bg-primary text-light px-2 py-3 py-lg-4" v-show="!loading">
+    <!-- Escritorio -->
+    <div class="container-fluid d-none d-lg-block">
+        <div class="row justify-content-between">
+            <div class="col-12 col-lg-3 col-xl-2 mb-4 mb-lg-0">
+                <img class="escudo" src="{{asset('img/escudo-vert-white.png')}}">
 
-                    <div class="col-12 col-md-4 text-center text-md-end mb-4 mb-md-0 mt-md-3">
-                        @if (env('URL_INSTAGRAM'))
-                        <a class="text-white mx-1" href="{{env('URL_INSTAGRAM')}}" title="Instagram">
-                            <i class="fa-brands fa-fw fa-3x fa-instagram"></i>
-                        </a>
-                        @endif
-                        @if (env('URL_X_TWITTER'))
-                        <a class="text-white mx-1" href="{{env('URL_X_TWITTER')}}" title="X">
-                            <i class="fa-brands fa-fw fa-3x fa-x-twitter"></i>
-                        </a>
-                        @endif
-                        @if (env('URL_FACEBOOK'))
-                        <a class="text-white mx-1" href="{{env('URL_FACEBOOK')}}" title="Facebook">
-                            <i class="fa-brands fa-fw fa-3x fa-facebook"></i>
-                        </a>
-                        @endif
-                        &nbsp;
-                    </div>
-
+                <div class="social-icons text-center mt-2">
+                    <a href="https://www.facebook.com/GobiernoMunicipaldeMazatlan/">
+                        <i class="fa-brands fa-fw fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@hayuntamientodemazatlan/">
+                        <i class="fa-brands fa-fw fa-youtube"></i>
+                    </a>
+                    <a href="https://www.instagram.com/gobiernomunicipaldemazatlan/">
+                        <i class="fa-brands fa-fw fa-instagram"></i>
+                    </a>
                 </div>
             </div>
+            <div class="col-12 col-lg-9 col-xl-10">
+                <div class="footer-menu container-fluid">
+                    <div class="row justify-content-xl-end">
+                        <div class="col-12 col-lg-4 col-xl-auto mb-3 mb-xl-0 custom-flex-grow">
+                            <div class="footer-heading">Ayuntamiento de Mazatlán</div>
 
-            <a class="d-block text-center fw-semibold pt-4 pb-3" style="color: #fff5">
-                Desarrollo por Gibrán Beltrán y Jose Aispuro. Informática Mazatlán &trade;
-            </a>
+                            <ul class="footer-list">
+                                <li><a href="https://wvw.mazatlan.gob.mx/organigrama/">Gobierno</a></li>
+                                <li><a href="https://servicios.mazatlan.gob.mx/">Pagos en línea</a></li>
+                                <!-- <li><a href="#">Facturación</a></li> -->
+                                <li><a href="#">Mapa del sitio</a></li>
+                                <li><a href="#">Atención ciudadana</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-lg-8 col-xl-auto mb-3 mb-xl-0 custom-flex-grow">
+                            <div class="footer-heading">Órgano Interno de Control</div>
+
+                            <ul class="footer-list">
+                                <li><a href="https://oicmzt.com/oic/denuncia-o-queja/">Realiza una denuncia</a></li>
+                                <li><a href="http://wvw.mazatlan.gob.mx/wp-content/uploads/2025/01/Codigo-de-Etica-de-las-Personas-Servidoras-Publicas-del-Municipio-de-Mazatlan-Sinaloa-1.pdf">Código de ética</a></li>
+                                <li><a href="https://wvw.mazatlan.gob.mx/wp-content/uploads/2022/04/C%C3%B3digo-de-Conducta-de-las-Personas-Servidoras-P%C3%BAblicas-del-Municipio-de-Mazatl%C3%A1n-Sinaloa.pdf">Código de conducta</a></li>
+                                <li><a href="https://tics.mazatlan.gob.mx/sisdec/autoridad-investigadora">SISDEC</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-lg-4 col-xl-auto mb-3 mb-xl-0 custom-flex-grow">
+                            <div class="footer-heading">Transparencia</div>
+
+                            <ul class="footer-list">
+                                <li><a href="http://transparencia.mazatlan.gob.mx/destinatarios-de-recursos/destinatarios-y-uso-de-recursos-entregados">Destino de recursos</a></li>
+                                <li><a href="https://sindicoprocurador.mazatlan.gob.mx/">Síndico procurador</a></li>
+                                <li><a href="https://tics.mazatlan.gob.mx/asuntosjuridicos">Asuntos jurídicos</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-lg-8 col-xl-auto mb-3 mb-xl-0 custom-flex-grow">
+                            <div class="footer-heading">Enlaces</div>
+
+                            <div class="row">
+                                <div class="col-auto">
+                                    <ul class="footer-list">
+                                        <li><a href="https://imdem.mazatlan.gob.mx/">IMDEM</a></li>
+                                        <li><a href="https://imju.mazatlan.gob.mx/">IMJU</a></li>
+                                        <li><a href="https://immujer.mazatlan.gob.mx/">IMMUJER</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-auto">
+                                    <ul class="footer-list">
+                                        <li><a href="https://culturamazatlan.com/">CULTURA</a></li>
+                                        <li><a href="http://jumapam.gob.mx/">JUMAPAM</a></li>
+                                        <li><a href="http://difmazatlan.gob.mx/">DIF</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-auto text-nowrap">
+                                    <ul class="footer-list">
+                                        <li><a href="https://wvw.mazatlan.gob.mx/#">VISIT MAZATLAN</a></li>
+                                        <li><a href="https://wvw.mazatlan.gob.mx/#">MAZATLAN TRAVEL</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-12 col-xl-12 text-end d-flex flex-column justify-content-end">
+                            <div>Angel Flores s/n Col. Centro C.P. 82000</div>
+                            <div>H. Ayuntamiento de Mazatlán {{ dtformat(now(), 'Y') }}</div>
+                        </div>
+                    </div>
+                </div><!-- /footer-menu -->
+            </div>
         </div>
     </div>
+
+    <!-- Mobile -->
+     <div class="container-fluid d-lg-none">
+        <!-- Enlaces -->
+        <div id="footer-mobile" class="mb-4">
+            <div class="mb-2">
+                <button class="footer-heading-mobile w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#ayuntamiento-collapse" aria-expanded="false" aria-controls="ayuntamiento-collapse">
+                    <i class="fa-solid fa-fw fa-plus collapse-icon"></i>
+                    <i class="fa-solid fa-fw fa-minus collapse-icon"></i>
+                    Ayuntamiento de Mazatlán
+                </button>
+                <ul class="footer-list collapse collapse-margin" id="ayuntamiento-collapse" data-bs-parent="#footer-mobile">
+                    <li class="mb-3"><a href="https://wvw.mazatlan.gob.mx/organigrama/">Gobierno</a></li>
+                    <li class="mb-3"><a href="https://servicios.mazatlan.gob.mx/">Pagos en línea</a></li>
+                    <li class="mb-3"><a href="#">Mapa del sitio</a></li>
+                    <li class="mb-3"><a href="#">Atención ciudadana</a></li>
+                </ul>
+            </div>
+            <div class="mb-2">
+                <button class="footer-heading-mobile w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#oic-collapse" aria-expanded="false" aria-controls="oic-collapse">
+                    <i class="fa-solid fa-fw fa-plus collapse-icon"></i>
+                    <i class="fa-solid fa-fw fa-minus collapse-icon"></i>
+                    Órgano Interno de Control
+                </button>
+                <ul class="footer-list collapse collapse-margin" id="oic-collapse" data-bs-parent="#footer-mobile">
+                    <li class="mb-3"><a href="https://oicmzt.com/oic/denuncia-o-queja/">Realiza una denuncia</a></li>
+                    <li class="mb-3"><a href="http://wvw.mazatlan.gob.mx/wp-content/uploads/2025/01/Codigo-de-Etica-de-las-Personas-Servidoras-Publicas-del-Municipio-de-Mazatlan-Sinaloa-1.pdf">Código de ética</a></li>
+                    <li class="mb-3"><a href="https://wvw.mazatlan.gob.mx/wp-content/uploads/2022/04/C%C3%B3digo-de-Conducta-de-las-Personas-Servidoras-P%C3%BAblicas-del-Municipio-de-Mazatl%C3%A1n-Sinaloa.pdf">Código de conducta</a></li>
+                    <li class="mb-3"><a href="https://tics.mazatlan.gob.mx/sisdec/autoridad-investigadora">SISDEC</a></li>
+                </ul>
+            </div>
+            <div class="mb-2">
+                <button class="footer-heading-mobile w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#transparencia-collapse" aria-expanded="false" aria-controls="transparencia-collapse">
+                    <i class="fa-solid fa-fw fa-plus collapse-icon"></i>
+                    <i class="fa-solid fa-fw fa-minus collapse-icon"></i>
+                    Transparencia
+                </button>
+                <ul class="footer-list collapse collapse-margin" id="transparencia-collapse" data-bs-parent="#footer-mobile">
+                    <li class="mb-3"><a href="http://transparencia.mazatlan.gob.mx/destinatarios-de-recursos/destinatarios-y-uso-de-recursos-entregados">Destino de recursos</a></li>
+                    <li class="mb-3"><a href="https://sindicoprocurador.mazatlan.gob.mx/">Síndico procurador</a></li>
+                    <li class="mb-3"><a href="https://tics.mazatlan.gob.mx/asuntosjuridicos">Asuntos jurídicos</a></li>
+                </ul>
+            </div>
+            <div class="mb-2">
+                <button class="footer-heading-mobile w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#enlaces-collapse" aria-expanded="false" aria-controls="enlaces-collapse">
+                    <i class="fa-solid fa-fw fa-plus collapse-icon"></i>
+                    <i class="fa-solid fa-fw fa-minus collapse-icon"></i>
+                    Enlaces
+                </button>
+                <ul class="footer-list collapse collapse-margin" id="enlaces-collapse" data-bs-parent="#footer-mobile">
+                    <li class="mb-3"><a href="https://imdem.mazatlan.gob.mx/">IMDEM</a></li>
+                    <li class="mb-3"><a href="https://imju.mazatlan.gob.mx/">IMJU</a></li>
+                    <li class="mb-3"><a href="https://immujer.mazatlan.gob.mx/">IMMUJER</a></li>
+                    <li class="mb-3"><a href="https://culturamazatlan.com/">CULTURA</a></li>
+                    <li class="mb-3"><a href="http://jumapam.gob.mx/">JUMAPAM</a></li>
+                    <li class="mb-3"><a href="http://difmazatlan.gob.mx/">DIF</a></li>
+                    <li class="mb-3"><a href="https://wvw.mazatlan.gob.mx/#">VISIT MAZATLAN</a></li>
+                    <li class="mb-3"><a href="https://wvw.mazatlan.gob.mx/#">MAZATLAN TRAVEL</a></li>
+            </div>
+        </div>
+
+        <!-- Logo y redes sociales -->
+        <div class="row justify-content-between">
+            <div class="col-4">
+                <img class="escudo-mobile" src="{{asset('img/escudo-vert-white.png')}}">
+            </div>
+            <div class="col-8">
+                <!-- Redes Sociales -->
+                <div class="social-icons text-end mt-4 mb-3">
+                    <a href="https://www.facebook.com/GobiernoMunicipaldeMazatlan/">
+                        <i class="fa-brands fa-fw fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@hayuntamientodemazatlan/">
+                        <i class="fa-brands fa-fw fa-youtube"></i>
+                    </a>
+                    <a href="https://www.instagram.com/gobiernomunicipaldemazatlan/">
+                        <i class="fa-brands fa-fw fa-instagram"></i>
+                    </a>
+                </div>
+
+                <!-- Dirección -->
+                <div class="col-12 col-lg-12 col-xl-12 text-end d-flex flex-column justify-content-end address-mobile">
+                    <div class="mb-2">Angel Flores s/n Col. Centro C.P. 82000</div>
+                    <div>H. Ayuntamiento de Mazatlán {{ dtformat(now(), 'Y') }}</div>
+                </div>
+            </div>
+        </div>
+     </div>
+</div> <!-- footer -->
+
+
+    </div> <!-- app-->
 
     <div class="lds-spinner" id="spinner">
         <div></div>
@@ -237,5 +409,8 @@
         <div></div>
         <div></div>
     </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
 </html>

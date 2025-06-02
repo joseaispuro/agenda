@@ -1,5 +1,8 @@
 const { createApp } = Vue
 
+// Importar el componente
+import CustomHeader from './components/header.js';
+
 createApp({
     data() {
         return {
@@ -8,12 +11,39 @@ createApp({
             diaLetra: '',
             dia: '',
             mes: '',
+            anio: '',
             eventos: {},
-            loading: false
+            loading: false,
+            subMenuActive: null
         }
     },
-    mounted() {
+    mounted() {    
         document.getElementById('spinner').style.display = 'flex';
+
+
+        /*document.querySelectorAll('.btn-header-event').forEach(boton => {
+            const targetId = boton.getAttribute('data-target');
+            const targetMenu = document.getElementById(targetId);
+            let timeout;
+
+            const showMenu = () => {
+                console.log('entro')
+                clearTimeout(timeout);
+                document.querySelectorAll('.header-collapse').forEach(menu => menu.classList.remove('show'));
+                targetMenu.classList.add('show');
+            };
+
+            const hideMenu = () => {
+                timeout = setTimeout(() => {
+                    targetMenu.classList.remove('show');
+                }, 200); // puedes ajustar este tiempo
+            };
+
+            boton.addEventListener('mouseenter', showMenu);
+            boton.addEventListener('mouseleave', hideMenu);
+            targetMenu.addEventListener('mouseenter', () => clearTimeout(timeout));
+            targetMenu.addEventListener('mouseleave', hideMenu);
+        });*/
 
         const urlParams = new URLSearchParams(window.location.search);
         const fecha = urlParams.get('fecha');
@@ -44,6 +74,10 @@ createApp({
         }
     },
     methods: {
+        // Función para activar o desactivar el submenú
+        /*toggleSubMenu(menu) {
+            this.subMenuActive = this.subMenuActive === menu ? null : menu;
+        },*/
         siguienteDia: function () {
             let day = new Date(this.fecha + 'T00:00:00');
 
@@ -124,6 +158,8 @@ createApp({
             let tempDia = form.fecha.split('-');
             form.dia = tempDia[2];
 
+            form.anio = tempDia[0];
+
             //Colocamos el mes cuando cambia
             let tempMes = form.fechaLetra.split(' ');
             form.mes = tempMes[3];
@@ -158,6 +194,10 @@ createApp({
 
 
         }
+    },
+    components: {
+        // Registrar el componente
+        CustomHeader
     }
 }).mount('#app');
 
