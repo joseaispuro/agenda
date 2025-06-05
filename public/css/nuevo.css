@@ -106,7 +106,8 @@ span.presidenta{
 }
 
 .container-xl{
-    max-width: 1800px!important;
+    max-width: 1452px!important;
+    max-width: 92%!important;
 }
 
 h2{
