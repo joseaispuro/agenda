@@ -56,18 +56,20 @@
             <div class="container-xl">
 
                 <div class="col-12 col-md-auto" style="font-weight: 500;margin-bottom: 14px;">
-                    <i class="fa-solid fa-fw fa-home"></i> > Agenda Presidenta Municipal
+                    <span class="breadcumb"> <img class="home" src="{{asset('img/home-icon.png')}}" alt=""> > Presidencia Municipal / Agenda</span>
                 </div>
 
                 <div class="row align-items-center text-center">
                     <!-- Columna 1-3: AGENDA -->
                     <div class="col-12 col-md-3 col-lg-2 text-left">
-                        <h2>Agenda</h2>
+                        <h2 class="text-center text-md-start">Agenda</h2>
                     </div>
 
                     <!-- Columna 4+: Presidenta Municipal -->
                     <div class="col-12 col-md-9 col-lg-10">
-                        <h4>Presidenta Municipal</h4>
+                        <!--<span class="presidenta">Presidenta Municipal</span>-->
+                        <span class="presidenta">Presidenta Municipal</span>
+                        <div class="borde-abajo"></div>
                     </div>
                 </div>
 
@@ -76,11 +78,11 @@
                     <h4>Presidenta Municipal</h4>
                 </div> -->
 
-                <div class="col-12 col-md-auto offset-md-3 offset-lg-2 text-center text-gray">
-                    <p>H. Ayuntamiento de Mazatlán</p>
+                <div class="col-12 col-md-auto offset-md-3 offset-lg-2 text-center text-gray py-2">
+                    <p class="mb-0 acherus">H. Ayuntamiento de Mazatlán</p>
                 </div>
 
-                <div class="col-12 col-md-auto offset-md-3 offset-lg-2 fs-6 text-black mb-5 mb-md-2 px-2 text-center">
+                <div class="col-12 col-md-auto offset-md-3 offset-lg-2 fs-6 text-black mb-5 mb-md-2 px-2 text-center acherus">
                     ¡Mantente al día con el trabajo de nuestra Presidenta!
                 </div>
 

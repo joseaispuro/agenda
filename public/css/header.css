@@ -7,8 +7,11 @@
     font-family: "Acherus", "Acherus Grotesque",sans-serif;
 }
 
+/** DEBE AGREGARSE AL REPO ***/
 .header .logo {
     height: 40px;
+    margin-top: -2px;
+    margin-bottom: 2px;
 }
 
 .btn-header {
@@ -21,6 +24,12 @@
     padding-left: 8px !important;
     width: 120px;
     transition: color 0.3s;
+}
+
+
+/** DEBE AGREGARSE AL REPO ***/
+.bg-primary {
+    padding-right: 10px;
 }
 
 .btn-header:hover {

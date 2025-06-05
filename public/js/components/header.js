@@ -7,7 +7,7 @@ const template = `
         </div>
 
         <!-- DESKTOP -->
-        <div class="d-none d-md-block">
+        <div class="d-none d-md-block mx-3">
 
             <!-- Menú Dinámico -->
             <div v-for="(subheader, i) of menu" :key="i" class="sub-header-group">
