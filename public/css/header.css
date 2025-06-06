@@ -10,8 +10,8 @@
 /** DEBE AGREGARSE AL REPO ***/
 .header .logo {
     height: 40px;
-    margin-top: -2px;
-    margin-bottom: 2px;
+    /*margin-top: -2px;
+    margin-bottom: 2px;*/
 }
 
 .btn-header {
@@ -23,13 +23,14 @@
     padding-right: 8px !important;
     padding-left: 8px !important;
     width: 120px;
+    width: 113.48px;
     transition: color 0.3s;
 }
 
 
 /** DEBE AGREGARSE AL REPO ***/
 .bg-primary {
-    padding-right: 10px;
+    padding-right: 7px;
 }
 
 .btn-header:hover {

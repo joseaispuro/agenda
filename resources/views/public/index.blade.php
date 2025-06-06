@@ -62,13 +62,13 @@
                 <div class="row align-items-center text-center" style="margin-top: 30px;">
                     <!-- Columna 1-3: AGENDA -->
                     <div class="col-12 col-md-3 col-lg-2 text-left">
-                        <h2 class="text-center text-md-start">Agenda</h2>
+                        <h2 class="text-center text-md-start" style="margin-left: 6px;margin-top: 12px;">Agenda</h2>
                     </div>
 
                     <!-- Columna 4+: Presidenta Municipal -->
                     <div class="col-12 col-md-9 col-lg-10">
                         <!--<span class="presidenta">Presidenta Municipal</span>-->
-                        <span class="presidenta">Presidenta Municipal</span>
+                        <span class="presidenta" style="padding-top: 23px;">Presidenta Municipal</span>
                         <div class="borde-abajo"></div>
                     </div>
                 </div>

@@ -7,11 +7,11 @@ const template = `
         </div>
 
         <!-- DESKTOP -->
-        <div class="d-none d-md-block mx-3">
+        <div class="d-none d-md-block" style="margin-right:7px;">
 
             <!-- Menú Dinámico -->
             <div v-for="(subheader, i) of menu" :key="i" class="sub-header-group">
-                <span class="btn-header btn btn-sm px-4 me-2">
+                <span class="btn-header btn btn-sm px-4 me-3">
                     {{ subheader.label }}
                 </span>
 
