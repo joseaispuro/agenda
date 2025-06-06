@@ -84,7 +84,7 @@
 
 span.presidenta{
     color: black;
-    font-weight: 500;
+    font-weight: 500!important;
     padding-bottom: 8px;
     /*border-bottom: 3px solid #691C32;*/
     font-family: "Acherus", "Acherus Grotesque", sans-serif;
@@ -92,6 +92,9 @@ span.presidenta{
     font-weight: bold;
     text-align: left;
     display: inline-flex;
+}
+.card{
+    border: none;
 }
 
 .acherus{

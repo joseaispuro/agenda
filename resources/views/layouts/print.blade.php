@@ -15,7 +15,7 @@
                 <img class="logo" src="{{asset('img/logo-horiz-white.png')}}">
             </div>
             <div class="flex-fill text-end">
-                <h1 class="mb-1">Agenda del Gobierno Municipal</h1>
+                <h1 class="mb-1">Agenda de la Presidenta Municipal</h1>
                 <h2 class="mb-2">{{ $alcalde }}</h2>
                 <h3 class="mb-0">{{ $titulo }}</h3>
             </div>
