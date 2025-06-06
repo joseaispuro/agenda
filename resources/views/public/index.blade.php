@@ -59,7 +59,7 @@
                     <span class="breadcumb"> <img class="home" src="{{asset('img/home-icon.png')}}" alt=""> > Presidencia Municipal / Agenda</span>
                 </div>
 
-                <div class="row align-items-center text-center">
+                <div class="row align-items-center text-center" style="margin-top: 34px;">
                     <!-- Columna 1-3: AGENDA -->
                     <div class="col-12 col-md-3 col-lg-2 text-left">
                         <h2 class="text-center text-md-start">Agenda</h2>
