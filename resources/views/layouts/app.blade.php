@@ -8,6 +8,8 @@
 
 	<!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
+  <link rel="shortcut icon" type="image/png" href="{{ asset('escudo-favicon.png') }}">
+  <link rel="icon" href="{{ asset('escudo-favicon.png') }}">
 
 	<title>@yield('title')</title>
 

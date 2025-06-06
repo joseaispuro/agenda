@@ -21,6 +21,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('escudo-favicon.png') }}">
+    <link rel="icon" href="{{ asset('escudo-favicon.png') }}">
 
     <title>Agenda de la Presidenta - H. Ayuntamiento de Mazatlán</title>
 
@@ -32,6 +34,9 @@
     <link rel="stylesheet" href="{{asset('css/spinner.css')}}">
     <link rel="stylesheet" href="{{asset('css/nuevo.css')}}">
     <link rel="stylesheet" href="{{asset('css/header.css')}}">
+
+    
+
 
     <script src="https://unpkg.com/vue@latest"></script>
     <script src="{{asset('js/bootstrap.js')}}" charset="utf-8"></script>
