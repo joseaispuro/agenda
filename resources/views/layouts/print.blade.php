@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Agenda del Alcalde - H. Ayuntamiento de Mazatlán</title>
+    <title>Agenda de la Presidenta - H. Ayuntamiento de Mazatlán</title>
     <link href="{{asset('lib/bootstrap.css').'?v='.env('ASSETS_CACHE')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('css/print.css').'?v='.env('ASSETS_CACHE')}}" rel="stylesheet" type="text/css" />
     @stack('styles')
