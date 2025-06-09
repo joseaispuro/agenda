@@ -156,10 +156,11 @@ h2{
 }
 
 .header .header-link {
-    color: unset;
+    font-size: 16px;
+    color: #808080;
     text-decoration: none;
-    /*padding-bottom: 15px;
-    margin-bottom: 12px;*/
+    cursor: default;
+    transition: color .3s;
 }
 
 a.header-link:hover {
@@ -206,7 +207,7 @@ a.header-link:hover {
 }
 
 .header .offcanvas .header-link {
-    color: #000 !important;
+    /*color: #000 !important;*/
 }
 
 .header .offcanvas .list-group-item {
@@ -456,4 +457,11 @@ img.home{
 
 .sub-header-group:last-child span.btn-header {
     margin-right: 0 !important;
+}
+.header-link {
+    font-size: 16px;
+    color: #808080;
+    text-decoration: none;
+    cursor: default;
+    transition: color .3s;
 }
