@@ -25,6 +25,7 @@
 
     <title>Agenda de la Presidenta - H. Ayuntamiento de Mazatlán</title>
 
+     <link rel="stylesheet" href="{{ asset('lib/bootstrap-5.2.2/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{asset('lib/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('lib/fontawesome-free-6.6.0-web/css/all.css')}}">
     <link rel="stylesheet" href="{{asset('fonts/Acherus/acherus.css')}}">
@@ -36,9 +37,9 @@
 
     
 
-
+    <script src="{{ asset('lib/bootstrap-5.2.2/dist/js/bootstrap.bundle.min.js')}}" charset="utf-8"></script>
     <script src="https://unpkg.com/vue@latest"></script>
-    <script src="{{asset('js/bootstrap.js')}}" charset="utf-8"></script>
+    <!--<script src="{{asset('js/bootstrap.js')}}" charset="utf-8"></script>-->
     <script type="module" src="{{asset('js/index.js')}}"></script>
 
 </head>

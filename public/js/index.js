@@ -21,30 +21,6 @@ createApp({
         document.getElementById('spinner').style.display = 'flex';
 
 
-        /*document.querySelectorAll('.btn-header-event').forEach(boton => {
-            const targetId = boton.getAttribute('data-target');
-            const targetMenu = document.getElementById(targetId);
-            let timeout;
-
-            const showMenu = () => {
-                console.log('entro')
-                clearTimeout(timeout);
-                document.querySelectorAll('.header-collapse').forEach(menu => menu.classList.remove('show'));
-                targetMenu.classList.add('show');
-            };
-
-            const hideMenu = () => {
-                timeout = setTimeout(() => {
-                    targetMenu.classList.remove('show');
-                }, 200); // puedes ajustar este tiempo
-            };
-
-            boton.addEventListener('mouseenter', showMenu);
-            boton.addEventListener('mouseleave', hideMenu);
-            targetMenu.addEventListener('mouseenter', () => clearTimeout(timeout));
-            targetMenu.addEventListener('mouseleave', hideMenu);
-        });*/
-
         const urlParams = new URLSearchParams(window.location.search);
         const fecha = urlParams.get('fecha');
 
