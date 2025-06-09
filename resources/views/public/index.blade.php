@@ -37,7 +37,7 @@
 
     
 
-    <script src="{{ asset('lib/bootstrap-5.2.2/dist/js/bootstrap.bundle.min.js')}}" charset="utf-8"></script>
+    <!--<script src="{{ asset('lib/bootstrap-5.2.2/dist/js/bootstrap.bundle.min.js')}}" charset="utf-8"></script>-->
     <script src="https://unpkg.com/vue@latest"></script>
     <!--<script src="{{asset('js/bootstrap.js')}}" charset="utf-8"></script>-->
     <script type="module" src="{{asset('js/index.js')}}"></script>
@@ -417,7 +417,7 @@
         <div></div>
         <div></div>
     </div>
-<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
 </body>
