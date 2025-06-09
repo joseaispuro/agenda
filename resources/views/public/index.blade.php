@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Gibrán Beltrán">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 
@@ -221,183 +220,184 @@
 
         
 
-<div class="footer bg-primary text-light px-2 py-3 py-lg-4" v-show="!loading">
-    <!-- Escritorio -->
-    <div class="container-fluid d-none d-lg-block">
-        <div class="row justify-content-between">
-            <div class="col-12 col-lg-3 col-xl-2 mb-4 mb-lg-0">
-                <img class="escudo" src="{{asset('img/escudo-vert-white.png')}}">
+        <div class="footer bg-primary text-light px-2 py-3 py-lg-4">
+        <!-- Escritorio -->
+        <div class="container-fluid d-none d-lg-block">
+            <div class="row justify-content-between">
+                <div class="col-12 col-lg-3 col-xl-2 mb-4 mb-lg-0">
+                    <img class="escudo" src="{{asset('img/shared/escudo-vert-white.png')}}" >
 
-                <div class="social-icons text-center mt-2">
-                    <a href="https://www.facebook.com/GobiernoMunicipaldeMazatlan/">
-                        <i class="fa-brands fa-fw fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@hayuntamientodemazatlan/">
-                        <i class="fa-brands fa-fw fa-youtube"></i>
-                    </a>
-                    <a href="https://www.instagram.com/gobiernomunicipaldemazatlan/">
-                        <i class="fa-brands fa-fw fa-instagram"></i>
-                    </a>
+                    <div class="social-icons text-center mt-2">
+                        <a href="https://www.facebook.com/GobiernoMunicipaldeMazatlan/">
+                            <i class="fa-brands fa-fw icono fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@hayuntamientodemazatlan/">
+                            <i class="fa-brands fa-fw icono fa-youtube"></i>
+                        </a>
+                        <a href="https://www.instagram.com/gobiernomunicipaldemazatlan/">
+                            <i class="fa-brands fa-fw icono fa-instagram"></i>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-12 col-lg-9 col-xl-10">
-                <div class="footer-menu container-fluid">
-                    <div class="row justify-content-xl-end">
-                        <div class="col-12 col-lg-4 col-xl-auto mb-3 mb-xl-0 custom-flex-grow">
-                            <div class="footer-heading">Ayuntamiento de Mazatlán</div>
+                <div class="col-12 col-lg-9 col-xl-10">
+                    <div class="footer-menu container-fluid">
+                        <div class="row justify-content-xl-end">
+                            <div class="col-12 col-lg-4 col-xl-auto mb-3 mb-xl-0 custom-flex-grow">
+                                <div class="footer-heading">Ayuntamiento de Mazatlán</div>
 
-                            <ul class="footer-list">
-                                <li><a href="https://wvw.mazatlan.gob.mx/organigrama/">Gobierno</a></li>
-                                <li><a href="https://servicios.mazatlan.gob.mx/">Pagos en línea</a></li>
-                                <!-- <li><a href="#">Facturación</a></li> -->
-                                <li><a href="#">Mapa del sitio</a></li>
-                                <li><a href="#">Atención ciudadana</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-12 col-lg-8 col-xl-auto mb-3 mb-xl-0 custom-flex-grow">
-                            <div class="footer-heading">Órgano Interno de Control</div>
+                                <ul class="footer-list">
+                                    <li><a href="https://wvw.mazatlan.gob.mx/organigrama/">Gobierno</a></li>
+                                    <li><a href="https://servicios.mazatlan.gob.mx/">Pagos en línea</a></li>
+                                    <!-- <li><a href="#">Facturación</a></li> -->
+                                    <li><a href="#">Mapa del sitio</a></li>
+                                    <li><a href="#">Atención ciudadana</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-lg-8 col-xl-auto mb-3 mb-xl-0 custom-flex-grow">
+                                <div class="footer-heading">Órgano Interno de Control</div>
 
-                            <ul class="footer-list">
-                                <li><a href="https://oicmzt.com/oic/denuncia-o-queja/">Realiza una denuncia</a></li>
-                                <li><a href="http://wvw.mazatlan.gob.mx/wp-content/uploads/2025/01/Codigo-de-Etica-de-las-Personas-Servidoras-Publicas-del-Municipio-de-Mazatlan-Sinaloa-1.pdf">Código de ética</a></li>
-                                <li><a href="https://wvw.mazatlan.gob.mx/wp-content/uploads/2022/04/C%C3%B3digo-de-Conducta-de-las-Personas-Servidoras-P%C3%BAblicas-del-Municipio-de-Mazatl%C3%A1n-Sinaloa.pdf">Código de conducta</a></li>
-                                <li><a href="https://tics.mazatlan.gob.mx/sisdec/autoridad-investigadora">SISDEC</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-12 col-lg-4 col-xl-auto mb-3 mb-xl-0 custom-flex-grow">
-                            <div class="footer-heading">Transparencia</div>
+                                <ul class="footer-list">
+                                    <li><a href="https://oicmzt.com/oic/denuncia-o-queja/">Realiza una denuncia</a></li>
+                                    <li><a href="http://wvw.mazatlan.gob.mx/wp-content/uploads/2025/01/Codigo-de-Etica-de-las-Personas-Servidoras-Publicas-del-Municipio-de-Mazatlan-Sinaloa-1.pdf">Código de ética</a></li>
+                                    <li><a href="https://wvw.mazatlan.gob.mx/wp-content/uploads/2022/04/C%C3%B3digo-de-Conducta-de-las-Personas-Servidoras-P%C3%BAblicas-del-Municipio-de-Mazatl%C3%A1n-Sinaloa.pdf">Código de conducta</a></li>
+                                    <li><a href="https://tics.mazatlan.gob.mx/sisdec/autoridad-investigadora">SISDEC</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-lg-4 col-xl-auto mb-3 mb-xl-0 custom-flex-grow">
+                                <div class="footer-heading">Transparencia</div>
 
-                            <ul class="footer-list">
-                                <li><a href="http://transparencia.mazatlan.gob.mx/destinatarios-de-recursos/destinatarios-y-uso-de-recursos-entregados">Destino de recursos</a></li>
-                                <li><a href="https://sindicoprocurador.mazatlan.gob.mx/">Síndico procurador</a></li>
-                                <li><a href="https://tics.mazatlan.gob.mx/asuntosjuridicos">Asuntos jurídicos</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-12 col-lg-8 col-xl-auto mb-3 mb-xl-0 custom-flex-grow">
-                            <div class="footer-heading">Enlaces</div>
+                                <ul class="footer-list">
+                                    <li><a href="http://transparencia.mazatlan.gob.mx/destinatarios-de-recursos/destinatarios-y-uso-de-recursos-entregados">Destino de recursos</a></li>
+                                    <li><a href="https://sindicoprocurador.mazatlan.gob.mx/">Síndico procurador</a></li>
+                                    <li><a href="https://tics.mazatlan.gob.mx/asuntosjuridicos">Asuntos jurídicos</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-lg-8 col-xl-auto mb-3 mb-xl-0 custom-flex-grow">
+                                <div class="footer-heading">Enlaces</div>
 
-                            <div class="row">
-                                <div class="col-auto">
-                                    <ul class="footer-list">
-                                        <li><a href="https://imdem.mazatlan.gob.mx/">IMDEM</a></li>
-                                        <li><a href="https://imju.mazatlan.gob.mx/">IMJU</a></li>
-                                        <li><a href="https://immujer.mazatlan.gob.mx/">IMMUJER</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-auto">
-                                    <ul class="footer-list">
-                                        <li><a href="https://culturamazatlan.com/">CULTURA</a></li>
-                                        <li><a href="http://jumapam.gob.mx/">JUMAPAM</a></li>
-                                        <li><a href="http://difmazatlan.gob.mx/">DIF</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-auto text-nowrap">
-                                    <ul class="footer-list">
-                                        <li><a href="https://wvw.mazatlan.gob.mx/#">VISIT MAZATLAN</a></li>
-                                        <li><a href="https://wvw.mazatlan.gob.mx/#">MAZATLAN TRAVEL</a></li>
-                                    </ul>
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <ul class="footer-list">
+                                            <li><a href="https://imdem.mazatlan.gob.mx/">IMDEM</a></li>
+                                            <li><a href="https://imju.mazatlan.gob.mx/">IMJU</a></li>
+                                            <li><a href="https://immujer.mazatlan.gob.mx/">IMMUJER</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-auto">
+                                        <ul class="footer-list">
+                                            <li><a href="https://culturamazatlan.com/">CULTURA</a></li>
+                                            <li><a href="http://jumapam.gob.mx/">JUMAPAM</a></li>
+                                            <li><a href="http://difmazatlan.gob.mx/">DIF</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-auto text-nowrap">
+                                        <ul class="footer-list">
+                                            <li><a href="https://wvw.mazatlan.gob.mx/#">VISIT MAZATLAN</a></li>
+                                            <li><a href="https://wvw.mazatlan.gob.mx/#">MAZATLAN TRAVEL</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-12 col-lg-12 col-xl-12 text-end d-flex flex-column justify-content-end">
-                            <div>Angel Flores s/n Col. Centro C.P. 82000</div>
-                            <div>H. Ayuntamiento de Mazatlán {{ dtformat(now(), 'Y') }}</div>
+                            <div class="col-12 col-lg-12 col-xl-12 text-end d-flex flex-column justify-content-end">
+                                <div>Angel Flores s/n Col. Centro C.P. 82000</div>
+                                <div>H. Ayuntamiento de Mazatlán 2025</div>
+                            </div>
                         </div>
+                    </div><!-- /footer-menu -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile -->
+        <div class="container-fluid d-lg-none">
+            <!-- Enlaces -->
+            <div id="footer-mobile" class="mb-4">
+                <div class="mb-2">
+                    <button class="btn btn-primary footer-heading-mobile" type="button" data-bs-toggle="collapse" data-bs-target="#ayuntamiento-collapse" aria-expanded="false" aria-controls="ayuntamiento-collapse">
+                        <i class="fa-solid fa-fw fa-plus collapse-icon"></i>
+                        <i class="fa-solid fa-fw fa-minus collapse-icon"></i>
+                        Ayuntamiento de Mazatlán
+                    </button>
+                    <ul class="footer-list collapse collapse-margin" id="ayuntamiento-collapse" data-bs-parent="#footer-mobile">
+                        <li class="mb-3"><a href="https://wvw.mazatlan.gob.mx/organigrama/">Gobierno</a></li>
+                        <li class="mb-3"><a href="https://servicios.mazatlan.gob.mx/">Pagos en línea</a></li>
+                        <li class="mb-3"><a href="#">Mapa del sitio</a></li>
+                        <li class="mb-3"><a href="#">Atención ciudadana</a></li>
+                    </ul>
+                </div>
+                <div class="mb-2">
+                    <button class="btn btn-primary footer-heading-mobile" type="button" data-bs-toggle="collapse" data-bs-target="#oic-collapse" aria-expanded="false" aria-controls="oic-collapse">
+                        <i class="fa-solid fa-fw fa-plus collapse-icon"></i>
+                        <i class="fa-solid fa-fw fa-minus collapse-icon"></i>
+                        Órgano Interno de Control
+                    </button>
+                    <ul class="footer-list collapse collapse-margin" id="oic-collapse" data-bs-parent="#footer-mobile">
+                        <li class="mb-3"><a href="https://oicmzt.com/oic/denuncia-o-queja/">Realiza una denuncia</a></li>
+                        <li class="mb-3"><a href="http://wvw.mazatlan.gob.mx/wp-content/uploads/2025/01/Codigo-de-Etica-de-las-Personas-Servidoras-Publicas-del-Municipio-de-Mazatlan-Sinaloa-1.pdf">Código de ética</a></li>
+                        <li class="mb-3"><a href="https://wvw.mazatlan.gob.mx/wp-content/uploads/2022/04/C%C3%B3digo-de-Conducta-de-las-Personas-Servidoras-P%C3%BAblicas-del-Municipio-de-Mazatl%C3%A1n-Sinaloa.pdf">Código de conducta</a></li>
+                        <li class="mb-3"><a href="https://tics.mazatlan.gob.mx/sisdec/autoridad-investigadora">SISDEC</a></li>
+                    </ul>
+                </div>
+                <div class="mb-2">
+                    <button class="btn btn-primary footer-heading-mobile" type="button" data-bs-toggle="collapse" data-bs-target="#transparencia-collapse" aria-expanded="false" aria-controls="transparencia-collapse">
+                        <i class="fa-solid fa-fw fa-plus collapse-icon"></i>
+                        <i class="fa-solid fa-fw fa-minus collapse-icon"></i>
+                        Transparencia
+                    </button>
+                    <ul class="footer-list collapse collapse-margin" id="transparencia-collapse" data-bs-parent="#footer-mobile">
+                        <li class="mb-3"><a href="http://transparencia.mazatlan.gob.mx/destinatarios-de-recursos/destinatarios-y-uso-de-recursos-entregados">Destino de recursos</a></li>
+                        <li class="mb-3"><a href="https://sindicoprocurador.mazatlan.gob.mx/">Síndico procurador</a></li>
+                        <li class="mb-3"><a href="https://tics.mazatlan.gob.mx/asuntosjuridicos">Asuntos jurídicos</a></li>
+                    </ul>
+                </div>
+                <div class="mb-2">
+                    <button class="btn btn-primary footer-heading-mobile" type="button" data-bs-toggle="collapse" data-bs-target="#enlaces-collapse" aria-expanded="false" aria-controls="enlaces-collapse">
+                        <i class="fa-solid fa-fw fa-plus collapse-icon"></i>
+                        <i class="fa-solid fa-fw fa-minus collapse-icon"></i>
+                        Enlaces
+                    </button>
+                    <ul class="footer-list collapse collapse-margin" id="enlaces-collapse" data-bs-parent="#footer-mobile">
+                        <li class="mb-3"><a href="https://imdem.mazatlan.gob.mx/">IMDEM</a></li>
+                        <li class="mb-3"><a href="https://imju.mazatlan.gob.mx/">IMJU</a></li>
+                        <li class="mb-3"><a href="https://immujer.mazatlan.gob.mx/">IMMUJER</a></li>
+                        <li class="mb-3"><a href="https://culturamazatlan.com/">CULTURA</a></li>
+                        <li class="mb-3"><a href="http://jumapam.gob.mx/">JUMAPAM</a></li>
+                        <li class="mb-3"><a href="http://difmazatlan.gob.mx/">DIF</a></li>
+                        <li class="mb-3"><a href="https://wvw.mazatlan.gob.mx/#">VISIT MAZATLAN</a></li>
+                        <li class="mb-3"><a href="https://wvw.mazatlan.gob.mx/#">MAZATLAN TRAVEL</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Logo y redes sociales -->
+            <div class="row justify-content-between">
+                <div class="col-4">
+                    <img class="escudo-mobile" src="{{asset('img/shared/escudo-vert-white.png')}}" >
+                </div>
+                <div class="col-8">
+                    <!-- Redes Sociales -->
+                    <div class="social-icons text-end mt-4 mb-3">
+                        <a href="https://www.facebook.com/GobiernoMunicipaldeMazatlan/">
+                            <i class="fa-brands fa-fw icono fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@hayuntamientodemazatlan/">
+                            <i class="fa-brands fa-fw icono fa-youtube"></i>
+                        </a>
+                        <a href="https://www.instagram.com/gobiernomunicipaldemazatlan/">
+                            <i class="fa-brands fa-fw icono fa-instagram"></i>
+                        </a>
                     </div>
-                </div><!-- /footer-menu -->
-            </div>
-        </div>
-    </div>
 
-    <!-- Mobile -->
-     <div class="container-fluid d-lg-none">
-        <!-- Enlaces -->
-        <div id="footer-mobile" class="mb-4">
-            <div class="mb-2">
-                <button class="footer-heading-mobile w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#ayuntamiento-collapse" aria-expanded="false" aria-controls="ayuntamiento-collapse">
-                    <i class="fa-solid fa-fw fa-plus collapse-icon"></i>
-                    <i class="fa-solid fa-fw fa-minus collapse-icon"></i>
-                    Ayuntamiento de Mazatlán
-                </button>
-                <ul class="footer-list collapse collapse-margin" id="ayuntamiento-collapse" data-bs-parent="#footer-mobile">
-                    <li class="mb-3"><a href="https://wvw.mazatlan.gob.mx/organigrama/">Gobierno</a></li>
-                    <li class="mb-3"><a href="https://servicios.mazatlan.gob.mx/">Pagos en línea</a></li>
-                    <li class="mb-3"><a href="#">Mapa del sitio</a></li>
-                    <li class="mb-3"><a href="#">Atención ciudadana</a></li>
-                </ul>
-            </div>
-            <div class="mb-2">
-                <button class="footer-heading-mobile w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#oic-collapse" aria-expanded="false" aria-controls="oic-collapse">
-                    <i class="fa-solid fa-fw fa-plus collapse-icon"></i>
-                    <i class="fa-solid fa-fw fa-minus collapse-icon"></i>
-                    Órgano Interno de Control
-                </button>
-                <ul class="footer-list collapse collapse-margin" id="oic-collapse" data-bs-parent="#footer-mobile">
-                    <li class="mb-3"><a href="https://oicmzt.com/oic/denuncia-o-queja/">Realiza una denuncia</a></li>
-                    <li class="mb-3"><a href="http://wvw.mazatlan.gob.mx/wp-content/uploads/2025/01/Codigo-de-Etica-de-las-Personas-Servidoras-Publicas-del-Municipio-de-Mazatlan-Sinaloa-1.pdf">Código de ética</a></li>
-                    <li class="mb-3"><a href="https://wvw.mazatlan.gob.mx/wp-content/uploads/2022/04/C%C3%B3digo-de-Conducta-de-las-Personas-Servidoras-P%C3%BAblicas-del-Municipio-de-Mazatl%C3%A1n-Sinaloa.pdf">Código de conducta</a></li>
-                    <li class="mb-3"><a href="https://tics.mazatlan.gob.mx/sisdec/autoridad-investigadora">SISDEC</a></li>
-                </ul>
-            </div>
-            <div class="mb-2">
-                <button class="footer-heading-mobile w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#transparencia-collapse" aria-expanded="false" aria-controls="transparencia-collapse">
-                    <i class="fa-solid fa-fw fa-plus collapse-icon"></i>
-                    <i class="fa-solid fa-fw fa-minus collapse-icon"></i>
-                    Transparencia
-                </button>
-                <ul class="footer-list collapse collapse-margin" id="transparencia-collapse" data-bs-parent="#footer-mobile">
-                    <li class="mb-3"><a href="http://transparencia.mazatlan.gob.mx/destinatarios-de-recursos/destinatarios-y-uso-de-recursos-entregados">Destino de recursos</a></li>
-                    <li class="mb-3"><a href="https://sindicoprocurador.mazatlan.gob.mx/">Síndico procurador</a></li>
-                    <li class="mb-3"><a href="https://tics.mazatlan.gob.mx/asuntosjuridicos">Asuntos jurídicos</a></li>
-                </ul>
-            </div>
-            <div class="mb-2">
-                <button class="footer-heading-mobile w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#enlaces-collapse" aria-expanded="false" aria-controls="enlaces-collapse">
-                    <i class="fa-solid fa-fw fa-plus collapse-icon"></i>
-                    <i class="fa-solid fa-fw fa-minus collapse-icon"></i>
-                    Enlaces
-                </button>
-                <ul class="footer-list collapse collapse-margin" id="enlaces-collapse" data-bs-parent="#footer-mobile">
-                    <li class="mb-3"><a href="https://imdem.mazatlan.gob.mx/">IMDEM</a></li>
-                    <li class="mb-3"><a href="https://imju.mazatlan.gob.mx/">IMJU</a></li>
-                    <li class="mb-3"><a href="https://immujer.mazatlan.gob.mx/">IMMUJER</a></li>
-                    <li class="mb-3"><a href="https://culturamazatlan.com/">CULTURA</a></li>
-                    <li class="mb-3"><a href="http://jumapam.gob.mx/">JUMAPAM</a></li>
-                    <li class="mb-3"><a href="http://difmazatlan.gob.mx/">DIF</a></li>
-                    <li class="mb-3"><a href="https://wvw.mazatlan.gob.mx/#">VISIT MAZATLAN</a></li>
-                    <li class="mb-3"><a href="https://wvw.mazatlan.gob.mx/#">MAZATLAN TRAVEL</a></li>
-            </div>
-        </div>
-
-        <!-- Logo y redes sociales -->
-        <div class="row justify-content-between">
-            <div class="col-4">
-                <img class="escudo-mobile" src="{{asset('img/escudo-vert-white.png')}}">
-            </div>
-            <div class="col-8">
-                <!-- Redes Sociales -->
-                <div class="social-icons text-end mt-4 mb-3">
-                    <a href="https://www.facebook.com/GobiernoMunicipaldeMazatlan/">
-                        <i class="fa-brands fa-fw fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@hayuntamientodemazatlan/">
-                        <i class="fa-brands fa-fw fa-youtube"></i>
-                    </a>
-                    <a href="https://www.instagram.com/gobiernomunicipaldemazatlan/">
-                        <i class="fa-brands fa-fw fa-instagram"></i>
-                    </a>
-                </div>
-
-                <!-- Dirección -->
-                <div class="col-12 col-lg-12 col-xl-12 text-end d-flex flex-column justify-content-end address-mobile">
-                    <div class="mb-2">Angel Flores s/n Col. Centro C.P. 82000</div>
-                    <div>H. Ayuntamiento de Mazatlán {{ dtformat(now(), 'Y') }}</div>
+                    <!-- Dirección -->
+                    <div class="col-12 col-lg-12 col-xl-12 text-end d-flex flex-column justify-content-end address-mobile">
+                        <div class="mb-2">Angel Flores s/n Col. Centro C.P. 82000</div>
+                        <div>H. Ayuntamiento de Mazatlán 2025</div>
+                    </div>
                 </div>
             </div>
         </div>
-     </div>
-</div> <!-- footer -->
+    </div><!-- footer -->
 
 
     </div> <!-- app-->
@@ -416,7 +416,7 @@
         <div></div>
         <div></div>
     </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>-->
 
 
 </body>
