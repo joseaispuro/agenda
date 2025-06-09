@@ -157,7 +157,7 @@ h2{
 
 .header .header-link {
     font-size: 16px;
-    color: #808080;
+    color: unset;
     text-decoration: none;
     cursor: default;
     transition: color .3s;
@@ -460,8 +460,16 @@ img.home{
 }
 .header-link {
     font-size: 16px;
-    color: #808080;
+    color: black;
     text-decoration: none;
     cursor: default;
     transition: color .3s;
+}
+
+@media (max-width: 768px) {
+
+    .header-link{
+        color: #808080!important;
+    }
+  
 }

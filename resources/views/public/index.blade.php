@@ -25,7 +25,7 @@
 
     <title>Agenda de la Presidenta - H. Ayuntamiento de Mazatlán</title>
 
-     <link rel="stylesheet" href="{{ asset('lib/bootstrap-5.2.2/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('lib/bootstrap-5.2.2/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{asset('lib/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('lib/fontawesome-free-6.6.0-web/css/all.css')}}">
     <link rel="stylesheet" href="{{asset('fonts/Acherus/acherus.css')}}">
