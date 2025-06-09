@@ -465,6 +465,10 @@ img.home{
     cursor: default;
     transition: color .3s;
 }
+.container-fluid{
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+}
 
 @media (max-width: 768px) {
 
