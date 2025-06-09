@@ -57,31 +57,31 @@
             <img class="mujer-der" src="{{asset('img/mujer-mzt.png')}}" />
         </div>
 
-        <div class="content py-5">
-            <div class="container-xl">
+        <div class="content">
+            <div class="container-lg my-5">
 
-                <div class="col-12 col-md-auto" style="font-weight: 500;margin-bottom: 14px;">
-                    <span class="breadcumb"> <img class="home" src="{{asset('img/home-icon.png')}}" alt=""> > Presidencia Municipal / Agenda</span>
+                <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-1">
+                    <li class="breadcrumb-item">
+                        <span>
+                            <img class="home" src="{{asset('img/shared/home-icon.png')}}">
+                        </span>
+                    </li>
+                    <li class="breadcrumb-item" aria-current="page" style="--bs-breadcrumb-divider: '>'; --bs-breadcrumb-item-padding-x: 0.3rem;">Presidencia Municipal</li>
+                    <li class="breadcrumb-item" aria-current="page" style="--bs-breadcrumb-item-padding-x: 0.3rem;">Agenda</li>
+                </ol>
+            </nav>
+
+            <div class="row align-items-center text-center mb-2">
+                <div class="col-12 col-md-12 col-lg-6 col-xl-5 text-center text-lg-start">
+                    <h1 class="proyecto">Agenda</h1>
                 </div>
-
-                <div class="row align-items-center text-center" style="margin-top: 30px;">
-                    <!-- Columna 1-3: AGENDA -->
-                    <div class="col-12 col-md-3 col-lg-2 text-left">
-                        <h2 class="text-center text-md-start" style="margin-left: 6px;margin-top: 12px;">Agenda</h2>
-                    </div>
-
-                    <!-- Columna 4+: Presidenta Municipal -->
-                    <div class="col-12 col-md-9 col-lg-10">
-                        <!--<span class="presidenta">Presidenta Municipal</span>-->
-                        <span class="presidenta" style="padding-top: 23px;">Presidenta Municipal</span>
-                        <div class="borde-abajo"></div>
-                    </div>
+                <div class="col-12 col-md-12 col-lg-6 col-xl-7">
+                    <h4 class="titulo">Presidenta Municipal</h4>
+                    <div class="separador"></div>
                 </div>
+            </div>
 
-                <!--
-                <div class="col-12 col-md-auto offset-md-3 offset-lg-2 text-center">
-                    <h4>Presidenta Municipal</h4>
-                </div> -->
 
                 <div class="col-12 col-md-auto offset-md-3 offset-lg-2 text-center text-gray py-2">
                     <p class="mb-0 acherus">H. Ayuntamiento de Mazatlán</p>
