@@ -72,7 +72,15 @@
                 </ol>
             </nav>
 
-            <div class="row align-items-center text-center mb-2">
+            <div class="d-flex flex-lg-row flex-column mb-3">
+                <div class="proyecto text-center">Agenda</div>
+                <div class="flex-fill align-self-lg-center text-center">
+                    <h4 class="titulo">Presidenta Municipal</h4>
+                    <div class="separador"></div>
+                </div>
+            </div>
+
+            <!--<div class="row align-items-center text-center mb-2">
                 <div class="col-12 col-md-12 col-lg-6 col-xl-5 text-center text-lg-start">
                     <h1 class="proyecto">Agenda</h1>
                 </div>
@@ -80,7 +88,7 @@
                     <h4 class="titulo">Presidenta Municipal</h4>
                     <div class="separador"></div>
                 </div>
-            </div>
+            </div>-->
 
 
                 <div class="col-12 col-md-auto offset-md-3 offset-lg-2 text-center text-gray py-2">

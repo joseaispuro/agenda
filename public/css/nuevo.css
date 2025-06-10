@@ -422,19 +422,45 @@ img.home{
 }
 
 .breadcrumb-1 {
-    font-weight: 470;
+    font-weight: 300;
     margin-bottom: 42px;
     font-size: 18px;
     color: #707070 !important;
     padding: 1px;
     font-family: "Acherus", "Acherus Grotesque", sans-serif;
 }
-.proyecto {
-    font-family: Infinita Sans;
-    font-size: 55px;
-    font-weight: 600;
-    color: #000;
+
+@media (min-width: 992px) {
+    .container-lg, .container-md, .container-sm, .container {
+        max-width: 960px;
+    }
 }
+
+.proyecto {
+        font-family: Infinita Sans;
+        font-size: 55px;
+        font-weight: 600;
+        color: rgb(0, 0, 0);
+        margin-right: 10%;
+    }
+    @media(max-width:991px) {
+        .breadcrumb-1 {
+            font-size: 14px;
+        }
+        img.home {
+            width: 20px;
+        }
+        .proyecto {
+            font-size: 35px;
+            margin-right: 0;
+        }
+        .titulo {
+            font-size: 22px !important;
+        }
+        .totales .fs-5 {
+            font-size: 16px !important;
+        }
+    }
 .titulo {
     font-size: 30px;
     font-weight: 500;
