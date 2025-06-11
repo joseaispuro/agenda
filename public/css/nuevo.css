@@ -323,16 +323,17 @@ a.header-link:hover {
 }
 
 .footer-heading-mobile {
-    all: unset; /* elimina todos los estilos por defecto del botón */
+    all: unset;
     display: flex;
     align-items: center;
     width: 100%;
     color: white;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.1rem!important;
     padding: 0.5rem 1rem;
     cursor: pointer;
     gap: 0.5rem;
+    font-weight: 700 !important;
 }
 
 .footer-heading-mobile:hover {
